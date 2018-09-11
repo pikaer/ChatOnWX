@@ -1,12 +1,40 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/chat/chat"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0068C4",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text":"聊天",
+        "pagePath": "pages/chat/chat",
+        "iconPath": "content/images/chat.png",
+        "selectedIconPath": "content/images/chat1.png"
+      },
+      {
+        "text": "发现",
+        "pagePath": "pages/index/index",
+        "iconPath": "content/images/discovery.png",
+        "selectedIconPath": "content/images/discovery1.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/index/index",
+        "iconPath": "content/images/mine.png",
+        "selectedIconPath": "content/images/mine1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

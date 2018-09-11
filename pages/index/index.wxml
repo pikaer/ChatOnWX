@@ -8,6 +8,10 @@
     </block>
   </view>
   <view class="usermotto">
+    <i class="iconfont github"></i>
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
+
+
+<!--index.wxml-->

@@ -1,5 +1,9 @@
 //app.js
 App({
+  data: {
+    // baseUrl: "https://mirzrv2.rongzi.com/", https://localhost:44304/Resource/headphoto/pikaer.jpg
+    baseUrl: "https://localhost:44304/"
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -12,6 +16,38 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+
+    wx.request({
+      url: this.data.baseUrl + 'api/UserInfo/SetUserInfo',
+      method: "POST",
+      data: {
+        "Head": {
+          "Token": "",
+          "AppType": 0
+        },
+        "Content": {
+          "openId": "215",
+          "nickName": "215",
+          "gender": 0,
+          "city": "215",
+          "province": "215",
+          "country": "215",
+          "avatarUrl": "215",
+          "language": "215"
+        }
+      },
+      header: {
+        "Content-Type": "application/json",
+        "AppType": "1"
+      },
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }),
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
