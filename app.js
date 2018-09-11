@@ -28,7 +28,7 @@ App({
         "Content": {
           "openId": "215",
           "nickName": "215",
-          "gender": 0,
+          "gender": 1,
           "city": "215",
           "province": "215",
           "country": "215",
