@@ -2,20 +2,29 @@
 App({
   data: {
     // baseUrl: "https://mirzrv2.rongzi.com/", https://localhost:44304/Resource/headphoto/pikaer.jpg
-    baseUrl: "https://localhost:44304/"
+    baseUrl: "https://localhost:44304/",
+    openid: null
   },
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(JSON.stringify(res.data));
+        if (res.code) {
+          //start
+          wx.request({
+            url: 'https://weixinapp.shiguangkey.com/index.php/api/index/GetOpenid.html',
+            data: {
+              code: res.code,
+            },
+            success: function (res) {
+              console.log(res.data)
+              that.globalData.openid = res.data;
+            }
+          })
       }
-    })
+      }
+    }),
 
     wx.request({
       url: this.data.baseUrl + 'api/UserInfo/SetUserInfo',
@@ -41,7 +50,7 @@ App({
         "AppType": "1"
       },
       success: function (res) {
-
+        console.log(JSON.stringify(res.data));
       },
       fail: function (res) {
 
@@ -55,6 +64,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              console.log(JSON.stringify(res.data));
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 

@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +27,7 @@
       },
       {
         "text": "我的",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/mine/mine",
         "iconPath": "content/images/mine.png",
         "selectedIconPath": "content/images/mine1.png"
       }

@@ -7,8 +7,32 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    obj: 
+        [{
+          "feed_source_id": 23,
+          "source_name": "Rebecca",
+          "source_txt": "去年",
+          "source_img": "../../content/images/mine.png",
+          "question": "选择 Kindle 而不是纸质书的原因是什么？"
+
+        },
+        {
+          "feed_source_id": 24,
+          "source_name": "Alex",
+          "source_txt": "昨天",
+          "source_img": "../../content/images/mine1.png",
+          "question": "如何评价周杰伦的「中文歌才是最屌的」的言论？"
+        },
+        {
+          "feed_source_id": 25,
+          "source_name": "George",
+          "source_txt": "前天",
+          "source_img": "../../content/images/discovery.png",
+          "question": "气象铁塔的辐射大吗？"
+        }]
+        },
+
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
