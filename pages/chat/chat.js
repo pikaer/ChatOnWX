@@ -15,7 +15,6 @@ Page({
           "source_txt": "去年",
           "source_img": "../../content/images/mine.png",
           "question": "选择 Kindle 而不是纸质书的原因是什么？"
-
         },
         {
           "feed_source_id": 24,
