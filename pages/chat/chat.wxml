@@ -1,44 +1,18 @@
 <view class="container chat">
 
-<view wx:for="{{obj}}" wx:for-index="key"  wx:for-item="value" class="chat-item flex-wrp">
+<view wx:for="{{chatList}}" wx:for-index="key"  wx:for-item="value" class="chat-item flex-wrp">
 
     <view class="avatar flex-item">
-      <image src="{{value.source_img}}"></image>
+      <image src="{{value.headshotPathDesc}}"></image>
     </view>
     <view class="chat-content flex-item">
       <view class="chat-source">
-        <text class="chatmate">{{value.source_name}}</text>
-        <text class="lasttime">{{value.source_txt}}</text>
+        <text class="chatmate">{{value.nickName}}</text>
+        <text class="lasttime">{{value.recentChatTimeDesc}}</text>
       </view>
-      <text class="chat-txt">{{value.question}}</text>
+      <text class="chat-txt">{{value.recentChatTimeDesc}}</text>
     </view>
-     
 </view>
-
    </view>
-
-  <view class="chat-item flex-wrp">
-    <view class="avatar flex-item">
-      <image src="../../content/images/mine.png"></image>
-    </view>
-    <view class="chat-content flex-item">
-      <view class="chat-source">
-        <text class="chatmate">George</text>
-        <text class="lasttime">3 个月前</text>
-      </view>
-    </view>
-  </view>
-
- <view class="chat-item flex-wrp">
-    <view class="avatar flex-item">
-      <image src="https://localhost:44304/Resource/headphoto/pikaer.jpg"></image>
-    </view>
-    <view class="chat-content flex-item">
-      <view class="chat-source">
-        <text class="chatmate">George</text>
-        <text class="lasttime">3 个月前</text>
-      </view>
-    </view>
-  </view>
 
 

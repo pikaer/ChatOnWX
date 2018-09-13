@@ -11,51 +11,35 @@ App({
       success: res => {
         console.log(JSON.stringify(res.data));
         if (res.code) {
-          //start
-          wx.request({
-            url: 'https://weixinapp.shiguangkey.com/index.php/api/index/GetOpenid.html',
-            data: {
-              code: res.code,
-            },
-            success: function (res) {
-              console.log(res.data)
-              that.globalData.openid = res.data;
-            }
-          })
+
       }
       }
     }),
 
-    wx.request({
-      url: this.data.baseUrl + 'api/UserInfo/SetUserInfo',
-      method: "POST",
-      data: {
-        "Head": {
-          "Token": "",
-          "AppType": 0
-        },
-        "Content": {
-          "openId": "215",
-          "nickName": "215",
-          "gender": 2,
-          "city": "215",
-          "province": "215",
-          "country": "215",
-          "avatarUrl": "215",
-          "language": "215"
-        }
-      },
-      header: {
-        "Content-Type": "application/json",
-        "AppType": "1"
-      },
-      success: function (res) {
-        console.log(JSON.stringify(res.data));
-      },
-      fail: function (res) {
+      
 
-      }
-    }),
+ //   wx.request({
+ //     url: this.data.baseUrl + 'api/UserInfo/SetUserInfo',
+ //     method: "POST",
+ //     data: {
+ //       "Head": {
+ //        "Token": "",
+ //         "AppType": 0
+ //       },
+ //       "Content": {
+ //         "openId": "215",
+ //         "nickName": "215",
+ //         "gender": 2,
+ //         "city": "215",
+ //         "province": "215",
+ //         "country": "215",
+ //        "avatarUrl": "215",
+ //         "language": "215"
+ //       }},
+ //     header: {"Content-Type": "application/json" },
+ //     success: function (res) { console.log(JSON.stringify(res.data)); },
+ //     fail: function (res) {}
+ //   }),
 
     // 获取用户信息
     wx.getSetting({

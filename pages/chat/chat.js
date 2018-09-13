@@ -4,77 +4,33 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    obj: 
-        [{
-          "feed_source_id": 23,
-          "source_name": "Rebecca",
-          "source_txt": "去年",
-          "source_img": "../../content/images/mine.png",
-          "question": "选择 Kindle 而不是纸质书的原因是什么？"
-        },
-        {
-          "feed_source_id": 24,
-          "source_name": "Alex",
-          "source_txt": "昨天",
-          "source_img": "../../content/images/mine1.png",
-          "question": "如何评价周杰伦的「中文歌才是最屌的」的言论？"
-        },
-        {
-          "feed_source_id": 25,
-          "source_name": "George",
-          "source_txt": "前天",
-          "source_img": "../../content/images/discovery.png",
-          "question": "气象铁塔的辐射大吗？"
-        }]
-        },
-
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    chatList:{}
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+
+    var that = this;
+    //获取聊天列表
+    wx.request({
+      url: app.data.baseUrl + 'api/Chat/GetChatList',
+      method: "POST",
+      data:{
+        "Head": {
+          "Token": "",
+          "AppType": 0
+        },
+        "Content": { 
+          "UserId": 1
+      }},
+      header: {"Content-Type": "application/json"},
+      success: function (res) {
+        that.setData({
+          chatList: res.data.content
         })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+        
+      },
+      fail: function (res) {console.log("获取聊天列表失败"); }
     })
-  },
-  //手机验证码
- 
+
+  }
 })
 
