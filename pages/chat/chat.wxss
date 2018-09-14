@@ -29,13 +29,28 @@
 }
 .chat-item .chat-content .chat-source .lasttime{
   flex: 1;
-  font-size: 22rpx;
+  font-size: 28rpx;
   float: right;
   vertical-align: text-bottom;
 }
 .chat-item .chat-content .chat-txt{
+  font-size: 30rpx;
+  color: #8d8787;
+  text-align: left;
   display: block;
-  color: #7b7b7b;
-  font-size: 26rpx;
   line-height: 34rpx;
+  float: left;
+}
+
+.chat-item .chat-content .chat-source .unreadcount{
+  flex: 1;
+  float: right;
+  vertical-align: text-bottom;
+  color: white;
+  background-color: rgb(230, 46, 46);
+  border-radius: 50%;
+  width: 1.9em;
+  font-size: 0.9em;
+  line-height:1.9;
+  text-align: center;
 }

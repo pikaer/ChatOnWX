@@ -1,69 +1,86 @@
-//app.js
 App({
-  data: {
-    // baseUrl: "https://mirzrv2.rongzi.com/", https://localhost:44304/Resource/headphoto/pikaer.jpg
+  //全局变量
+  globalData: {
     baseUrl: "https://localhost:44304/",
-    openid: null
+    myAppid:"wx2198c700f25f79e8",
+    mySecret: "fe423643c068c9827d8d8296e205a133",//小程序密钥
+    openid:"",
+    session_key:"",
+    userInfoWX: {}, //微信提供的用户信息
+    userInfoAPI: {} //从API获取的用户信息
   },
+
   onLaunch: function () {
-    // 登录
+    this.userLogin();
+  },
+
+  //用户登录
+  userLogin: function () {
+    let self = this;
     wx.login({
       success: res => {
         console.log(JSON.stringify(res.data));
         if (res.code) {
-
+          let reqUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=" + this.globalData.myAppid + "&secret=" + this.globalData.mySecret + "&js_code=" + res.code + "&grant_type=authorization_code"
+          wx.request({
+            url: reqUrl,
+            header: { 'content-type': 'application/json' },
+            success: function (res) {
+              console.log(res.data.openid) //获取openid
+              self.globalData.openid = res.data.openid;
+              self.globalData.session_key = res.data.session_key;
+              self.getUserInfoWX();
+            },
+            fail: function (res) { console.error("获取用户openid失败!") }
+          })
+        }
       }
-      }
-    }),
+    })
+  },
 
-      
+  //获取微信用户信息
+  getUserInfoWX: function () {
 
- //   wx.request({
- //     url: this.data.baseUrl + 'api/UserInfo/SetUserInfo',
- //     method: "POST",
- //     data: {
- //       "Head": {
- //        "Token": "",
- //         "AppType": 0
- //       },
- //       "Content": {
- //         "openId": "215",
- //         "nickName": "215",
- //         "gender": 2,
- //         "city": "215",
- //         "province": "215",
- //         "country": "215",
- //        "avatarUrl": "215",
- //         "language": "215"
- //       }},
- //     header: {"Content-Type": "application/json" },
- //     success: function (res) { console.log(JSON.stringify(res.data)); },
- //     fail: function (res) {}
- //   }),
-
-    // 获取用户信息
+    let self = this;
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              console.log(JSON.stringify(res.data));
+              console.info("获取微信用户信息成功!");
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+              self.globalData.userInfoWX = res.userInfo
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回所以此处加入 callback 以防止这种情况
+              if (self.userInfoReadyCallback) { self.userInfoReadyCallback(res) }
+              self.setUserInfo();
             }
           })
         }
       }
     })
   },
-  globalData: {
-    userInfo: null
-  }
+
+  //存入用户信息
+  setUserInfo: function () {
+    let self=this;
+
+    let userInfo = self.globalData.userInfoWX
+    userInfo.openid = self.globalData.openid;
+    wx.request({
+      url: this.globalData.baseUrl + 'api/UserInfo/SetUserInfo',
+      method: "POST",
+      data: {
+        "Head": { "Token": "", "AppType": 0 },
+        "Content": self.globalData.userInfoWX
+      },
+      header: { "Content-Type": "application/json" },
+      success: function (res) {
+        console.info("存入用户信息成功!") 
+        self.globalData.userInfoAPI=res.data.content;
+         },
+      fail: function (res) { console.error("存入用户信息失败!") }
+    })
+  },
+ 
 })
