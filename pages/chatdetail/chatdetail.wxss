@@ -1,0 +1,25 @@
+.viewSend {
+  float: right;
+  margin-top: 34rpx;
+  margin-right: 15px;
+}
+
+.txtSend {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+
+.viewinput {
+  width: 80%;
+  background-color: white;
+  float: left;
+  margin: 10px;
+  font-size: 30rpx;
+  height: 70rpx;
+  border-radius: 7rpx;
+}
+
+.inputarea {
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+}

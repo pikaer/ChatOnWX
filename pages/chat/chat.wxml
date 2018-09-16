@@ -1,7 +1,7 @@
 <!-- 聊天列表遍历 -->
 <view class="container">
   <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="container chat" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-    <view wx:for="{{chatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.userId}}' data-key='{{key}}' bindtap="clearunreadCount" class="chat-item flex-wrp">
+    <navigator url="/pages/chatdetail/chatdetail?userId={{value.userId}}&nickName={{value.nickName}}" wx:for="{{chatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.userId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem" class="chat-item flex-wrp">
       <view class="avatar flex-item">
         <image src="{{value.headshotPathDesc}}"></image>
       </view>
@@ -15,7 +15,7 @@
           <text class="unreadcount">{{value.unreadCount}}</text>
         </view>
       </view>
-    </view>
+    </navigator>
   </scroll-view>
   <view class="body-view">
     <loading hidden="{{hidden}}" bindchange="loadingChange">

@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="inputarea">
+    <view class="viewinput">
+      <input  auto-focus placeholder="回复{{nickName}}"  style="padding-left:10px;padding-top:4px;"/>
+    </view>
+    <view class="viewSend">
+      <text class="txtSend">发 送</text>
+    </view>
+  </view>
+</view>

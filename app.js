@@ -1,6 +1,7 @@
 App({
   //全局变量
   globalData: {
+    //baseUrl: "http://192.168.199.144:8899/",
     baseUrl: "https://localhost:44304/",
     myAppid:"wx2198c700f25f79e8",
     mySecret: "fe423643c068c9827d8d8296e205a133",//小程序密钥
