@@ -92,9 +92,11 @@ Page({
         header: { "Content-Type": "application/json" },
         success: function (res) {
           if (res.data.head.success && res.data.content)
+          {
             console.info("清除未读消息数量成功");
-          self.data.chatList[index].unreadCount = '';
-          self.setData({ chatList: self.data.chatList })
+            self.data.chatList[index].unreadCount = '';
+            self.setData({ chatList: self.data.chatList })
+          }
         },
         fail: function (res) { console.error("清除未读消息数量失败！"); }
       })
