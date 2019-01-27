@@ -1,0 +1,96 @@
+.userHead {
+  width: 128rpx;
+  height: 128rpx;
+  margin-left: 20px;
+  margin-top: 30px;
+  border-radius: 12rpx;
+}
+
+.userView {
+  height: 190px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 1px #837c7c;
+}
+
+.nickNameandNoView {
+  font-size: 18px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.headPhotoView {
+  float: left;
+}
+
+.userNoView {
+  margin-top: 5px;
+  font-size: 14px;
+  color: gray;
+}
+
+.nickNameView {
+  margin-top: 3px;
+}
+
+.userInfoView {
+  margin-top: 40px;
+  float: right;
+}
+
+.attentionView {
+  float: left;
+  margin-top: 5px;
+  width: 120px;
+}
+
+.fansView {
+  float: left;
+  margin-top: 5px;
+  width: 120px;
+}
+
+.visitorView {
+  float: right;
+  margin-top: 5px;
+  width: 120px;
+}
+
+.attentionCount {
+  font-size: 16px;
+  text-align: center;
+}
+
+.attentionText {
+  font-size: 16px;
+  text-align: center;
+}
+
+.fansCount {
+  font-size: 16px;
+  text-align: center;
+}
+
+.fansText {
+  font-size: 16px;
+  text-align: center;
+}
+
+.visitorCount {
+  font-size: 16px;
+  text-align: center;
+}
+
+.visitorText {
+  font-size: 16px;
+  text-align: center;
+}
+
+.funsView {
+  margin-top: 20px;
+  height: 100%;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: white;
+}

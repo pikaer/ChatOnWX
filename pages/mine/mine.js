@@ -2,6 +2,14 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
+  },
+
+  navigateTo: function () {
+    wx.navigateTo({ url: '../../pages/userinfo/userinfo' })
+  },
+
   onLoad: function () {
     // 查看是否授权
     wx.getSetting({

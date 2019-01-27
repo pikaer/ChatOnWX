@@ -12,7 +12,7 @@ App({
   },
 
   onLaunch: function () {
-    this.userLogin();
+    //this.userLogin();
   },
 
   //用户登录

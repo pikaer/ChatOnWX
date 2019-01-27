@@ -1,6 +1,83 @@
-<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
-<open-data type="userAvatarUrl"></open-data>
-<open-data type="userNickName"></open-data>
-<!-- 需要使用 button 来授权登录 -->
-<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-<view wx:else>请升级微信版本</view>
+<view class="container">
+  <view class="userView">
+    <view class="headPhotoView">
+      <image class="userHead" src="../../content/images/pikaer.jpg"></image>
+    </view>
+    <view class="nickNameandNoView">
+      <view class="nickNameView">Pikaer</view>
+      <view class="userNoView">No：123456</view>
+    </view>
+    <view class="userInfoView">
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="navigator-text">详细资料</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView" style='margin-top:120px;'></view>
+    <view>
+      <view class="attentionView" bindtap="navigateTo">
+        <view class="attentionCount">20</view>
+        <view class="attentionText">关注</view>
+      </view>
+      <view class="fansView" bindtap="navigateTo">
+        <view class="fansCount">4566</view>
+        <view class="fansText">粉丝</view>
+      </view>
+      <view class="visitorView" bindtap="navigateTo">
+        <view class="visitorCount">8234</view>
+        <view class="visitorText">访客</view>
+      </view>
+    </view>
+  </view>
+  <view class="funsView">
+  <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont hongbao2" style="color:blue"></view>
+        <view class="navigator-text"> 我的钱包</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont manage" style="color:#26ff41"></view>
+        <view class="navigator-text">偏好设置</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont kefu" style="color:#FFA500"></view>
+        <view class="navigator-text">联系客服</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont feedback2" style="color:#00FFFF"></view>
+        <view class="navigator-text">反馈建议</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont youhuiquan" style="color:#63B8FF"></view>
+        <view class="navigator-text">任务中心</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont share" style="color:blue"></view>
+        <view class="navigator-text">邀请好友</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+  </view>
+</view>

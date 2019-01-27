@@ -45,15 +45,18 @@
 }
 
 .content{
+  margin-left:85rpx;
 }
+
 .chatcontent {
-  float: left;
   font-size: 30rpx;
   margin-left: 10rpx;
   max-width:85%;
 }
 
 .createtime {
-  margin-top: 17rpx;
+  margin-top: 5rpx;
+  margin-left: 10rpx;
   font-size: 25rpx;
+  color:rgb(164, 166, 168);
 }

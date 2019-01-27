@@ -6,7 +6,7 @@ var page = 1;
 var page_size = 20;
 
 var GetList = function (self) {
-  self.setData({ hidden: true});
+  self.setData({ hidden: false});
   let hasuserInfo = app.globalData.userInfoAPI.value == undefined;
   if (hasuserInfo) {
     wx.request({
@@ -27,7 +27,9 @@ var GetList = function (self) {
           page++;
           self.setData({ hidden: true });
         }
-        else{ console.error("获取聊天列表失败！");}
+        else{ 
+          console.error("获取聊天列表失败！");
+          self.setData({ hidden: true });}
       },
       fail: function (res) { console.error("获取聊天列表失败！"); }
     })

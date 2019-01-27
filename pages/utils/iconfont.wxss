@@ -5,7 +5,7 @@
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 40px
+  font-size: 27px
 }
 .gotop:before { content: "\e684"; }
 .music:before { content: "\e60f"; }
@@ -240,7 +240,6 @@
 .tel:before { content: "\e6c7"; }
 .dingwei:before { content: "\e6c9"; }
 .hongbao2:before { content: "\e6ca"; }
-.2code:before { content: "\e6cb"; }
 .vip:before { content: "\e6cc"; }
 .tishi:before { content: "\e6cd"; }
 .dingyue:before { content: "\e6ce"; }

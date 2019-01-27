@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="titleView">hi,Pikaer</view>
+  <view class="basicView">
+    <view class="genderView">
+      <view class="genderLable">性别</view>
+      <view class="radioView">
+        <radio-group class="group" bindchange="radioChange">
+          <view class="labelView">
+            <radio id="radioMan" value="1" checked="true"></radio>
+            <label class="labelMan">
+              <text>小哥哥</text>
+            </label>
+            <radio id="radioWoMan" value="2"></radio>
+            <label class="labelWoman">
+              <text>小姐姐</text>
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <view class="lineView"></view>
+  </view>
+</view>

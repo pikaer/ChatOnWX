@@ -1,10 +1,10 @@
 <view class="container">
   <view class="inputarea">
     <view class="viewinput">
-      <input auto-focus placeholder="回复{{partnerNnickName}}" style="padding-left:10px;padding-top:4px;" />
+      <input auto-focus placeholder="回复{{partnerNnickName}}" style="padding-left:10px;padding-top:4px;" bindinput ="chatContentInput"/>
     </view>
-    <view class="viewSend">
-      <text class="txtSend">发 送</text>
+    <view class="viewSend" data-idx='{{partnerId}}' bindtap="sendMessage">
+      <text class="txtSend" >发 送</text>
     </view>
   </view>
 
@@ -12,11 +12,9 @@
     <view class="contentimg">
       <image src="{{value.headshotPathDesc}}" class="img"></image>
     </view>
-    <view>
-      <text class="chatcontent">{{value.chatContent}}</text>
-    </view>
-      <view>
-      <text class="createtime">{{value.createTimeDesc}}</text>
+    <view class="content">
+     <view class="chatcontent">{{value.chatContent}}</view>
+      <view class="createtime">{{value.createTimeDesc}}</view>
     </view>
   </view>
 </view>

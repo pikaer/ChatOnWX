@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/userinfo/userinfo",
     "pages/chat/chat",
     "pages/chatdetail/chatdetail",
     "pages/mine/mine"
@@ -15,7 +16,7 @@
   "tabBar": {
     "list": [
       {
-        "text":"私信",
+        "text":"消息",
         "pagePath": "pages/chat/chat",
         "iconPath": "content/images/chat.png",
         "selectedIconPath": "content/images/chat1.png"
