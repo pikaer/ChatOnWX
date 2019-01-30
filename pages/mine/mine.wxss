@@ -10,7 +10,7 @@
   height: 190px;
   width: 100%;
   background-color: white;
-  box-shadow: 0px 0px 1px #837c7c;
+  box-shadow: 0px 0px 1px #f0f0f0;
 }
 
 .nickNameandNoView {
@@ -60,21 +60,25 @@
 .attentionCount {
   font-size: 16px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 .attentionText {
   font-size: 16px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 .fansCount {
   font-size: 16px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 .fansText {
   font-size: 16px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 .visitorCount {
@@ -85,6 +89,7 @@
 .visitorText {
   font-size: 16px;
   text-align: center;
+  color: #4d4d4d;
 }
 
 .funsView {

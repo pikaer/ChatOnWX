@@ -5,19 +5,21 @@
       <view class="genderLable">性别</view>
       <view class="radioView">
         <radio-group class="group" bindchange="radioChange">
-          <view class="labelView">
-            <radio id="radioMan" value="1" checked="true"></radio>
-            <label class="labelMan">
-              <text>小哥哥</text>
-            </label>
-            <radio id="radioWoMan" value="2"></radio>
-            <label class="labelWoman">
-              <text>小姐姐</text>
-            </label>
-          </view>
+          <label class="labelMan">
+            <radio value="1" checked="true" />小哥哥
+          </label>
+          <label class="labelWoman">
+            <radio value="2" />小姐姐
+          </label>
         </radio-group>
       </view>
     </view>
     <view class="lineView"></view>
+   <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="navigator-text">邀请好友</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
   </view>
 </view>
