@@ -4,7 +4,8 @@
     "pages/userinfo/userinfo",
     "pages/chat/chat",
     "pages/chatdetail/chatdetail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/nickname/nickname"
   ],
   "window": {
     "backgroundTextStyle": "light",

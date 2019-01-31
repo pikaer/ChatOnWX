@@ -15,11 +15,15 @@
       </view>
     </view>
     <view class="lineView"></view>
-   <view>
-      <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="navigator-text">邀请好友</view>
+    <view>
+      <navigator url="../../pages/nickname/nickname" class="navigator">
+        <view class="nickNameView">
+          <view class="nickName-title">昵称</view>
+          <view class="nickName-Desc">昵称昵称昵称昵称</view>
+        </view>
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
+    <view class="lineView"></view>
   </view>
 </view>
