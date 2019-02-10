@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "更改昵称",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "backgroundTextStyle": "dark"
 }

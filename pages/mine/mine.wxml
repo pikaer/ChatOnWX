@@ -34,7 +34,7 @@
     <view>
       <navigator url="../../pages/userinfo/userinfo" class="navigator">
         <view class="iconfont hongbao2" style="color:blue"></view>
-        <view class="navigator-text"> 我的钱包</view>
+        <view class="navigator-text">我的钱包</view>
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
