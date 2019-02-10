@@ -25,5 +25,15 @@
       </navigator>
     </view>
     <view class="lineView"></view>
+      <view>
+      <navigator url="../../pages/nickname/nickname" class="navigator">
+        <view class="nickNameView">
+          <view class="nickName-title">生日</view>
+          <view class="nickName-Desc">1994-02-16</view>
+        </view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
   </view>
 </view>
