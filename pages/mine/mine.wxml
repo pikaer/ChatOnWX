@@ -14,7 +14,7 @@
       </navigator>
     </view>
     <view class="lineView" style='margin-top:120px;'></view>
-    <view>
+    <view class="labTags">
       <view class="attentionView" bindtap="navigateTo">
         <view class="attentionCount">20</view>
         <view class="attentionText">关注</view>
