@@ -1,0 +1,7 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="coinInfo">
+  <view class="iconfont icon-jinbi"></view>
+  <view class="coinText">金币余额</view>
+  <view class="coinValue">450</view>
+</view>
+<button class="Recharge" type="defaule" bindtap="clickButton">金币充值</button>

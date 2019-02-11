@@ -1,11 +1,12 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/userinfo/userinfo",
     "pages/chat/chat",
     "pages/chatdetail/chatdetail",
     "pages/mine/mine",
-    "pages/nickname/nickname"
+    "pages/nickname/nickname",
+    "pages/wallet/wallet"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,7 +18,7 @@
   "tabBar": {
     "list": [
       {
-        "text":"消息",
+        "text": "消息",
         "pagePath": "pages/chat/chat",
         "iconPath": "content/images/chat.png",
         "selectedIconPath": "content/images/chat1.png"
