@@ -25,15 +25,16 @@
       </navigator>
     </view>
     <view class="lineView"></view>
-      <view>
-      <navigator url="../../pages/nickname/nickname" class="navigator">
-        <view class="nickNameView">
-          <view class="nickName-title">生日</view>
-          <view class="nickName-Desc">1994-02-16</view>
+    <view class="birthDayView">
+        <view class="birthLable">生日</view>
+        <view class="birthValue">
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view>{{date}}</view>
+          </picker>
         </view>
-        <view class="navigator-arrow"></view>
-      </navigator>
-    </view>
+      </view>
+      <view class="navigator-arrow"></view>
+      <!-- <view class="birth-arrow"></view> -->
     <view class="lineView"></view>
   </view>
 </view>
