@@ -66,3 +66,26 @@
   margin-left: 7px;
   margin-bottom: 8px;
 }
+
+.birthDayView {
+  width: 100%;
+  height: 40px;
+  margin-left: 22px;
+  margin-top: 13px;
+}
+
+.birthLable {
+  font-size: 18px;
+  float: left;
+}
+
+.birthValue {
+  font-size: 18px;
+  float: right;
+  margin-right: 80px;
+}
+
+.birth-arrow {
+  padding-right: 26rpx;
+  position: relative;
+}
