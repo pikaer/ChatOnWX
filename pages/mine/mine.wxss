@@ -1,101 +1,71 @@
-.userHead {
-  width: 128rpx;
-  height: 128rpx;
-  margin-left: 20px;
-  margin-top: 30px;
-  border-radius: 12rpx;
-}
-
+/** userView **/
 .userView {
-  height: 190px;
   width: 100%;
   background-color: white;
-  box-shadow: 0px 0px 1px #f0f0f0;
-}
-
-.nickNameandNoView {
-  font-size: 18px;
-  float: left;
-  margin-top: 30px;
-  margin-left: 20px;
 }
 
 .headPhotoView {
   float: left;
 }
+.userHead {
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 70rpx;
+  margin-left: 48rpx;
+  border-radius: 12rpx;
+}
 
+.nickNameandNoView {
+  float: left;
+  font-size: 42rpx;  
+  margin-top: 70rpx;
+  margin-left: 48rpx;
+}
+.nickNameView {
+  margin-top: 7rpx;
+}
 .userNoView {
-  margin-top: 5px;
-  font-size: 14px;
+  margin-top: 12rpx;
+  font-size: 33rpx;
   color: gray;
 }
 
-.nickNameView {
-  margin-top: 3px;
+.userInfoView {
+  margin-top: 95rpx;
+  float: right;
 }
 
-.userInfoView {
-  margin-top: 40px;
-  float: right;
+/** labTags **/
+.labTags {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
 .attentionView {
-  float: left;
-  margin-top: 5px;
-  width: 120px;
+  flex-grow:1;
+  font-size: 32rpx;
+  color: #4d4d4d;
 }
 
 .fansView {
-  float: left;
-  margin-top: 5px;
-  width: 120px;
+  flex-grow:1;
+  font-size: 32rpx;
+  color: #4d4d4d;
 }
 
 .visitorView {
-  float: right;
-  margin-top: 5px;
-  width: 120px;
-}
-
-.attentionCount {
-  font-size: 16px;
-  text-align: center;
+  flex-grow:1;
+  font-size: 32rpx;
   color: #4d4d4d;
 }
 
-.attentionText {
-  font-size: 16px;
-  text-align: center;
-  color: #4d4d4d;
-}
-
-.fansCount {
-  font-size: 16px;
-  text-align: center;
-  color: #4d4d4d;
-}
-
-.fansText {
-  font-size: 16px;
-  text-align: center;
-  color: #4d4d4d;
-}
-
-.visitorCount {
-  font-size: 16px;
-  text-align: center;
-}
-
-.visitorText {
-  font-size: 16px;
-  text-align: center;
-  color: #4d4d4d;
-}
-
+/** funsView **/
 .funsView {
-  margin-top: 20px;
   height: 100%;
-  padding-bottom: 10px;
   width: 100%;
+  margin-top: 40rpx;
   background-color: white;
 }
