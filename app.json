@@ -6,7 +6,8 @@
     "pages/chatdetail/chatdetail",
     "pages/mine/mine",
     "pages/nickname/nickname",
-    "pages/wallet/wallet"
+    "pages/wallet/wallet",
+    "pages/coindetail/coindetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
