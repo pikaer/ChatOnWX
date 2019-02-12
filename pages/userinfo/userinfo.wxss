@@ -75,12 +75,12 @@
 }
 
 .birthLable {
-  font-size: 18px;
+  font-size: 16px;
   float: left;
 }
 
 .birthValue {
-  font-size: 18px;
+  font-size: 16px;
   float: right;
   margin-right: 80px;
 }
@@ -88,4 +88,36 @@
 .birth-arrow {
   padding-right: 26rpx;
   position: relative;
+}
+
+.dateView {
+  float: left;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 1.2px solid #999;
+  border-right: 1.2px solid #999;
+  position: absolute;
+  right: 28px;
+  transform: rotate(45deg);
+  margin-top: 17rpx;
+}
+
+.homeLable {
+  font-size: 16px;
+  float: left;
+}
+
+.homeValue {
+  font-size: 16px;
+  float: right;
+  margin-right: 80px;
+}
+.homeView{
+  width: 100%;
+  height: 40px;
+  margin-left: 22px;
+  margin-top: 13px;
 }

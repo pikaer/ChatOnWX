@@ -26,15 +26,58 @@
     </view>
     <view class="lineView"></view>
     <view class="birthDayView">
-        <view class="birthLable">生日</view>
-        <view class="birthValue">
-        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-            <view>{{date}}</view>
-          </picker>
-        </view>
+      <view class="birthLable">生日</view>
+      <view class="birthValue">
+        <picker mode="date" value="{{date}}" start="1970-01-01" end="2019-12-01" bindchange="bindDateChange">
+          <view class="dateView">{{date}}</view>
+        </picker>
+        <view class="arrow"></view>
       </view>
-      <view class="navigator-arrow"></view>
-      <!-- <view class="birth-arrow"></view> -->
+    </view>
+    <view class="lineView"></view>
+    <view class="homeView">
+      <view class="homeLable">所在地</view>
+      <view class="homeValue">
+        <picker mode="region" bindchange="bindHomeRegionChange" value="{{homeRegion}}" custom-item="{{customItem}}">
+          <view class="picker">
+            {{homeRegion[0]}}-{{homeRegion[1]}}-{{homeRegion[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class="arrow"></view>
+    </view>
+    <view class="lineView"></view>
+    <view class="homeView">
+      <view class="homeLable">家乡所在地</view>
+      <view class="homeValue">
+        <picker mode="region" bindchange="bindHomeTownRegionChange" value="{{homeTownRegion}}" custom-item="{{customItem}}">
+          <view class="picker">
+            {{homeTownRegion[0]}}-{{homeTownRegion[1]}}-{{homeTownRegion[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class="arrow"></view>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/nickname/nickname" class="navigator">
+        <view class="nickNameView">
+          <view class="nickName-title">学校名称</view>
+          <view class="nickName-Desc">上海大学</view>
+        </view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view class="birthDayView">
+      <view class="birthLable">入学时间</view>
+      <view class="birthValue">
+        <picker mode="date" value="{{date}}" start="1970-01-01" end="2019-12-01" bindchange="bindDateChange">
+          <view class="dateView">{{date}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
     <view class="lineView"></view>
   </view>
 </view>
