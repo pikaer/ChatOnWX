@@ -1,0 +1,43 @@
+<!--pages/coindetail/coindetail.wxml-->
+
+<view class="coinInfo">
+  <view class="iconfont icon-jinbi"></view>
+  <view class="coinText"> 剩余：6666</view>
+</view>
+
+<view class="btnContainer">
+  <button class="btnIncome" type="defaule" bindtap="clickButton">收入</button>
+  <button class="btnExpend" type="defaule" bindtap="clickButton">支出</button>
+</view>
+
+<view class="details">
+  <view class="lineView"></view>
+  <view>
+    <view class="transactionName">VIP月卡</view>
+    <view class="moneyCount">-88金币</view>
+    <view class="timeStamp">2019-02-12 13:34</view>
+    <view class="transactionResult">交易成功</view>
+  </view>
+  <view class="lineView"></view>
+   <view>
+    <view class="transactionName">VIP月卡</view>
+    <view class="moneyCount">-88金币</view>
+    <view class="timeStamp">2019-02-12 13:34</view>
+    <view class="transactionResult">交易成功</view>
+  </view>
+  <view class="lineView"></view>
+  <view>
+    <view class="transactionName">VIP月卡</view>
+    <view class="moneyCount">-88金币</view>
+    <view class="timeStamp">2019-02-12 13:34</view>
+    <view class="transactionResult">交易成功</view>
+  </view>
+  <view class="lineView"></view>
+  <view>
+    <view class="transactionName">VIP月卡</view>
+    <view class="moneyCount">-88金币</view>
+    <view class="timeStamp">2019-02-12 13:34</view>
+    <view class="transactionResult">交易成功</view>
+  </view>
+  <view class="lineView"></view>
+</view>

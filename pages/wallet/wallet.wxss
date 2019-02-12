@@ -1,0 +1,57 @@
+/* pages/wallet/wallet.wxss */
+.coinDetails {
+  width: 200rpx;
+  float: right;
+  text-align: center;
+  padding: 10rpx 0rpx;
+}
+.coinDetailsText {
+  font-size: 35rpx;
+}
+
+.coinInfo{
+  clear: both;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+
+.coinText{
+  font-size: 42rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20px;
+}
+.coinValue {
+  font-size: 40rpx;
+}
+
+.Recharge {
+  color:white;
+  width:420rpx;
+  height: 100rpx;
+  border-radius:35rpx;
+  background-color:dodgerblue;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1549906621748'); /* IE9 */
+  src: url('iconfont.eot?t=1549906621748#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMEAAsAAAAABvwAAAK4AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqCCIIKATYCJAMICwYABCAFhG0HLxsvBhEVjFWynwe2Y+ozo0nKsezy1FQlOCb4z8HD//6o+/AxMBKa0ECeDidISbsb6s7p24ZpI9i2DbJ3YbwBAgjUbk3HcG9UhOqSPd96lv+R311pWOdxGqWwOITE57mc3jXE5wcKJMU5Jk3qRXEcUEB7YxRZgRQAN4xd4BLuQwCOhEomCrqiKmw01jIBiKHQ246dC6HRLGsjMGv2asQaBracl1+A1fDz4jcp2SAxFFZdWU9hFznf/tl5avp9WpNPIJ7PAbBDoIBkoEFU1bpKUHEqmcJRS2kisa9qAd/+vb/7FsRe/zyEiVXpDEAwFN2T2JXc6i8lABqwgFpgeFQBWM7OLs4al/bvY83TU+3DQ/X9/ShQVEWCLL9iXdPCtVAzN4tXyOnLWmeFz/ROLpAPeWsSjgu+NTsdnD7V22riesavdlcZ51219Z5Nv7xoNt8XeLK0zun0C/X8rKD8AgtgC44funq4hruqYOxan8pJRLDf5VQ/65Pz/snxfEBkwN7xyb5/qrNzqv9+rNgryOfrxu2TA8D7rbI1Ob/8OzR9TPzd6pbx304D8Dx7Jwy832r6ecC+MbeAHyzu2aV1qWWWWhXX5iS1WDfe4Igj8A72efo6VufzNjmBjc87eSxCUihsoklNT4aBE2kwsUFmw1GS/rATL2RPzAFI9AIQ3L0hufoMxd2H1PQfDL7+MLm3h6OavM50ElsQ+YSS0YB6QtDTaB0ri6j6gO6aJWWlIeOCtIYo1EVVzPY4Is2xYb25htmCpWmADjyGOU8w0xRRc+GZ57Ysbd2LCj0NGyEfQRJDBlCeQKBNRtYfzETp/QfIucokaumocV8gsgqjg1qh6kH2qrFXx708s7pxGoxZwCKTAeiAA2U7NQFz/awIaazgRyRmrRL1sn1Vxfqa4esOAY4svcyeojAeRhU2Gw==') format('woff2'),
+  url('iconfont.woff?t=1549906621748') format('woff'),
+  url('iconfont.ttf?t=1549906621748') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1549906621748#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 27px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke-width: 0.2px;
+}
+
+.icon-jinbi:before {
+  content: "\e6ee";
+}
+
