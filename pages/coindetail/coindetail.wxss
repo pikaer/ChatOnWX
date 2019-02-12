@@ -1,36 +1,77 @@
-/* pages/wallet/wallet.wxss */
-.coinDetails {
-  width: 200rpx;
-  float: right;
+/* pages/coindetail/coindetail.wxss */
+.coinInfo {
+  display: flex;
+  width: 300rpx;
+  flex-wrap: nowrap;
+  align-items: center;
   text-align: center;
-  padding: 10rpx 0rpx;
+  margin-top: 60rpx;
+  margin-left: 80rpx;
 }
-.coinDetailsText {
-  font-size: 35rpx;
-}
-
-.coinInfo{
-  clear: both;
-  margin-top: 100rpx;
-  margin-bottom: 50rpx;
-  text-align: center;
+.coinText {
+  margin-left: 20rpx;
 }
 
-.coinText{
-  font-size: 42rpx;
-  margin-top: 20rpx;
-  margin-bottom: 20px;
+.btnContainer {
+  display:flex;
+  margin-top:20rpx;
+  margin-bottom: 25rpx;
+  justify-content:center;  
 }
-.coinValue {
-  font-size: 40rpx;
+button{
+  border: 2rpx solid dodgerblue;
+  border-radius: 0;
 }
-
-.Recharge {
+button::after{
+    border-radius: 0;
+}
+.btnIncome {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
+  line-height: 55rpx;
+  font-size: 28rpx;
+}
+.btnExpend {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
   color:white;
-  width:420rpx;
-  height: 100rpx;
-  border-radius:35rpx;
-  background-color:dodgerblue;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  background-color: dodgerblue;
+}
+
+.transactionName {
+  float: left;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-left: 40rpx;
+}
+.moneyCount {  
+  float: right;
+  color:coral;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  margin-right: 60rpx;
+}
+.timeStamp {
+  clear: left;
+  float: left;
+  color: gray;
+  font-size: 26rpx;
+  margin-left: 40rpx;
+  margin-bottom: 10rpx;
+}
+.transactionResult {
+  float: right;
+  color:dodgerblue;
+  font-size: 26rpx;
+  margin-right: 60rpx;
+  margin-bottom: 10rpx;
+}
+.lineView {
+  clear: left;
 }
 
 @font-face {font-family: "iconfont";
@@ -54,4 +95,3 @@
 .icon-jinbi:before {
   content: "\e6ee";
 }
-
