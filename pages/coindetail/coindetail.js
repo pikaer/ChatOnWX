@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    allData:[{"":""},{},{}]    
+    name: 'AAA',
+    count: -66,
+    data: '2019-02-13',
+    allData: [
+      { name: 'AAA', count: -66, data: '2019-02-13' },
+      { name: 'BBB', count: -66, data: '2019-02-13' },
+      { name: 'CCC', count: -66, data: '2019-02-13' },
+      { name: 'DDD', count: -66, data: '2019-02-13' }
+      ]    
   },
 
   /**
