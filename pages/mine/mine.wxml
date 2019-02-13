@@ -30,7 +30,7 @@
     </view>
   </view>
   <view class="funsView">
-  <view class="lineView"></view>
+    <view class="lineView"></view>
     <view>
       <navigator url="../../pages/wallet/wallet" class="navigator">
         <view class="iconfont hongbao2" style="color:blue"></view>

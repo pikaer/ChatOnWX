@@ -1,8 +1,8 @@
 <view class="container">
   <view class="titleView">hi,Pikaer</view>
   <view class="basicView">
-    <view class="genderView">
-      <view class="genderLable">性别</view>
+    <view class="radio">
+      <view class="radioLable">性别</view>
       <view class="radioView">
         <radio-group class="group" bindchange="radioChange">
           <label class="labelMan">
@@ -17,19 +17,19 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/nickname/nickname" class="navigator">
-        <view class="nickNameView">
-          <view class="nickName-title">昵称</view>
-          <view class="nickName-Desc">昵称昵称昵称昵称</view>
+        <view class="navigatorView">
+          <view class="title">昵称</view>
+          <view class="desc">昵称昵称昵称昵称</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
     <view class="lineView"></view>
-    <view class="birthDayView">
-      <view class="birthLable">生日</view>
-      <view class="birthValue">
+    <view class="dayView">
+      <view class="dateLable">生日</view>
+      <view class="dateValue">
         <picker mode="date" value="{{date}}" start="1970-01-01" end="2019-12-01" bindchange="bindDateChange">
-          <view class="dateView">{{date}}</view>
+          <view class="pickView">{{date}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -58,26 +58,78 @@
       </view>
       <view class="arrow"></view>
     </view>
-    <view class="lineView"></view>
+  </view>
+  <view class="blockView">
     <view>
-      <navigator url="../../pages/nickname/nickname" class="navigator">
-        <view class="nickNameView">
-          <view class="nickName-title">学校名称</view>
-          <view class="nickName-Desc">上海大学</view>
+      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+        <view class="navigatorView">
+          <view class="title">学校名称</view>
+          <view class="desc">上海大学</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
     <view class="lineView"></view>
-    <view class="birthDayView">
-      <view class="birthLable">入学时间</view>
-      <view class="birthValue">
-        <picker mode="date" value="{{date}}" start="1970-01-01" end="2019-12-01" bindchange="bindDateChange">
-          <view class="dateView">{{date}}</view>
+    <view class="dayView">
+      <view class="dateLable">入学时间</view>
+      <view class="dateValue">
+        <picker mode="date" value="{{date}}" fields="month" start="1970-01" end="2019-12" bindchange="bindDateChange">
+          <view class="pickView">{{date}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
     </view>
     <view class="lineView"></view>
+    <view class="dayView">
+      <view class="dateLable">学校类型</view>
+      <view class="dateValue">
+        <picker bindchange="bindSchoolTypeChange" value="{{schoolIndex}}" range="{{schoolTypeArray}}">
+          <view class="pickView">{{schoolTypeArray[schoolIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="radio">
+      <view class="radioLable">学籍状态</view>
+      <view class="radioView">
+        <radio-group class="group" bindchange="radioChange">
+          <label class="labelMan">
+            <radio value="1" checked="true" />学生党
+          </label>
+          <label class="labelWoman">
+            <radio value="2" />工作党
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    
   </view>
+  <view class="blockView">
+  <view>
+      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+        <view class="navigatorView">
+          <view class="title">手机号</view>
+          <view class="desc">18721019895</view>
+        </view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+    <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+        <view class="navigatorView">
+          <view class="title">微信号</view>
+          <view class="desc">xiamu13122028</view>
+        </view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+  </view>
+  <view class="blockBtnView">
+  <view class="btnView">
+    <button type="primary">保 存</button>
+  </view>
+   </view>
 </view>
