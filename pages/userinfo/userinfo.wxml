@@ -28,8 +28,8 @@
     <view class="dayView">
       <view class="dateLable">生日</view>
       <view class="dateValue">
-        <picker mode="date" value="{{date}}" start="1970-01-01" end="2019-12-01" bindchange="bindDateChange">
-          <view class="pickView">{{date}}</view>
+        <picker mode="date" value="{{birthDay}}" start="1970-01-01" end="2019-12-01" bindchange="bindBirthDayChange">
+          <view class="pickView">{{birthDay}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -73,8 +73,8 @@
     <view class="dayView">
       <view class="dateLable">入学时间</view>
       <view class="dateValue">
-        <picker mode="date" value="{{date}}" fields="month" start="1970-01" end="2019-12" bindchange="bindDateChange">
-          <view class="pickView">{{date}}</view>
+        <picker mode="date" value="{{entranceDate}}" fields="month" start="1970-01" end="2019-12" bindchange="bindEntranceDateChange">
+          <view class="pickView">{{entranceDate}}</view>
         </picker>
         <view class="arrow"></view>
       </view>

@@ -3,7 +3,8 @@ const app = getApp()
 Page({
 
   data: {
-    date: '2016-09',
+    birthDay: '2016-09-2',
+    entranceDate: '2016-09',
     homeRegion: ['广东省', '广州市', '海珠区'],
     homeTownRegion: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
@@ -15,11 +16,18 @@ Page({
     wx.stopPullDownRefresh();
   },
   
-  bindDateChange: function (e) {
+  bindBirthDayChange: function (e) {
     this.setData({
-      date: e.detail.value
+      birthDay: e.detail.value
     })
   },
+
+  bindEntranceDateChange: function (e) {
+    this.setData({
+      entranceDate: e.detail.value
+    })
+  },
+
   bindHomeRegionChange: function (e) {
     this.setData({
       homeRegion: e.detail.value
