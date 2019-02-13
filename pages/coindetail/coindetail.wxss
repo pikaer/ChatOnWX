@@ -1,12 +1,9 @@
 /* pages/coindetail/coindetail.wxss */
 .coinInfo {
   display: flex;
-  width: 300rpx;
-  flex-wrap: nowrap;
   align-items: center;
-  text-align: center;
   margin-top: 60rpx;
-  margin-left: 80rpx;
+  justify-content:center;
 }
 .coinText {
   margin-left: 20rpx;
@@ -14,16 +11,27 @@
 
 .btnContainer {
   display:flex;
-  margin-top:20rpx;
+  margin-top:40rpx;
   margin-bottom: 25rpx;
   justify-content:center;  
 }
 button{
-  border: 2rpx solid dodgerblue;
+  border: 2rpx solid dodgerblue;  
   border-radius: 0;
 }
 button::after{
     border-radius: 0;
+}
+.btnAll {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
+  color:white;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  border-top-left-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
+  background-color: dodgerblue;
 }
 .btnIncome {
   margin: 0rpx;
@@ -31,15 +39,16 @@ button::after{
   height:60rpx;
   line-height: 55rpx;
   font-size: 28rpx;
+  border-style:solid none;
 }
 .btnExpend {
   margin: 0rpx;
   width:180rpx;
   height:60rpx;
-  color:white;
   line-height: 55rpx;
   font-size: 28rpx;
-  background-color: dodgerblue;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
 }
 
 .transactionName {
@@ -49,10 +58,11 @@ button::after{
   margin-left: 40rpx;
 }
 .moneyCount {  
+  position: relative;
+  top:30rpx;
   float: right;
   color:coral;
   font-size: 26rpx;
-  margin-top: 10rpx;
   margin-right: 60rpx;
 }
 .timeStamp {
@@ -61,13 +71,6 @@ button::after{
   color: gray;
   font-size: 26rpx;
   margin-left: 40rpx;
-  margin-bottom: 10rpx;
-}
-.transactionResult {
-  float: right;
-  color:dodgerblue;
-  font-size: 26rpx;
-  margin-right: 60rpx;
   margin-bottom: 10rpx;
 }
 .lineView {
