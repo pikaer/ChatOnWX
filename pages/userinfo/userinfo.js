@@ -12,32 +12,40 @@ Page({
     schoolIndex: 0,
   },
 
+  //页面下拉刷新监听
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
   },
   
+  //生日下拉列表框
   bindBirthDayChange: function (e) {
     this.setData({
       birthDay: e.detail.value
     })
   },
 
+  //入学时间下拉列表
   bindEntranceDateChange: function (e) {
     this.setData({
       entranceDate: e.detail.value
     })
   },
 
+  //所在地监听变化
   bindHomeRegionChange: function (e) {
     this.setData({
       homeRegion: e.detail.value
     })
   },
+
+  //家乡所在地监听变化
   bindHomeTownRegionChange: function (e) {
     this.setData({
       homeTownRegion: e.detail.value
     })
   },
+
+  //学校类型下拉列表
   bindSchoolTypeChange: function (e) {
     this.setData({
       schoolIndex: e.detail.value
