@@ -25,11 +25,11 @@
       </navigator>
     </view>
     <view class="lineView"></view>
-    <view class="dayView">
-      <view class="dateLable">生日</view>
-      <view class="dateValue">
+    <view class="pickView">
+      <view class="pickLable">生日</view>
+      <view class="pickValue">
         <picker mode="date" value="{{birthDay}}" start="1970-01-01" end="2019-12-01" bindchange="bindBirthDayChange">
-          <view class="pickView">{{birthDay}}</view>
+          <view class="pickData">{{birthDay}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -70,21 +70,21 @@
       </navigator>
     </view>
     <view class="lineView"></view>
-    <view class="dayView">
-      <view class="dateLable">入学时间</view>
-      <view class="dateValue">
+    <view class="pickView">
+      <view class="pickLable">入学时间</view>
+      <view class="pickValue">
         <picker mode="date" value="{{entranceDate}}" fields="month" start="1970-01" end="2019-12" bindchange="bindEntranceDateChange">
-          <view class="pickView">{{entranceDate}}</view>
+          <view class="pickData">{{entranceDate}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
     </view>
     <view class="lineView"></view>
-    <view class="dayView">
-      <view class="dateLable">学校类型</view>
-      <view class="dateValue">
+    <view class="pickView">
+      <view class="pickLable">学校类型</view>
+      <view class="pickValue">
         <picker bindchange="bindSchoolTypeChange" value="{{schoolIndex}}" range="{{schoolTypeArray}}">
-          <view class="pickView">{{schoolTypeArray[schoolIndex]}}</view>
+          <view class="pickData">{{schoolTypeArray[schoolIndex]}}</view>
         </picker>
         <view class="arrow"></view>
       </view>

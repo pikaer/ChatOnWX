@@ -40,7 +40,7 @@
     </view>
     <view class="lineView"></view>
     <view>
-      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+      <navigator url="../../pages/preference/preference" class="navigator">
         <view class="iconfont manage" style="color:#26ff41"></view>
         <view class="navigator-text">偏好设置</view>
         <view class="navigator-arrow"></view>

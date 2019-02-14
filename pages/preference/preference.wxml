@@ -1,0 +1,74 @@
+<view class="container">
+
+  <view class="blockView">
+    <view class="radio">
+      <view class="radioLable">你希望对方性别</view>
+      <view class="radioView">
+        <radio-group class="group" bindchange="radioChange">
+          <label class="labelMan">
+            <radio value="1" checked="true" />小哥哥
+          </label>
+          <label class="labelWoman">
+            <radio value="2" />小姐姐
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="pickView">
+      <view class="pickLable">你希望对方所在位置</view>
+      <view class="pickValue">
+        <picker bindchange="bindPartnerPlaceChange" value="{{partnerPlaceIndex}}" range="{{partnerPlaceArray}}">
+          <view class="pickData">{{partnerPlaceArray[partnerPlaceIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="pickView">
+      <view class="pickLable">你希望对方的家乡是</view>
+      <view class="pickValue">
+        <picker bindchange="bindPartnerHomeChange" value="{{partnerHomeIndex}}" range="{{partnerHomeArray}}">
+          <view class="pickData">{{partnerHomeArray[partnerHomeIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="pickView">
+      <view class="pickLable">你希望对方年龄</view>
+      <view class="pickValue">
+        <picker bindchange="bindAgeChange" value="{{ageIndex}}" range="{{ageArray}}">
+          <view class="pickData">{{ageArray[ageIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="pickView">
+      <view class="pickLable">你希望对方学校类型是</view>
+      <view class="pickValue">
+        <picker bindchange="bindSchoolTypeChange" value="{{schoolIndex}}" range="{{schoolTypeArray}}">
+          <view class="pickData">{{schoolTypeArray[schoolIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="pickView">
+      <view class="pickLable">你希望对方职业状态是</view>
+      <view class="pickValue">
+        <picker bindchange="bindStateChange" value="{{stateIndex}}" range="{{stateArray}}">
+          <view class="pickData">{{stateArray[stateIndex]}}</view>
+        </picker>
+        <view class="arrow"></view>
+      </view>
+    </view>
+    <view class="lineView"></view>
+  </view>
+  <view class="blockBtnView">
+  <view class="btnView">
+    <button type="primary">保 存</button>
+  </view>
+   </view>
+</view>

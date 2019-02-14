@@ -8,6 +8,7 @@
     "pages/nickname/nickname",
     "pages/wallet/wallet",
     "pages/coindetail/coindetail",
+    "pages/preference/preference",
     "pages/schoolname/schoolname"
   ],
   "window": {

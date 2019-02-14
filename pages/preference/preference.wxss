@@ -1,0 +1,16 @@
+.blockView {
+  width: 100%;
+  background-color: white;
+}
+
+.btnView {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.blockBtnView {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
+}
