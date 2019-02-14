@@ -1,10 +1,12 @@
 // pages/coindetail/coindetail.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    isAllChecked: true,
+    isIncomeChecked:false,
+    isExpendChecked:false,
     name: 'AAA',
     count: -66,
     data: '2019-02-13',
@@ -16,6 +18,32 @@ Page({
       ]    
   },
 
+  clickButton: function(e){
+    switch (e.target.dataset.num)
+    {
+      case "1":  
+        this.setData({
+          isAllChecked: true,
+          isIncomeChecked: false,
+          isExpendChecked: false
+        })      
+        break;
+      case "2":
+        this.setData({
+          isAllChecked: false,
+          isIncomeChecked: true,
+          isExpendChecked: false
+        })
+        break;
+      case "3":
+        this.setData({
+          isAllChecked: false,
+          isIncomeChecked: false,
+          isExpendChecked: true
+        })
+        break;      
+    }    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

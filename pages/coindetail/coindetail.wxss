@@ -26,6 +26,15 @@ button::after{
   margin: 0rpx;
   width:180rpx;
   height:60rpx;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  border-top-left-radius: 15rpx;
+  border-bottom-left-radius: 15rpx;
+}
+.btnAll_click {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
   color:white;
   line-height: 55rpx;
   font-size: 28rpx;
@@ -41,6 +50,16 @@ button::after{
   font-size: 28rpx;
   border-style:solid none;
 }
+.btnIncome_click {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
+  color:white;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  border-style:solid none;
+  background-color: dodgerblue;
+}
 .btnExpend {
   margin: 0rpx;
   width:180rpx;
@@ -49,6 +68,17 @@ button::after{
   font-size: 28rpx;
   border-top-right-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
+}
+.btnExpend_click {
+  margin: 0rpx;
+  width:180rpx;
+  height:60rpx;
+  color:white;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+  background-color: dodgerblue;
 }
 
 .transactionName {

@@ -6,9 +6,9 @@
 </view>
 
 <view class="btnContainer">
-  <button class="btnAll" type="defaule" bindtap="clickButton">全部</button>
-  <button class="btnIncome" type="defaule" bindtap="clickButton">收入</button>
-  <button class="btnExpend" type="defaule" bindtap="clickButton">支出</button>
+  <button bindtap="clickButton" class="{{isAllChecked?'btnAll_click':'btnAll'}}" data-num="1" type="defaule">全部</button>
+  <button bindtap="clickButton" class="{{isIncomeChecked?'btnIncome_click':'btnIncome'}}" data-num="2" type="defaule">收入</button>
+  <button bindtap="clickButton" class="{{isExpendChecked?'btnExpend_click':'btnExpend'}}" data-num="3" type="defaule">支出</button>
 </view>
 
 <view class="details">
