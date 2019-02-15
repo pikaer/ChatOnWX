@@ -1,6 +1,21 @@
 /**index.wxss**/
 
-
+.headPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 50rpx;
+  height: 300rpx;
+  width: 750rpx;
+}
+.headPhoto .icon {
+  position: absolute;
+  height: 128rpx;
+  width:128rpx;
+  border-radius: 50%;
+  border:40rpx solid #f0f4f3;
+}
 
 .userinfo {
   display: flex;

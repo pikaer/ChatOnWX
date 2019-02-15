@@ -2,43 +2,43 @@
 var dataList = [{
     "id": 1,
     "name": "AAA",
-    "count": -66,
+    "count": "-66",
     "data": "2019-02-13"
   },
   {
     "id": 2,
     "name": "BBB",
-    "count": +88,
+    "count": "+88",
     "data": "2019-02-13"
   },
   {
     "id": 3,
     "name": "CCC",
-    "count": -100,
+    "count": "-100",
     "data": "2019-02-13"
   },
   {
     "id": 4,
     "name": "DDD",
-    "count": +23,
+    "count": "+23",
     "data": "2019-02-13"
   },
   {
     "id": 5,
     "name": "EEE",
-    "count": +100,
+    "count": "+100",
     "data": "2019-02-14"
   },
   {
     "id": 6,
     "name": "FFF",
-    "count": -77,
+    "count": "-77",
     "data": "2019-02-15"
   },
   {
     "id": 7,
     "name": "GGG",
-    "count": +120,
+    "count": "+120",
     "data": "2019-02-15"
   }
 ];
@@ -71,7 +71,7 @@ Page({
           isIncomeChecked: true,
           isExpendChecked: false,
           allData: dataList.filter(function(e) {
-            return e.count > 0;
+            return parseInt(e.count) > 0;
           })
         })
         break;
@@ -81,7 +81,7 @@ Page({
           isIncomeChecked: false,
           isExpendChecked: true,
           allData: dataList.filter(function(e) {
-            return e.count < 0;
+            return parseInt(e.count) < 0;
           })
         })
         break;

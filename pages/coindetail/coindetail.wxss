@@ -1,22 +1,31 @@
 /* pages/coindetail/coindetail.wxss */
-.coinInfo {
+.titleView {
   display: flex;
   align-items: center;
-  margin-top: 60rpx;
-  justify-content:center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  font-size: 35rpx;
 }
+.blockView {
+  height: 100%;
+  width: 100%;
+  font-size: 28rpx;
+  background-color: white;
+}
+
 .coinText {
   margin-left: 20rpx;
 }
 
 .btnContainer {
-  display:flex;
+  display:flex;  
   margin-top:40rpx;
   margin-bottom: 25rpx;
   justify-content:center;  
 }
 button{
-  border: 2rpx solid dodgerblue;  
+  border: 2rpx solid forestgreen;  
+  font-size: 28rpx;
   border-radius: 0;
 }
 button::after{
@@ -27,7 +36,6 @@ button::after{
   width:180rpx;
   height:60rpx;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-top-left-radius: 15rpx;
   border-bottom-left-radius: 15rpx;
 }
@@ -37,17 +45,15 @@ button::after{
   height:60rpx;
   color:white;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-top-left-radius: 15rpx;
   border-bottom-left-radius: 15rpx;
-  background-color: dodgerblue;
+  background-color: forestgreen;
 }
 .btnIncome {
   margin: 0rpx;
   width:180rpx;
   height:60rpx;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-style:solid none;
 }
 .btnIncome_click {
@@ -56,16 +62,14 @@ button::after{
   height:60rpx;
   color:white;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-style:solid none;
-  background-color: dodgerblue;
+  background-color: forestgreen;
 }
 .btnExpend {
   margin: 0rpx;
   width:180rpx;
   height:60rpx;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-top-right-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
 }
@@ -75,10 +79,9 @@ button::after{
   height:60rpx;
   color:white;
   line-height: 55rpx;
-  font-size: 28rpx;
   border-top-right-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
-  background-color: dodgerblue;
+  background-color: forestgreen;
 }
 
 .transactionName {
@@ -88,20 +91,22 @@ button::after{
   margin-left: 100rpx;
 }
 .moneyCountExpend {  
+  width:200rpx;
   position: relative;
   top:30rpx;
   float: right;
   color:coral;
   font-size: 26rpx;
-  margin-right: 60rpx;
+  text-align: left;
 }
 .moneyCountIncome {  
+  width:200rpx;
   position: relative;
   top:30rpx;
   float: right;
-  color:dodgerblue;
+  color:forestgreen;
   font-size: 26rpx;
-  margin-right: 60rpx;
+  text-align: left;
 }
 .timeStamp {
   clear: left;

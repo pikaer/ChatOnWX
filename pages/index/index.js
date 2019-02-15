@@ -4,10 +4,16 @@ const app = getApp()
 
 Page({
   data: {
+    show:false,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  getUserInfo:function(){
+    this.setData({
+      show: true
+    })    
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

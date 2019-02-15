@@ -1,24 +1,28 @@
 <!--pages/coindetail/coindetail.wxml-->
+<view class="container">
 
-<view class="coinInfo">
-  <view class="iconfont icon-jinbi"></view>
-  <view class="coinText"> 剩余：6666</view>
-</view>
+  <view class="titleView">
+    <view class="iconfont icon-jinbi"></view>
+    <view class="coinText"> 剩余：6666</view>
+  </view>
 
-<view class="btnContainer">
-  <button bindtap="clickButton" class="{{isAllChecked?'btnAll_click':'btnAll'}}" data-num="1" type="defaule">全部</button>
-  <button bindtap="clickButton" class="{{isIncomeChecked?'btnIncome_click':'btnIncome'}}" data-num="2" type="defaule">收入</button>
-  <button bindtap="clickButton" class="{{isExpendChecked?'btnExpend_click':'btnExpend'}}" data-num="3" type="defaule">支出</button>
-</view>
-
-<view class="details">
-  <view wx:for="{{allData}}">
-    <view class="lineView"></view>
-    <view>
-      <view class="transactionName">{{item.name}}</view>
-      <view class="{{item.count>0?'moneyCountIncome':'moneyCountExpend'}}">{{item.count}}金币</view>
-      <view class="timeStamp">{{item.data}}</view>
+  <view class="blockView">
+    <view class="btnContainer">
+      <button bindtap="clickButton" class="{{isAllChecked?'btnAll_click':'btnAll'}}" data-num="1" type="defaule">全部</button>
+      <button bindtap="clickButton" class="{{isIncomeChecked?'btnIncome_click':'btnIncome'}}" data-num="2" type="defaule">收入</button>
+      <button bindtap="clickButton" class="{{isExpendChecked?'btnExpend_click':'btnExpend'}}" data-num="3" type="defaule">支出</button>
+    </view>
+    <view class="details">
+      <view wx:for="{{allData}}" wx:key="id">
+        <view class="lineView"></view>
+        <view>
+          <view class="transactionName">{{item.name}}</view>
+          <view class="{{item.count>0?'moneyCountIncome':'moneyCountExpend'}}">{{item.count}} 金币</view>
+          <view class="timeStamp">{{item.data}}</view>
+        </view>
+      </view>
+      <view class="lineView"></view>
     </view>
   </view>
-  <view class="lineView"></view>
+
 </view>

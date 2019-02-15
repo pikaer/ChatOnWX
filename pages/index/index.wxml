@@ -1,5 +1,9 @@
 <!--index.wxml-->
 <view class="container">
+  <view wx:if="{{show}}" class='headPhoto'>
+    <open-data class='icon' mode='aspectFit' type='userAvatarUrl'></open-data>
+    <view class='icon'></view>
+  </view>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -12,7 +16,7 @@
     <i class="iconfont github"></i>
     <text class="user-motto">{{motto}}</text>
   </view>
-  
+
 </view>
 
 

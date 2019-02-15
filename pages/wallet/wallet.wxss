@@ -1,4 +1,9 @@
 /* pages/wallet/wallet.wxss */
+.blockView {
+  width: 100%;
+  background-color: white;
+}
+
 .coinDetails {
   width: 200rpx;
   float: right;
@@ -10,27 +15,28 @@
 }
 
 .coinInfo{
-  clear: both;
   margin-top: 100rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 30rpx;
   text-align: center;
 }
-
 .coinText{
   font-size: 42rpx;
   margin-top: 20rpx;
   margin-bottom: 20px;
 }
-.coinValue {
+.coinNum {
   font-size: 40rpx;
 }
 
-.Recharge {
-  color:white;
-  width:420rpx;
-  height: 100rpx;
-  border-radius:35rpx;
-  background-color:dodgerblue;
+.btnView {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.blockBtnView {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 @font-face {font-family: "iconfont";
