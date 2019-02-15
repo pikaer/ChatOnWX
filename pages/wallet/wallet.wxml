@@ -9,15 +9,33 @@
     </view>
     <view class="coinInfo">
       <view class="iconfont icon-jinbi"></view>
-      <view class="coinText">金币余额</view>
       <view class="coinNum">450</view>
+      <view class="coinText">金币余额</view>
     </view>
   </view>
 
   <view class="blockBtnView">
     <view class="btnView">
-      <button type="primary">金币充值</button>
+      <button class='btnRecharge' bindtap='recharge'>金币充值</button>
+      <button class='btnFree'>免费获取</button>
     </view>
   </view>
 
+  <!--弹出框start-->
+  <view class="popupLayer" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view class="dialog_box" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+    <view style='position: relative;overflow: hidden;'>
+      <view class='dialog_title'>微信充值</view>
+      <view wx:for="{{list}}" wx:key="id" class='dialog_content'>
+        <view class="sealCard" bindtap='typeClick'>
+          <view class="firstRow">
+            <view class="iconfont icon-jinbi"></view>
+            <view class="goldCoin">{{item.goldCoin}}</view>
+          </view>
+          <view class="moneyNum">{{item.moneyNum}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--弹出框end-->
 </view>

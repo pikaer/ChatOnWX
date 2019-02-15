@@ -3,6 +3,11 @@
   width: 100%;
   background-color: white;
 }
+.blockBtnView {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
 
 .coinDetails {
   width: 200rpx;
@@ -12,6 +17,7 @@
 }
 .coinDetailsText {
   font-size: 35rpx;
+  font-weight: bold;
 }
 
 .coinInfo{
@@ -29,14 +35,87 @@
 }
 
 .btnView {
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
 }
-.blockBtnView {
-  height: 100%;
+button {
+  height: 85rpx;
+  border-radius: 40rpx;
+  color:white;
+  font-size:30rpx;
+}
+.btnRecharge {
+  background-color:skyblue;
+}
+.btnFree {
+  margin-top: 20rpx;
+  background-color: lightsalmon;
+}
+
+.popupLayer {
   width: 100%;
-  margin-bottom: 10px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.dialog_box {
+  border-radius: 25rpx;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: whitesmoke;
+  padding-top: 1px;
+}
+.dialog_title {
+  font-size: 16px;
+  height: 30px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 10px;
+  color: black;
+}
+.dialog_content {
+  position: relative;
+  float: left;
+  padding: 10px 10px;
+  width: 25%;
+  box-sizing: border-box;
+}
+.sealCard {
+  text-align: center;
+  width: 160rpx;
+  height: 220rpx;
+  background:white;
+  font-size: 28rpx;
+  border-radius: 15rpx;
+  margin-top: 50rpx;
+  margin-bottom: 80rpx;
+}
+.firstRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.goldCoin {
+  margin-left: 8rpx;
+  font-weight: bold;
+}
+.moneyNum {
+  font-size: 32rpx;
+  color: gray;
 }
 
 @font-face {font-family: "iconfont";
