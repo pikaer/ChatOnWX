@@ -12,29 +12,13 @@
 </view>
 
 <view class="details">
-  <view class="lineView"></view>
-  <view>
-    <view class="transactionName">{{name}}</view>
-    <view class="moneyCount">{{count}}金币</view>
-    <view class="timeStamp">{{data}}</view>
-  </view>
-  <view class="lineView"></view>
-   <view>
-    <view class="transactionName">VIP月卡</view>
-    <view class="moneyCount">-88金币</view>
-    <view class="timeStamp">2019-02-12 13:34</view>
-  </view>
-  <view class="lineView"></view>
-  <view>
-    <view class="transactionName">VIP月卡</view>
-    <view class="moneyCount">-88金币</view>
-    <view class="timeStamp">2019-02-12 13:34</view>
-  </view>
-  <view class="lineView"></view>
-  <view>
-    <view class="transactionName">VIP月卡</view>
-    <view class="moneyCount">-88金币</view>
-    <view class="timeStamp">2019-02-12 13:34</view>
+  <view wx:for="{{allData}}">
+    <view class="lineView"></view>
+    <view>
+      <view class="transactionName">{{item.name}}</view>
+      <view class="{{item.count>0?'moneyCountIncome':'moneyCountExpend'}}">{{item.count}}金币</view>
+      <view class="timeStamp">{{item.data}}</view>
+    </view>
   </view>
   <view class="lineView"></view>
 </view>

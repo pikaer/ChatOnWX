@@ -85,13 +85,21 @@ button::after{
   float: left;
   font-size: 30rpx;
   margin-top: 10rpx;
-  margin-left: 40rpx;
+  margin-left: 100rpx;
 }
-.moneyCount {  
+.moneyCountExpend {  
   position: relative;
   top:30rpx;
   float: right;
   color:coral;
+  font-size: 26rpx;
+  margin-right: 60rpx;
+}
+.moneyCountIncome {  
+  position: relative;
+  top:30rpx;
+  float: right;
+  color:dodgerblue;
   font-size: 26rpx;
   margin-right: 60rpx;
 }
@@ -100,7 +108,7 @@ button::after{
   float: left;
   color: gray;
   font-size: 26rpx;
-  margin-left: 40rpx;
+  margin-left: 100rpx;
   margin-bottom: 10rpx;
 }
 .lineView {
