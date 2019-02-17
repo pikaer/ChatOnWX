@@ -5,14 +5,17 @@ App({
     baseUrl: "https://localhost:44304/",
     myAppid:"wx2198c700f25f79e8",
     mySecret: "fe423643c068c9827d8d8296e205a133",//小程序密钥
+    httpHeader: { "Content-Type": "application/json" },
+    apiHeader:{"Token":"","UId":0,"Platform":"miniApp"},
     openid:"",
     session_key:"",
     userInfoWX: {}, //微信提供的用户信息
     userInfoAPI: {} //从API获取的用户信息
   },
 
+  //当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
   onLaunch: function () {
-    //this.userLogin();
+    this.userLogin();
   },
 
   //用户登录
@@ -25,7 +28,7 @@ App({
           let reqUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=" + this.globalData.myAppid + "&secret=" + this.globalData.mySecret + "&js_code=" + res.code + "&grant_type=authorization_code"
           wx.request({
             url: reqUrl,
-            header: { 'content-type': 'application/json' },
+            header: self.globalData.httpHeader,
             success: function (res) {
               console.log(res.data.openid) //获取openid
               self.globalData.openid = res.data.openid;
@@ -41,7 +44,6 @@ App({
 
   //获取微信用户信息
   getUserInfoWX: function () {
-
     let self = this;
     wx.getSetting({
       success: res => {
@@ -65,23 +67,25 @@ App({
   //存入用户信息
   setUserInfo: function () {
     let self=this;
-
     let userInfo = self.globalData.userInfoWX
     userInfo.openid = self.globalData.openid;
     wx.request({
       url: this.globalData.baseUrl + 'api/UserInfo/SetUserInfo',
       method: "POST",
-      data: {
-        "Head": { "Token": "", "AppType": 0 },
-        "Content": self.globalData.userInfoWX
+      data:{
+        "Head": self.globalData.apiHeader,
+        "Content": {
+          "OpenId": self.globalData.userInfoWX.openid,
+          "NickName": self.globalData.userInfoWX.nickName,
+          "Gender": self.globalData.userInfoWX.gender,
+        }
       },
-      header: { "Content-Type": "application/json" },
+      header: self.globalData.httpHeader,
       success: function (res) {
-        console.info("存入用户信息成功!") 
-        self.globalData.userInfoAPI=res.data.content;
+        if (res.Head.Success && res.Content.ExcuteResult) 
+          self.globalData.apiHeader.UId = res.data.Content.UId;
          },
       fail: function (res) { console.error("存入用户信息失败!") }
     })
   },
- 
 })
