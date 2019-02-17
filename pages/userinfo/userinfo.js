@@ -2,13 +2,9 @@ const app = getApp()
 
 Page({
   data: {
-    birthDay: '2016-09-2',
-    entranceDate: '2016-09',
     placeRegion: ['广东省', '广州市', '海珠区'],
     homeTownRegion: ['广东省', '广州市', '海珠区'],
-    customItem: '全部',
     schoolTypeArray: ['其他', '学院/大学', '一本', '211/985/海外院校'],
-    schoolIndex: 0,
     tempUserInfo: {
       "gender": 1,
       "nickName": "Hello",
@@ -28,7 +24,7 @@ Page({
     }
   },
   onShow: function () {
-    //this.getUserInfoAPI();
+    this.getUserInfoAPI();
   },
 
   //获取用户信息
@@ -46,35 +42,93 @@ Page({
         success: function (res) {
           if (res.data.head.success && res.data.content != null) {
             let content = res.data.content;
-            app.globalData.userInfoAPI = content;
-            self.data.tempUserInfo.gender = content.gender;
-            self.data.tempUserInfo.nickName = content.nickName;
-            self.data.tempUserInfo.birthDate = content.birthDate;
-            self.data.tempUserInfo.province = content.province;
-            self.data.tempUserInfo.city = content.city;
-            self.data.tempUserInfo.area = content.area;
-            self.data.tempUserInfo.homeProvince = content.homeProvince;
-            self.data.tempUserInfo.homeCity = content.homeCity;
-            self.data.tempUserInfo.homeArea = content.homeArea;
-            self.data.tempUserInfo.schoolName = content.schoolName;
-            self.data.tempUserInfo.entranceDate = content.entranceDate;
-            self.data.tempUserInfo.schoolType = content.schoolType;
-            self.data.tempUserInfo.liveState = content.liveState;
-            self.data.tempUserInfo.mobile = content.mobile;
-            self.data.tempUserInfo.weChatNo = content.weChatNo;
+            let userInfoAPI= 'app.globalData.userInfoAPI';
+            let gender = 'tempUserInfo.gender';
+            let nickName = 'tempUserInfo.nickName';
+            let birthDate = 'tempUserInfo.birthDate';
+            let province = 'tempUserInfo.province';
+            let city = 'tempUserInfo.city';
+            let area = 'tempUserInfo.area';
+            let homeProvince = 'tempUserInfo.homeProvince';
+            let homeCity = 'tempUserInfo.homeCity';
+            let homeArea = 'tempUserInfo.homeArea';
+            let schoolName = 'tempUserInfo.schoolName';
+            let entranceDate = 'tempUserInfo.entranceDate';
+            let schoolType = 'tempUserInfo.schoolType';
+            let liveState = 'tempUserInfo.liveState';
+            let mobile = 'tempUserInfo.mobile';
+            let weChatNo = 'tempUserInfo.weChatNo';
+            self.setData({
+              [gender] :content.gender,
+              [nickName]: content.nickName,
+              [birthDate]: content.birthDate,
+              [province]: content.province,
+              [city]: content.city,
+              [area]: content.area,
+              [homeProvince]: content.homeProvince,
+              [homeArea]: content.homeArea,
+              [schoolName]: content.schoolName,
+              [entranceDate]: content.entranceDate,
+              [schoolType]: content.schoolType,
+              [liveState]: content.liveState,
+              [mobile]: content.mobile,
+              [weChatNo]: content.weChatNo,
+            })
 
             //所在地下拉框默认值
-            self.data.placeRegion[0] = content.province;
-            self.data.placeRegion[1] = content.city;
-            self.data.placeRegion[2] = content.area;
+            placeRegion[0]= content.province;
+            placeRegion[1] = content.city;
+            placeRegion[2] = content.area;
 
             //家乡所在地下拉框默认值
-            self.data.homeTownRegion[0] = content.homeProvince;
-            self.data.homeTownRegion[1] = content.homeCity;
-            self.data.homeTownRegion[2] = content.homeArea;
+            homeTownRegion[0] = content.homeProvince;
+            homeTownRegion[1] = content.homeCity;
+            homeTownRegion[2] = content.homeArea;
+
+            app.globalData.userInfoAPI = content;
           }
         },
         fail: function (res) { console.error("获取用户信息失败!") }
+      })
+    }
+  },
+
+  //保存用户信息
+  updateUserInfo: function () {
+    let self = this;
+    let tempUserInfo = this.data.tempUserInfo;
+    if (app.globalData.apiHeader.UId > 0) {
+      wx.request({
+        url: app.globalData.baseUrl + 'api/UserInfo/UpdateUserInfo',
+        method: "POST",
+        header: app.globalData.httpHeader,
+        data: {
+          "Head": app.globalData.apiHeader,
+          "Content": { 
+            "UId": app.globalData.apiHeader.UId,
+            "Gender": tempUserInfo.gender,
+            "NickName": tempUserInfo.nickName,
+            "BirthDate": tempUserInfo.birthDate,
+            "Province": tempUserInfo.province,
+            "City": tempUserInfo.city,
+            "Area": tempUserInfo.area,
+            "HomeProvince": tempUserInfo.homeProvince,
+            "HomeCity": tempUserInfo.homeCity,
+            "HomeArea": tempUserInfo.homeArea,
+            "SchoolName": tempUserInfo.schoolName,
+            "EntranceDate": tempUserInfo.entranceDate,
+            "SchoolType": tempUserInfo.schoolType,
+            "LiveState": tempUserInfo.liveState,
+            "Mobile": tempUserInfo.mobile,
+            "WeChatNo": tempUserInfo.weChatNo,
+           }
+        },
+        success: function (res) {
+          if (res.data.head.success && res.data.content != null && res.data.content.excuteResult) {
+            console.info("修改用户信息成功") 
+          }
+        },
+        fail: function (res) { console.error("修改用户信息失败!") }
       })
     }
   },
@@ -86,39 +140,50 @@ Page({
 
   //生日下拉列表框
   bindBirthDayChange: function (e) {
-    // let self=this;
-    // this.setData({
-    //   this.data.tempUserInfo.birthDate = e.detail.value
-    // })
+    let birth ='tempUserInfo.birthDate';
+    this.setData({
+      [birth]: e.detail.value
+    })
   },
 
   //入学时间下拉列表
   bindEntranceDateChange: function (e) {
+    let entrance = 'tempUserInfo.entranceDate';
     this.setData({
-      entranceDate: e.detail.value
+      [entrance]: e.detail.value
     })
   },
 
   //所在地监听变化
   bindPlaceRegionChange: function (e) {
+    let province = 'tempUserInfo.province';
+    let city = 'tempUserInfo.city';
+    let area = 'tempUserInfo.area';
     this.setData({
-      placeRegion: e.detail.value
+      [province]: e.detail.value[0],
+      [city]: e.detail.value[1],
+      [area]: e.detail.value[2],
     })
   },
 
   //家乡所在地监听变化
   bindHomeTownRegionChange: function (e) {
+    let homeProvince = 'tempUserInfo.homeProvince';
+    let homeCity = 'tempUserInfo.homeCity';
+    let homeArea = 'tempUserInfo.homeArea';
     this.setData({
-      homeTownRegion: e.detail.value
+      [homeProvince]: e.detail.value[0],
+      [homeCity]: e.detail.value[1],
+      [homeArea]: e.detail.value[2],
     })
   },
 
   //学校类型下拉列表
   bindSchoolTypeChange: function (e) {
+    let schoolType = 'tempUserInfo.schoolType';
     this.setData({
-      schoolIndex: e.detail.value
+      [schoolType]: e.detail.value
     })
   }
-
 })
 
