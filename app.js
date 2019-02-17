@@ -3,18 +3,18 @@ App({
   globalData: {
     //baseUrl: "http://127.0.0.1:8899/",
     baseUrl: "https://localhost:44304/",
-    myAppid:"wx2198c700f25f79e8",
+    myAppid: "wx2198c700f25f79e8",
     mySecret: "fe423643c068c9827d8d8296e205a133",//小程序密钥
     httpHeader: { "Content-Type": "application/json" },
-    apiHeader:{"Token":"","UId":0,"Platform":"miniApp"},
-    openid:"",
-    session_key:"",
+    apiHeader: { "Token": "", "UId": 0, "Platform": "miniApp" },
+    openid: "",
+    session_key: "",
     userInfoWX: {}, //微信提供的用户信息
     userInfoAPI: {} //从API获取的用户信息
   },
 
   //当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-  onLaunch: function () {
+  onShow: function () {
     this.userLogin();
   },
 
@@ -66,13 +66,13 @@ App({
 
   //存入用户信息
   setUserInfo: function () {
-    let self=this;
+    let self = this;
     let userInfo = self.globalData.userInfoWX
     userInfo.openid = self.globalData.openid;
     wx.request({
       url: this.globalData.baseUrl + 'api/UserInfo/SetUserInfo',
       method: "POST",
-      data:{
+      data: {
         "Head": self.globalData.apiHeader,
         "Content": {
           "OpenId": self.globalData.userInfoWX.openid,
@@ -82,9 +82,9 @@ App({
       },
       header: self.globalData.httpHeader,
       success: function (res) {
-        if (res.Head.Success && res.Content.ExcuteResult) 
-          self.globalData.apiHeader.UId = res.data.Content.UId;
-         },
+        if (res.data.head.success && res.data.content.excuteResult)
+          self.globalData.apiHeader.UId = res.data.content.uId;
+      },
       fail: function (res) { console.error("存入用户信息失败!") }
     })
   },

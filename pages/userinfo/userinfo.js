@@ -7,50 +7,71 @@ Page({
     homeRegion: ['广东省', '广州市', '海珠区'],
     homeTownRegion: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
-    schoolTypeArray: ['其他','学院/大学', '一本', '211/985/海外院校'],
+    schoolTypeArray: ['其他', '学院/大学', '一本', '211/985/海外院校'],
     schoolIndex: 0,
+    tempUserInfo: {
+      "gender": 1,
+      "nickName": "Hello",
+      "birthDate": "2016-09-02",
+      "province": "广东省",
+      "city": "广州市",
+      "area": "海珠区",
+      "homeProvince": "广东省",
+      "homeCity": "广州市",
+      "homeArea": "海珠区",
+      "schoolName": "上海大学",
+      "entranceDate": "2017-09",
+      "schoolType": 0,
+      "liveState": 0,
+      "mobile": "18721019895",
+      "weChatNo": "xiamu13122028"
+    }
   },
   onShow: function () {
-    this.getUserInfoAPI();
+    //this.getUserInfoAPI();
   },
 
   //获取用户信息
   getUserInfoAPI: function () {
     let self = this;
-    let userInfo = app.globalData.userInfoWX
-    userInfo.openid = app.globalData.openid;
-    wx.request({
-      url: this.globalData.baseUrl + 'api/UserInfo/GetUserInfo',
-      method: "POST",
-      data: {
-        "Head": app.globalData.apiHeader,
-        "Content": { "UId": app.globalData.apiHeader.UId}
-      },
-      header: app.globalData.httpHeader,
-      success: function (res) {
-        if (res.Head.Success && res.Content!=null){
-          let content = res.Content;
-          app.globalData.userInfoAPI = content;
-          self.data.birthDay = content.BirthDate;
-          self.data.entranceDate = content.EntranceDate;
-          self.data.homeRegion[0] = content.Province;
-          self.data.homeRegion[1] = content.City;
-          self.data.homeRegion[2] = content.Area;
-          self.data.homeTownRegion[0] = content.HomeProvince;
-          self.data.homeTownRegion[1] = content.HomeCity;
-          self.data.homeTownRegion[2] = content.HomeArea;
-          self.data.schoolIndex = content.SchoolType;
-        }
-      },
-      fail: function (res) { console.error("获取用户信息失败!") }
-    })
+    if (app.globalData.apiHeader.UId > 0) {
+      wx.request({
+        url: app.globalData.baseUrl + 'api/UserInfo/GetUserInfo',
+        method: "POST",
+        data: {
+          "Head": app.globalData.apiHeader,
+          "Content": { "UId": app.globalData.apiHeader.UId }
+        },
+        header: app.globalData.httpHeader,
+        success: function (res) {
+          if (res.data.head.success && res.data.content != null) {
+            let content = res.data.content;
+            app.globalData.userInfoAPI = content;
+            self.data.tempUserInfo.gender = content.gender;
+            self.data.tempUserInfo.nickName = content.nickName;
+            self.data.tempUserInfo.birthDate = content.birthDate;
+            self.data.tempUserInfo.province = content.province;
+            self.data.tempUserInfo.homeProvince = content.homeProvince;
+            self.data.tempUserInfo.homeCity = content.homeCity;
+            self.data.tempUserInfo.homeArea = content.homeArea;
+            self.data.tempUserInfo.schoolName = content.schoolName;
+            self.data.tempUserInfo.entranceDate = content.entranceDate;
+            self.data.tempUserInfo.schoolType = content.schoolType;
+            self.data.tempUserInfo.liveState = content.liveState;
+            self.data.tempUserInfo.mobile = content.mobile;
+            self.data.tempUserInfo.weChatNo = content.weChatNo;
+          }
+        },
+        fail: function (res) { console.error("获取用户信息失败!") }
+      })
+    }
   },
 
   //页面下拉刷新监听
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
   },
-  
+
   //生日下拉列表框
   bindBirthDayChange: function (e) {
     this.setData({
@@ -85,6 +106,6 @@ Page({
       schoolIndex: e.detail.value
     })
   }
-  
+
 })
 
