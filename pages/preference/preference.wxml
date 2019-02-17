@@ -68,7 +68,7 @@
   </view>
   <view class="blockBtnView">
     <view class="btnView">
-      <button type="primary">保 存</button>
+      <button class="primary">保 存</button>
     </view>
   </view>
 </view>

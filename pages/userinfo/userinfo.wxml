@@ -108,7 +108,7 @@
   </view>
   <view class="blockView">
   <view>
-      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+      <navigator url="../../pages/mobilephone/mobilephone" class="navigator">
         <view class="navigatorView">
           <view class="title">手机号</view>
           <view class="desc">18721019895</view>
@@ -118,7 +118,7 @@
     </view>
     <view class="lineView"></view>
     <view>
-      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+      <navigator url="../../pages/wechatno/wechatno" class="navigator">
         <view class="navigatorView">
           <view class="title">微信号</view>
           <view class="desc">xiamu13122028</view>
@@ -129,7 +129,7 @@
   </view>
   <view class="blockBtnView">
   <view class="btnView">
-    <button type="primary">保 存</button>
+    <button class="primary">保 存</button>
   </view>
    </view>
 </view>

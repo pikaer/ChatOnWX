@@ -46,7 +46,7 @@ button {
   font-size:30rpx;
 }
 .btnRecharge {
-  background-color:skyblue;
+  background-color:#0099ff;
 }
 .btnFree {
   margin-top: 20rpx;

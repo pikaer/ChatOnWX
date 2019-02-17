@@ -200,3 +200,31 @@ page {
   transform: rotate(45deg);
   margin-top: 17rpx;
 }
+
+.inputView {
+  padding-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #00ff00;
+}
+
+.inputValueView {
+  font-size: 16px;
+  line-height: 50px;
+  height: 50px;
+  padding-left: 10px;
+  padding-top:7px;
+}
+
+
+.btnView {
+  margin-top: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.primary{
+  color:#FFFFFF;
+background-color:#0099ff;
+
+}

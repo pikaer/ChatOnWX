@@ -1,6 +1,6 @@
 <view class="inputView">
   <!--这个是输入框-->
-  <input class="inputValueView" placeholder="请输入学校名称" placeholder-style="color: gray" bindinput="listenerPhoneInput"/>
+  <input class="inputValueView" placeholder="请输入微信号" placeholder-style="color: gray" bindinput="listenerPhoneInput"/>
 
   <view class="btnView">
     <button type="primary">保 存</button>

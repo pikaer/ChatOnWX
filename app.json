@@ -9,11 +9,13 @@
     "pages/wallet/wallet",
     "pages/coindetail/coindetail",
     "pages/preference/preference",
+    "pages/mobilephone/mobilephone",
+    "pages/wechatno/wechatno",
     "pages/schoolname/schoolname"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0068C4",
+    "navigationBarBackgroundColor": "#0099ff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true

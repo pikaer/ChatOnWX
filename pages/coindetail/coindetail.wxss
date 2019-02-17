@@ -24,7 +24,7 @@
   justify-content:center;  
 }
 button{
-  border: 2rpx solid forestgreen;  
+  border: 2rpx solid #0099ff;  
   font-size: 28rpx;
   border-radius: 0;
 }
@@ -47,7 +47,7 @@ button::after{
   line-height: 55rpx;
   border-top-left-radius: 15rpx;
   border-bottom-left-radius: 15rpx;
-  background-color: forestgreen;
+  background-color: #0099ff;
 }
 .btnIncome {
   margin: 0rpx;
@@ -63,7 +63,7 @@ button::after{
   color:white;
   line-height: 55rpx;
   border-style:solid none;
-  background-color: forestgreen;
+  background-color: #0099ff;
 }
 .btnExpend {
   margin: 0rpx;
@@ -81,7 +81,7 @@ button::after{
   line-height: 55rpx;
   border-top-right-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
-  background-color: forestgreen;
+  background-color: #0099ff;
 }
 
 .transactionName {
@@ -104,7 +104,7 @@ button::after{
   position: relative;
   top:30rpx;
   float: right;
-  color:forestgreen;
+  color:#0099ff;
   font-size: 26rpx;
   text-align: left;
 }
