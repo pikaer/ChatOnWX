@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="titleView">hi,Pikaer</view>
+  <view class="titleView">hi,{{tempUserInfo.nickName}}</view>
   <view class="basicView">
     <view class="radio">
       <view class="radioLable">性别</view>
@@ -19,7 +19,7 @@
       <navigator url="../../pages/nickname/nickname" class="navigator">
         <view class="navigatorView">
           <view class="title">昵称</view>
-          <view class="desc">昵称昵称昵称昵称</view>
+          <view class="desc">{{tempUserInfo.nickName}}</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -28,8 +28,8 @@
     <view class="pickView">
       <view class="pickLable">生日</view>
       <view class="pickValue">
-        <picker mode="date" value="{{birthDay}}" start="1970-01-01" end="2019-12-01" bindchange="bindBirthDayChange">
-          <view class="pickData">{{birthDay}}</view>
+        <picker mode="date" value="{{tempUserInfo.birthDate}}" start="1970-01-01" end="2019-12-01" bindchange="bindBirthDayChange">
+          <view class="pickData">{{tempUserInfo.birthDate}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -38,9 +38,9 @@
     <view class="homeView">
       <view class="homeLable">所在地</view>
       <view class="homeValue">
-        <picker mode="region" bindchange="bindHomeRegionChange" value="{{homeRegion}}" custom-item="{{customItem}}">
+        <picker mode="region" bindchange="bindPlaceRegionChange" value="{{placeRegion}}" custom-item="{{customItem}}">
           <view class="picker">
-            {{homeRegion[0]}}-{{homeRegion[1]}}-{{homeRegion[2]}}
+            {{tempUserInfo.province}}-{{tempUserInfo.city}}-{{tempUserInfo.area}}
           </view>
         </picker>
       </view>
@@ -52,7 +52,7 @@
       <view class="homeValue">
         <picker mode="region" bindchange="bindHomeTownRegionChange" value="{{homeTownRegion}}" custom-item="{{customItem}}">
           <view class="picker">
-            {{homeTownRegion[0]}}-{{homeTownRegion[1]}}-{{homeTownRegion[2]}}
+            {{tempUserInfo.homeProvince}}-{{tempUserInfo.homeCity}}-{{tempUserInfo.homeArea}}
           </view>
         </picker>
       </view>
@@ -64,7 +64,7 @@
       <navigator url="../../pages/schoolname/schoolname" class="navigator">
         <view class="navigatorView">
           <view class="title">学校名称</view>
-          <view class="desc">上海大学</view>
+          <view class="desc">{{tempUserInfo.schoolName}}</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -73,8 +73,8 @@
     <view class="pickView">
       <view class="pickLable">入学时间</view>
       <view class="pickValue">
-        <picker mode="date" value="{{entranceDate}}" fields="month" start="1970-01" end="2019-12" bindchange="bindEntranceDateChange">
-          <view class="pickData">{{entranceDate}}</view>
+        <picker mode="date" value="{{tempUserInfo.entranceDate}}" fields="month" start="1970-01" end="2019-12" bindchange="bindEntranceDateChange">
+          <view class="pickData">{{tempUserInfo.entranceDate}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -83,8 +83,8 @@
     <view class="pickView">
       <view class="pickLable">学校类型</view>
       <view class="pickValue">
-        <picker bindchange="bindSchoolTypeChange" value="{{schoolIndex}}" range="{{schoolTypeArray}}">
-          <view class="pickData">{{schoolTypeArray[schoolIndex]}}</view>
+        <picker bindchange="bindSchoolTypeChange" value="{{tempUserInfo.schoolType}}" range="{{schoolTypeArray}}">
+          <view class="pickData">{{schoolTypeArray[tempUserInfo.schoolType]}}</view>
         </picker>
         <view class="arrow"></view>
       </view>
@@ -111,7 +111,7 @@
       <navigator url="../../pages/mobilephone/mobilephone" class="navigator">
         <view class="navigatorView">
           <view class="title">手机号</view>
-          <view class="desc">18721019895</view>
+          <view class="desc">{{tempUserInfo.mobile}}</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -121,7 +121,7 @@
       <navigator url="../../pages/wechatno/wechatno" class="navigator">
         <view class="navigatorView">
           <view class="title">微信号</view>
-          <view class="desc">xiamu13122028</view>
+          <view class="desc">{{tempUserInfo.weChatNo}}</view>
         </view>
         <view class="navigator-arrow"></view>
       </navigator>
