@@ -23,14 +23,14 @@ App({
     let self = this;
     wx.login({
       success: res => {
-        console.log(JSON.stringify(res.data));
+        console.log(JSON.stringify(res));
         if (res.code) {
           let reqUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=" + this.globalData.myAppid + "&secret=" + this.globalData.mySecret + "&js_code=" + res.code + "&grant_type=authorization_code"
           wx.request({
             url: reqUrl,
             header: self.globalData.httpHeader,
             success: function (res) {
-              console.log(res.data.openid) //获取openid
+              console.log(JSON.stringify(res)) //获取openid
               self.globalData.openid = res.data.openid;
               self.globalData.session_key = res.data.session_key;
               self.getUserInfoWX();
@@ -51,7 +51,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              console.info("获取微信用户信息成功!");
+              console.info("获取微信用户信息成功!" + JSON.stringify(res));
               // 可以将 res 发送给后台解码出 unionId
               self.globalData.userInfoWX = res.userInfo
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回所以此处加入 callback 以防止这种情况
