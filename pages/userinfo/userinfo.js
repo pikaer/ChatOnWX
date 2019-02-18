@@ -58,6 +58,14 @@ Page({
             let liveState = 'tempUserInfo.liveState';
             let mobile = 'tempUserInfo.mobile';
             let weChatNo = 'tempUserInfo.weChatNo';
+
+            var placeRegion0 = "placeRegion[" + 0 + "]";
+            var placeRegion1 = "placeRegion[" + 1 + "]";
+            var placeRegion2 = "placeRegion[" + 2 + "]";
+            var homeTownRegion0 = "homeTownRegion[" + 0 + "]";
+            var homeTownRegion1 = "homeTownRegion[" + 1 + "]";
+            var homeTownRegion2 = "homeTownRegion[" + 2 + "]";
+
             self.setData({
               [gender] :content.gender,
               [nickName]: content.nickName,
@@ -73,17 +81,27 @@ Page({
               [liveState]: content.liveState,
               [mobile]: content.mobile,
               [weChatNo]: content.weChatNo,
+
+              //所在地下拉框默认值
+              [placeRegion0] : content.province,
+              [placeRegion1] : content.city,
+              [placeRegion2] : content.area,
+
+              //家乡所在地下拉框默认值
+              [homeTownRegion0]: content.homeProvince,
+              [homeTownRegion1]: content.homeCity,
+              [homeTownRegion2]: content.homeArea
             })
 
             //所在地下拉框默认值
-            placeRegion[0]= content.province;
-            placeRegion[1] = content.city;
-            placeRegion[2] = content.area;
+            self.data.placeRegion[0]= content.province;
+            self.data.placeRegion[1] = content.city;
+            self.data.placeRegion[2] = content.area;
 
             //家乡所在地下拉框默认值
-            homeTownRegion[0] = content.homeProvince;
-            homeTownRegion[1] = content.homeCity;
-            homeTownRegion[2] = content.homeArea;
+            self.data.homeTownRegion[0] = content.homeProvince;
+            self.data.homeTownRegion[1] = content.homeCity;
+            self.data.homeTownRegion[2] = content.homeArea;
 
             app.globalData.userInfoAPI = content;
           }
@@ -159,10 +177,16 @@ Page({
     let province = 'tempUserInfo.province';
     let city = 'tempUserInfo.city';
     let area = 'tempUserInfo.area';
+    var placeRegion0 = "placeRegion[" + 0 + "]";
+    var placeRegion1 = "placeRegion[" + 1 + "]";
+    var placeRegion2 = "placeRegion[" + 2 + "]";
     this.setData({
       [province]: e.detail.value[0],
       [city]: e.detail.value[1],
       [area]: e.detail.value[2],
+      [placeRegion0]: e.detail.value[0],
+      [placeRegion1]: e.detail.value[1],
+      [placeRegion2]: e.detail.value[2],
     })
   },
 
@@ -171,10 +195,16 @@ Page({
     let homeProvince = 'tempUserInfo.homeProvince';
     let homeCity = 'tempUserInfo.homeCity';
     let homeArea = 'tempUserInfo.homeArea';
+    var homeTownRegion0 = "homeTownRegion[" + 0 + "]";
+    var homeTownRegion1 = "homeTownRegion[" + 1 + "]";
+    var homeTownRegion2 = "homeTownRegion[" + 2 + "]";
     this.setData({
       [homeProvince]: e.detail.value[0],
       [homeCity]: e.detail.value[1],
       [homeArea]: e.detail.value[2],
+      [homeTownRegion0]: e.detail.value[0],
+      [homeTownRegion1]: e.detail.value[1],
+      [homeTownRegion2]: e.detail.value[2],
     })
   },
 
@@ -183,6 +213,22 @@ Page({
     let schoolType = 'tempUserInfo.schoolType';
     this.setData({
       [schoolType]: e.detail.value
+    })
+  },
+
+  //性别单选框值变动
+  genderChange: function (e) {
+    let gender = 'tempUserInfo.gender';
+    this.setData({
+      [gender]: e.detail.value
+    })
+  },
+
+  //学籍状态单选框值变动
+  liveStateChange: function (e) {
+    let liveState = 'tempUserInfo.liveState';
+    this.setData({
+      [liveState]: e.detail.value
     })
   }
 })

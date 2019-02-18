@@ -4,12 +4,12 @@
     <view class="radio">
       <view class="radioLable">性别</view>
       <view class="radioView">
-        <radio-group class="group" bindchange="radioChange">
+        <radio-group class="group" bindchange="genderChange">
           <label class="labelMan">
-            <radio value="1" checked="true" />小哥哥
+            <radio value="1" checked="{{tempUserInfo.gender!=2}}" />小哥哥
           </label>
           <label class="labelWoman">
-            <radio value="2" />小姐姐
+            <radio value="2" checked="{{tempUserInfo.gender==2}}"/>小姐姐
           </label>
         </radio-group>
       </view>
@@ -93,12 +93,12 @@
     <view class="radio">
       <view class="radioLable">学籍状态</view>
       <view class="radioView">
-        <radio-group class="group" bindchange="radioChange">
+        <radio-group class="group" bindchange="liveStateChange">
           <label class="labelMan">
-            <radio value="1" checked="true" />学生党
+            <radio value="1" checked="{{tempUserInfo.liveState!=2}}" />学生党
           </label>
           <label class="labelWoman">
-            <radio value="2" />工作党
+            <radio value="2" checked="{{tempUserInfo.liveState==2}}"/>工作党
           </label>
         </radio-group>
       </view>
