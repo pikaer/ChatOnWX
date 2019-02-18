@@ -15,12 +15,12 @@ Page({
       "homeProvince": "海南省",
       "homeCity": "三亚市",
       "homeArea": "海珠区",
-      "schoolName": "上海大学123",
+      "schoolName": "上海大学",
       "entranceDate": "2017-12",
       "schoolType": 1,
       "liveState": 2,
-      "mobile": "18721019895ew",
-      "weChatNo": "xiamu13122028ew"
+      "mobile": "18721019895",
+      "weChatNo": "xiamu13122028"
     }
   },
   onShow: function () {
@@ -92,17 +92,6 @@ Page({
               [homeTownRegion1]: content.homeCity,
               [homeTownRegion2]: content.homeArea
             })
-
-            //所在地下拉框默认值
-            self.data.placeRegion[0]= content.province;
-            self.data.placeRegion[1] = content.city;
-            self.data.placeRegion[2] = content.area;
-
-            //家乡所在地下拉框默认值
-            self.data.homeTownRegion[0] = content.homeProvince;
-            self.data.homeTownRegion[1] = content.homeCity;
-            self.data.homeTownRegion[2] = content.homeArea;
-
             app.globalData.userInfoAPI = content;
           }
         },
