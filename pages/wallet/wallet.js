@@ -21,12 +21,14 @@ var typeList = [{
   }
 ]
 
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    goldCoinCount:-1,
     showModalStatus: false,
     list: typeList
   },
@@ -77,6 +79,23 @@ Page({
     }.bind(this), 200)
   },
 
+  getGoldCoinCount:function() {
+    wx.request({
+      url: app.globalData.baseUrl + 'api/GoldCoin/GetGoldCoinNumberByUid',
+      method: "POST",
+      data: {
+        "Head": app.globalData.apiHeader,
+        "Content":null
+      },
+      header: app.globalData.httpHeader,
+      success: function (res) {
+        if (res.data.head.success && res.data.content != null){
+          goldCoinCount = res.data.content;
+        }                  
+      },
+      fail: function (res) { console.error("获取用户金币信息失败!"); goldCoinCount = res.data.content;}
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -94,7 +113,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getGoldCoinCount();
   },
 
   /**

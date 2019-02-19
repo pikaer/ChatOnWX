@@ -9,7 +9,7 @@
     </view>
     <view class="coinInfo">
       <view class="iconfont icon-jinbi"></view>
-      <view class="coinNum">450</view>
+      <view class="coinNum">{{goldCoinCount}}</view>
       <view class="coinText">金币余额</view>
     </view>
   </view>
