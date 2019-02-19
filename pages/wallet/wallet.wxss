@@ -66,7 +66,8 @@ button {
   color: #fff;
 }
 .dialog_box {
-  border-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  border-top-left-radius: 25rpx;
   width: 100%;
   overflow: hidden;
   position: fixed;
