@@ -23,7 +23,7 @@ Page({
       "weChatNo": "xiamu13122028"
     }
   },
-  onShow: function () {
+  onLoad: function () {
     this.getUserInfoAPI();
   },
 
@@ -42,7 +42,7 @@ Page({
         success: function (res) {
           if (res.data.head.success && res.data.content != null) {
             let content = res.data.content;
-            let userInfoAPI= 'app.globalData.userInfoAPI';
+            let userInfoAPI = 'app.globalData.userInfoAPI';
             let gender = 'tempUserInfo.gender';
             let nickName = 'tempUserInfo.nickName';
             let birthDate = 'tempUserInfo.birthDate';
@@ -67,7 +67,7 @@ Page({
             var homeTownRegion2 = "homeTownRegion[" + 2 + "]";
 
             self.setData({
-              [gender] :content.gender,
+              [gender]: content.gender,
               [nickName]: content.nickName,
               [birthDate]: content.birthDate,
               [province]: content.province,
@@ -83,9 +83,9 @@ Page({
               [weChatNo]: content.weChatNo,
 
               //所在地下拉框默认值
-              [placeRegion0] : content.province,
-              [placeRegion1] : content.city,
-              [placeRegion2] : content.area,
+              [placeRegion0]: content.province,
+              [placeRegion1]: content.city,
+              [placeRegion2]: content.area,
 
               //家乡所在地下拉框默认值
               [homeTownRegion0]: content.homeProvince,
@@ -111,7 +111,7 @@ Page({
         header: app.globalData.httpHeader,
         data: {
           "Head": app.globalData.apiHeader,
-          "Content": { 
+          "Content": {
             "UId": app.globalData.apiHeader.UId,
             "Gender": tempUserInfo.gender,
             "NickName": tempUserInfo.nickName,
@@ -128,11 +128,16 @@ Page({
             "LiveState": tempUserInfo.liveState,
             "Mobile": tempUserInfo.mobile,
             "WeChatNo": tempUserInfo.weChatNo,
-           }
+          }
         },
         success: function (res) {
           if (res.data.head.success && res.data.content != null && res.data.content.excuteResult) {
-            console.info("修改用户信息成功") 
+            console.info("修改用户信息成功")
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 1000
+            })
           }
         },
         fail: function (res) { console.error("修改用户信息失败!") }
@@ -140,6 +145,13 @@ Page({
     }
   },
 
+  function() {
+    wx.showToast({
+      title: '成功',
+      icon: 'success',
+      duration: 2000
+    })
+  },
   //页面下拉刷新监听
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
@@ -147,7 +159,7 @@ Page({
 
   //生日下拉列表框
   bindBirthDayChange: function (e) {
-    let birth ='tempUserInfo.birthDate';
+    let birth = 'tempUserInfo.birthDate';
     this.setData({
       [birth]: e.detail.value
     })

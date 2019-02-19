@@ -82,8 +82,9 @@ App({
       },
       header: self.globalData.httpHeader,
       success: function (res) {
-        if (res.data.head.success && res.data.content.excuteResult)
+        if (res.data.head.success && res.data.content.excuteResult){
           self.globalData.apiHeader.UId = res.data.content.uId;
+        }
       },
       fail: function (res) { console.error("存入用户信息失败!") }
     })

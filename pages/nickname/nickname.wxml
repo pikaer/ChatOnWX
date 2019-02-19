@@ -1,8 +1,8 @@
 <view class="inputView">
   <!--这个是输入框-->
-  <input class="inputValueView" placeholder="请输入昵称" placeholder-style="color: gray"/>
+  <input class="inputValueView" placeholder="请输入昵称" value="{{tempNickName}}" bindinput="nickNameInput" placeholder-style="color: gray"/>
 
   <view class="btnView">
-    <button type="primary">保 存</button>
+    <button type="primary" bindtap='updateNickName'>保 存</button>
   </view>
 </view>

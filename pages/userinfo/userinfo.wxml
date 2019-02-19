@@ -16,7 +16,7 @@
     </view>
     <view class="lineView"></view>
     <view>
-      <navigator url="../../pages/nickname/nickname" class="navigator">
+      <navigator url="../../pages/nickname/nickname?nickName={{tempUserInfo.nickName}}" class="navigator">
         <view class="navigatorView">
           <view class="title">昵称</view>
           <view class="desc">{{tempUserInfo.nickName}}</view>
@@ -61,7 +61,7 @@
   </view>
   <view class="blockView">
     <view>
-      <navigator url="../../pages/schoolname/schoolname" class="navigator">
+      <navigator url="../../pages/schoolname/schoolname?schoolName={{tempUserInfo.schoolName}}" class="navigator">
         <view class="navigatorView">
           <view class="title">学校名称</view>
           <view class="desc">{{tempUserInfo.schoolName}}</view>
@@ -108,7 +108,7 @@
   </view>
   <view class="blockView">
   <view>
-      <navigator url="../../pages/mobilephone/mobilephone" class="navigator">
+      <navigator url="../../pages/mobilephone/mobilephone?mobile={{tempUserInfo.mobile}}" class="navigator">
         <view class="navigatorView">
           <view class="title">手机号</view>
           <view class="desc">{{tempUserInfo.mobile}}</view>
@@ -118,7 +118,7 @@
     </view>
     <view class="lineView"></view>
     <view>
-      <navigator url="../../pages/wechatno/wechatno" class="navigator">
+      <navigator url="../../pages/wechatno/wechatno?weChatNo={{tempUserInfo.weChatNo}}" class="navigator">
         <view class="navigatorView">
           <view class="title">微信号</view>
           <view class="desc">{{tempUserInfo.weChatNo}}</view>

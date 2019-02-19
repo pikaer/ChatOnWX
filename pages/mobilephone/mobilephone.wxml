@@ -1,8 +1,8 @@
 <view class="inputView">
   <!--这个是输入框-->
-  <input class="inputValueView" placeholder="请输入手机号" placeholder-style="color: gray"/>
+  <input class="inputValueView" placeholder="请输入手机号" bindinput="mobileInput" placeholder-style="color: gray" value="{{tempMobile}}"/>
 
   <view class="btnView">
-    <button type="primary">保 存</button>
+    <button type="primary" bindtap='updateMobile'>保 存</button>
   </view>
 </view>
