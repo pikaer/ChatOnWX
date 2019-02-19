@@ -138,18 +138,24 @@ Page({
               icon: 'success',
               duration: 1000
             })
+          }else{
+            saveToast(false);
           }
         },
-        fail: function (res) { console.error("修改用户信息失败!") }
+        fail: function (res) { 
+          console.error("修改用户信息失败!")
+          saveToast(false);
+         }
       })
     }
   },
 
-  function() {
+  saveToast:function(isSuccess){
+    let title = isSuccess ? "保存成功" :"保存失败";
     wx.showToast({
-      title: '成功',
+      title: '保存成功',
       icon: 'success',
-      duration: 2000
+      duration: 1000
     })
   },
   //页面下拉刷新监听
