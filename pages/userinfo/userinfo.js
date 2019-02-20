@@ -41,8 +41,8 @@ Page({
         header: app.globalData.httpHeader,
         success: function (res) {
           if (res.data.head.success && res.data.content != null) {
+            console.info("获取用户信息成功");
             let content = res.data.content;
-            let userInfoAPI = 'app.globalData.userInfoAPI';
             let gender = 'tempUserInfo.gender';
             let nickName = 'tempUserInfo.nickName';
             let birthDate = 'tempUserInfo.birthDate';
@@ -74,6 +74,7 @@ Page({
               [city]: content.city,
               [area]: content.area,
               [homeProvince]: content.homeProvince,
+              [homeCity]: content.homeCity,
               [homeArea]: content.homeArea,
               [schoolName]: content.schoolName,
               [entranceDate]: content.entranceDate,

@@ -1,12 +1,12 @@
 App({
   //全局变量
   globalData: {
-    baseUrl: "http://127.0.0.1:8899/",
-    //baseUrl: "https://localhost:44304/",
+    //baseUrl: "http://127.0.0.1:8899/",
+    baseUrl: "https://localhost:44304/",
     myAppid: "wx2198c700f25f79e8",
-    mySecret: "fe423643c068c9827d8d8296e205a133",//小程序密钥
+    mySecret: "07b061f194e468f011466834e4f5aa01",//小程序密钥
     httpHeader: { "Content-Type": "application/json" },
-    apiHeader: { "Token": "", "UId": 0, "Platform": "miniApp" },
+    apiHeader: { "Token": "", "UId": 1, "Platform": "miniApp" },
     openid: "",
     session_key: "",
     userInfoWX: {}, //微信提供的用户信息
@@ -15,7 +15,7 @@ App({
 
   //当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
   onShow: function () {
-    this.userLogin();
+    //this.userLogin();
   },
 
   //用户登录
@@ -82,8 +82,12 @@ App({
       },
       header: self.globalData.httpHeader,
       success: function (res) {
-        if (res.data.head.success && res.data.content.excuteResult){
+        if (res.data!=""&&res.data.head.success && res.data.content.excuteResult){
+          console.info("存入用户信息成功");
           self.globalData.apiHeader.UId = res.data.content.uId;
+        }
+        else{
+          console.error("存入用户信息失败!");
         }
       },
       fail: function (res) { console.error("存入用户信息失败!") }

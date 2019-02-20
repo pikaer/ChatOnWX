@@ -1,25 +1,41 @@
-<!-- 聊天列表遍历 -->
 <view class="container">
-  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="container chat" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-    <navigator url="/pages/chatdetail/chatdetail?userId={{value.userId}}&nickName={{value.nickName}}" wx:for="{{chatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.userId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem" class="chat-item flex-wrp">
-      <view class="avatar flex-item">
-        <image src="{{value.headshotPathDesc}}"></image>
+  <view class="headPhotoView">
+    <image class="userHead" src="../../content/images/pikaer.jpg"></image>
+  </view>
+  <view class="chatContent">
+    <view class="chat-source">
+      <text class="chatMate">123</text>
+      <text class="lastTime">hahha</text>
+    </view>
+    <view class="chatSource">
+      <text class="chatTxt">哈女女</text>
+      <text class="unreadCount">23</text>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 聊天列表遍历
+<view class="container">
+  <navigator url="/pages/chatdetail/chatdetail?userId={{value.uId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem" class="chatNavigator">
+      <view class="avatarImg">
+        <image src="{{value.headImgPath}}"></image>
       </view>
       <view class="chat-content flex-item">
         <view class="chat-source">
-          <text class="chatmate">{{value.nickName}}</text>
-          <text class="lasttime">{{value.recentChatTimeDesc}}</text>
+          <text class="chatmate">{{value.dispalyName}}</text>
+          <text class="lasttime">{{value.latestChatTime}}</text>
         </view>
         <view class="chat-source">
-          <text class="chat-txt">{{value.recentChatContent}}</text>
-          <text class="unreadcount">{{value.unreadCount}}</text>
+          <text class="chat-txt">{{value.latestChatContent}}</text>
+          <text class="unreadcount">{{value.unReadCount}}</text>
         </view>
       </view>
     </navigator>
-  </scroll-view>
   <view class="body-view">
     <loading hidden="{{hidden}}" bindchange="loadingChange">
       加载中...
     </loading>
   </view>
-</view>
+</view> -->
