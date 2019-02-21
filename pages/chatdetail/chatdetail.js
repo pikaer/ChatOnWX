@@ -29,7 +29,7 @@ Page({
 
   //每次加载页面事件
   onShow: function () {
-    this.getChatContentList();
+    //this.getChatContentList();
   },
 
   //获取聊天内容

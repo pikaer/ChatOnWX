@@ -1,41 +1,19 @@
-<view class="container">
-  <view class="headPhotoView">
-    <image class="userHead" src="../../content/images/pikaer.jpg"></image>
-  </view>
-  <view class="chatContent">
-    <view class="chat-source">
-      <text class="chatMate">123</text>
-      <text class="lastTime">hahha</text>
+<view class="chatContainer">
+  <navigator url="/pages/chatdetail/chatdetail?userId={{value.uId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem"
+    class="chatNavigator">
+    <view class="chatArea">
+      <view class="headPhotoView">
+        <image class="userHead" src="{{value.headImgPath}}"></image>
+      </view>
+      <view class="centerView">
+        <view class="dispalyNameTxt">{{value.dispalyName}}</view>
+        <view class="chatContentTxt">{{value.latestChatContent}}</view>
+      </view>
+      <view class="rightView">
+        <view class="unreadCount">{{value.unReadCount}}</view>
+        <view class="chatTime">{{value.latestChatTime}}</view>
+      </view>
     </view>
-    <view class="chatSource">
-      <text class="chatTxt">哈女女</text>
-      <text class="unreadCount">23</text>
-    </view>
-  </view>
-
+    <view class="chatLineView"></view>
+  </navigator>
 </view>
-
-
-<!-- 聊天列表遍历
-<view class="container">
-  <navigator url="/pages/chatdetail/chatdetail?userId={{value.uId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem" class="chatNavigator">
-      <view class="avatarImg">
-        <image src="{{value.headImgPath}}"></image>
-      </view>
-      <view class="chat-content flex-item">
-        <view class="chat-source">
-          <text class="chatmate">{{value.dispalyName}}</text>
-          <text class="lasttime">{{value.latestChatTime}}</text>
-        </view>
-        <view class="chat-source">
-          <text class="chat-txt">{{value.latestChatContent}}</text>
-          <text class="unreadcount">{{value.unReadCount}}</text>
-        </view>
-      </view>
-    </navigator>
-  <view class="body-view">
-    <loading hidden="{{hidden}}" bindchange="loadingChange">
-      加载中...
-    </loading>
-  </view>
-</view> -->
