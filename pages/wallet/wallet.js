@@ -2,7 +2,7 @@
 var typeList = [{
     "id": 1,
     "goldCoin": "36",
-    "moneyNum":"6.0元"
+    "moneyNum": "6.0元"
   },
   {
     "id": 2,
@@ -28,29 +28,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goldCoinCount:-1,
+    goldCoinCount: -1,
     showModalStatus: false,
     list: typeList
   },
-  recharge:function(){
+  recharge: function() {
     this.showModal()
   },
   /**
    * 显示遮罩层
    */
-  showModal:function(){
+  showModal: function() {
     var animation = wx.createAnimation({
-      duration:200,
-      timingFunction:"linear",
-      delay:0
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
     })
     this.animation = animation
     animation.translateY(300).step()
     this.setData({
       animationData: animation.export(),
-      showModalStatus:true
+      showModalStatus: true
     })
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       this.setData({
         animationData: animation.export()
@@ -58,7 +58,7 @@ Page({
     }.bind(this), 200)
   },
 
-  hideModal: function () {
+  hideModal: function() {
     // 隐藏遮罩层
     var animation = wx.createAnimation({
       duration: 200,
@@ -70,7 +70,7 @@ Page({
     this.setData({
       animationData: animation.export(),
     })
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       this.setData({
         animationData: animation.export(),
@@ -79,28 +79,40 @@ Page({
     }.bind(this), 200)
   },
 
-  getGoldCoinCount:function() {
+  getGoldCoinCount: function() {
+    let self = this;
     wx.request({
-      url: app.globalData.baseUrl + 'api/GoldCoin/GetGoldCoinNumberByUid',
+      url: app.globalData.baseUrl + 'api/GoldCoin/GetGoldCoinNumber',
       method: "POST",
       data: {
         "Head": app.globalData.apiHeader,
-        "Content":null
+        "Content": {
+          "UId": app.globalData.apiHeader.UId
+        }
       },
       header: app.globalData.httpHeader,
-      success: function (res) {
-        if (res.data.head.success && res.data.content != null){
-          goldCoinCount = res.data.content;
-        }                  
+      success: function(res) {
+        if (res.data.head.success && res.data.content != null) {
+          console.info("获取用户金币成功!")
+          self.setData({
+            goldCoinCount: res.data.content.totalCoin
+          })
+        }
+        wx.stopPullDownRefresh();
       },
-      fail: function (res) { console.error("获取用户金币信息失败!"); goldCoinCount = res.data.content;}
+      fail: function(res) {
+        console.error("获取用户金币信息失败!");
+        self.setData({
+          goldCoinCount: -1
+        })
+        wx.stopPullDownRefresh();
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -134,7 +146,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.getGoldCoinCount();
   },
 
   /**

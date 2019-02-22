@@ -42,6 +42,7 @@ var dataList = [{
     "data": "2019-02-15"
   }
 ];
+var app = getApp();
 
 Page({
   /**
@@ -52,17 +53,19 @@ Page({
     isAllChecked: true,
     isIncomeChecked: false,
     isExpendChecked: false,
-    allData: dataList
+    allData:[],
+    coinDetails: []
   },
 
   clickButton: function(e) {
+    let temp = this.data.allData;
     switch (e.target.dataset.num) {
       case "1":
         this.setData({
           isAllChecked: true,
           isIncomeChecked: false,
           isExpendChecked: false,
-          allData: dataList
+          coinDetails: temp
         })
         break;
       case "2":
@@ -70,8 +73,8 @@ Page({
           isAllChecked: false,
           isIncomeChecked: true,
           isExpendChecked: false,
-          allData: dataList.filter(function(e) {
-            return parseInt(e.count) > 0;
+          coinDetails: temp.filter(function(e) {
+            return parseInt(e.alertCoinNum) > 0;
           })
         })
         break;
@@ -80,12 +83,43 @@ Page({
           isAllChecked: false,
           isIncomeChecked: false,
           isExpendChecked: true,
-          allData: dataList.filter(function(e) {
-            return parseInt(e.count) < 0;
+          coinDetails: temp.filter(function(e) {
+            return parseInt(e.alertCoinNum) < 0;
           })
         })
         break;
     }
+  },
+
+  getGoldCoinDetails: function() {
+    let self = this;
+    wx.request({
+      url: app.globalData.baseUrl + 'api/GoldCoin/GetGoldCoinDetails',
+      method: "POST",
+      data: {
+        "Head": app.globalData.apiHeader,
+        "Content": {
+          "UId": app.globalData.apiHeader.UId
+        }
+      },
+      header: app.globalData.httpHeader,
+      success: function(res) {
+        if (res.data.head.success && res.data.content != null) {
+          console.info("获取金币详情成功！")
+          self.setData({
+            allData: res.data.content.goldCoinDetaislList,
+            coinDetails: res.data.content.goldCoinDetaislList
+          });
+        } else {
+          console.error("获取聊天列表失败！");
+        }
+        wx.stopPullDownRefresh();
+      },
+      fail: function(res) {
+        console.error("获取聊天列表失败！");
+        wx.stopPullDownRefresh();
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -105,7 +139,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getGoldCoinDetails();
   },
 
   /**
@@ -126,7 +160,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.getGoldCoinDetails();
   },
 
   /**
