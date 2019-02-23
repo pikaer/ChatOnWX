@@ -1,5 +1,17 @@
 <view class="chatContainer">
-  <navigator url="/pages/chatdetail/chatdetail?userId={{value.uId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem"
+  <view class="chatArea">
+    <view class="friendView">
+      <view class="friendListView">
+        <i class="iconfont user-group"></i>
+      </view>
+    </view>
+    <view class="defaultContent">
+      好友列表
+    </view>
+  </view>
+  <view class="chatLineView"></view>
+
+  <navigator url="/pages/chatdetail/chatdetail?partnerUId={{value.partnerUId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}' bindtap="clearunreadCount" bindlongpress="deleteItem"
     class="chatNavigator">
     <view class="chatArea">
       <view class="headPhotoView">
@@ -10,8 +22,8 @@
         <view class="chatContentTxt">{{value.latestChatContent}}</view>
       </view>
       <view class="rightView">
-        <view class="unreadCount">{{value.unReadCount}}</view>
         <view class="chatTime">{{value.latestChatTime}}</view>
+        <view class="unreadCount">{{value.unReadCount}}</view>
       </view>
     </view>
     <view class="chatLineView"></view>

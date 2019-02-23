@@ -1,62 +1,155 @@
-.viewSend {
-  float: right;
-  margin-top: 34rpx;
-  margin-right: 15px;
+.chatContainer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: white;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 70px;
 }
 
-.txtSend {
-  font-size: 30rpx;
-  margin-right: 10rpx;
+.leftView {
+  width: 100%;
+  height: 100%;
+}
+
+.leftcontentimg {
+  float: left;
+}
+
+.leftheadImgPath {
+  float: left;
+  width: 48px;
+  height: 48px;
+  border-radius: 200px;
+  margin-top: 8.5px;
+  margin-left: 8px;
+}
+
+.leftchatcontent {
+  float: left;
+  font-size: 14px;
+  margin-top: 14px;
+  margin-left: 8px;
+  max-width: 55%;
+  background: #f0f4f3;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-top: 10px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+}
+
+.createtime {
+  font-size: 12px;
+  clear: both;
+  text-align: center;
+  padding-top: 10px;
+}
+
+page {
+  background-color: white;
+  height: 100%;
+  line-height: 1.6;
+}
+
+.createTimeDesc {
+  height: 25px;
+  color: #b0b0b0;
+  margin-top: 10px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding-top: 4px;
+}
+
+.rightView {
+  width: 100%;
+  height: 100%;
+}
+
+.rightcontentimg {
+  float: right;
+}
+
+.rightchatcontent {
+  float: right;
+  font-size: 14px;
+  margin-top: 14px;
+  margin-right: 8px;
+  max-width: 55%;
+  background: #7fff00;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-top: 10px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+}
+
+.rightheadImgPath {
+  float: right;
+  width: 48px;
+  height: 48px;
+  border-radius: 200px;
+  margin-top: 8.5px;
+  margin-right: 8px;
 }
 
 .viewinput {
   width: 80%;
   background-color: white;
   float: left;
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   font-size: 30rpx;
   height: 70rpx;
   border-radius: 7rpx;
+  padding-bottom: 7px;
 }
 
 .inputarea {
   width: 100%;
   background-color: rgb(243, 243, 243);
+  position: fixed;
+  bottom: 0px;
 }
 
-.contentlist {
-  align-self: left;
-  padding-left: 5px;
-  padding-bottom:5rpx;
-  background-color: white;
-  width: 100%;
-  padding-top: 5px;
-  border-bottom:2rpx solid #F0F4F3;
+.txtSend {
+  width: 40px;
+  height: 30px;
+  background: #7fff00;
+  padding-left: 4px;
+  padding-right: 3px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 3px;
 }
 
-.contentimg {
+.viewSend {
   float: left;
+  margin-top: 15px;
+  margin-left: 0px;
 }
 
-.img {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 5rpx;
+.chatLineView {
+  margin: 0 auto;
+  width: 100%;
+  height: 1.5rpx;
+  background-color: #e5e5e5;
+  clear: both;
 }
 
-.content{
-  margin-left:85rpx;
-}
-
-.chatcontent {
+input {
+  width: 80%;
+  background-color: white;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   font-size: 30rpx;
-  margin-left: 10rpx;
-  max-width:85%;
-}
-
-.createtime {
-  margin-top: 5rpx;
-  margin-left: 10rpx;
-  font-size: 25rpx;
-  color:rgb(164, 166, 168);
+  height: 70rpx;
+  border-radius: 7rpx;
 }

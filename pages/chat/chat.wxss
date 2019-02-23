@@ -1,8 +1,8 @@
 .userHead {
-  width: 110rpx;
-  height: 110rpx;
+  width: 48px;
+  height: 48px;
   border-radius: 200px;
-  margin-top: 8px;
+  margin-top: 10px;
   margin-left: 8px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .chatArea {
-  height: 70px;
+  height: 65px;
   width: 100%;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .dispalyNameTxt {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .rightView {
@@ -51,14 +51,12 @@
 }
 
 .chatContentTxt {
-  font-size: 14px;
-  margin-top: 3px;
+  font-size: 13px;
   color: #8e8e8e;
 }
 
 .chatTime {
   font-size: 13px;
-  margin-top: 5px;
   color: #8e8e8e;
 }
 
@@ -73,9 +71,27 @@
   font-weight: 600;
   line-height: 25px;
   margin-left: 25px;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
-.chatTime {
-  font-size: 12px;
+.defaultContent {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 5px;
+  float: left;
+}
+
+.friendListView {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background-color: #EEC591;
+  text-align: center;
+  line-height: 55px;
+}
+
+.friendView {
+  float: left;
+  margin-top: 7px;
+  margin-left: 8px;
 }

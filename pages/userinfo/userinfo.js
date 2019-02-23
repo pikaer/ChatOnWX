@@ -151,14 +151,6 @@ Page({
     }
   },
 
-  saveToast:function(isSuccess){
-    let title = isSuccess ? "保存成功" :"保存失败";
-    wx.showToast({
-      title: '保存成功',
-      icon: 'success',
-      duration: 1000
-    })
-  },
   //页面下拉刷新监听
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
