@@ -1,4 +1,4 @@
-<view class="chatContainer">
+<view  class="chatContainer">
   <view wx:for="{{chatContentList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.userId}}' data-key='{{key}}'>
     <!-- 左边对话框 -->
     <view class="leftView" hidden='{{value.isOwner}}'>

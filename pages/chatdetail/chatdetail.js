@@ -20,26 +20,12 @@ Page({
       partnerNnickName: opts.nickName,
       partnerId: opts.partnerUId
     })
-
-    // this.hubConnect = new Hub.HubConnection();
-    // this.hubConnect.start(app.globalData.baseUrl+"chat", {UserId: 1});
-    // this.hubConnect.onOpen = res => {
-    //   console.log("成功开启连接")
-    // }
   },
 
   //下拉刷新页面数据
   onPullDownRefresh: function () {
     //获取聊天数据结束后，停止刷新下拉
     wx.stopPullDownRefresh();
-  },
-
-  //卸载页面事件
-  onUnload: function() {
-    this.hubConnect.close({
-      reason: "退出"
-    })
-    console.log("断开与用户Id=" + this.data.partnerId + "的用户的websocket连接")
   },
 
   //每次加载页面事件
