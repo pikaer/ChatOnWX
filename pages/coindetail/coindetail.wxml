@@ -13,15 +13,22 @@
       <button bindtap="clickButton" class="{{isExpendChecked?'btnExpend_click':'btnExpend'}}" data-num="3" type="defaule">支出</button>
     </view>
     <view class="details">
-      <view wx:for="{{coinDetails}}" wx:key="id">
-        <view class="lineView"></view>
-        <view>
-          <view class="transactionName">{{item.description}}</view>
-          <view class="{{item.alertCoinNum>0?'moneyCountIncome':'moneyCountExpend'}}">{{item.alertCoinNum}} 金币</view>
-          <view class="timeStamp">{{item.createTime}}</view>
+      <view class="lineView"></view>
+      <view wx:if="{{coinDetails[0].description == null}}">
+        <view class="errorContainer">
+          <image class="error" src="../../content/images/error.png"></image>
         </view>
       </view>
-      <view class="lineView"></view>
+      <view wx:else>
+        <view wx:for="{{coinDetails}}" wx:key="id">
+          <view>
+            <view class="transactionName">{{item.description}}</view>
+            <view class="{{item.alertCoinNum>0?'moneyCountIncome':'moneyCountExpend'}}">{{item.alertCoinNum}} 金币</view>
+            <view class="timeStamp">{{item.createTime}}</view>
+          </view>
+          <view class="lineView"></view>
+        </view>
+      </view>
     </view>
   </view>
 
