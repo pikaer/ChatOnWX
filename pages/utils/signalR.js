@@ -60,6 +60,7 @@ export class HubConnection {
   startSocket(url) {
     url += (url.indexOf("?") < 0 ? "?" : "&") + ("id=" + this.negotiateResponse.connectionId);
     url = url.replace(/^http/, "ws");
+    url = url.replace(/^https/, "ws");
     this.url = url;
     if (this.connection != null && this.openStatus) {
       return;

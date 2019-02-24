@@ -5,7 +5,9 @@ Page({
 
   data: {
     tempChatList: [],
-    totalUnReadCount: ""
+    totalUnReadCount: "",
+    actionHidden: true,
+    selectItem: []
   },
 
   onShow: function() {
@@ -106,25 +108,25 @@ Page({
 
   //长按删除对话弹框
   deleteItem: function(ops) {
-    let self = this;
-    wx.showModal({
-      title: '提示',
-      content: '确定要删除该消息吗？',
-      success: function(res) {
-        if (res.confirm) {
-          self.deleteChat(ops);
-        } else if (res.cancel) {
-          return false;
-        }
-      }
+    this.setData({
+      actionHidden: false,
+      selectItem: ops.currentTarget.dataset
+    })
+  },
+
+  //重置长按选择项
+  resetSelectItem: function() {
+    this.setData({
+      actionHidden: true,
+      selectItem: []
     })
   },
 
   //删除对话
-  deleteChat: function(ops) {
+  deleteChat: function() {
     let self = this;
-    let partnerId = ops.currentTarget.dataset.idx;
-    let index = ops.currentTarget.dataset.key;
+    let partnerId = this.data.selectItem.idx;
+    let index = this.data.selectItem.key;
 
     if (app.globalData.apiHeader.UId > 0) {
       wx.request({
@@ -141,7 +143,7 @@ Page({
         success: function(res) {
           if (res.data.head.success && res.data.content != null && res.data.content.isExecuteSuccess) {
             console.info("删除对话成功！");
-            
+
             let list = self.data.tempChatList;
             list.splice(index, 1);
             self.setData({
@@ -151,13 +153,18 @@ Page({
           } else {
             console.error("删除对话服务器返回失败！");
           }
+
+          //重置数据
+          self.resetSelectItem();
         },
         fail: function(res) {
           console.error("删除对话Http失败！");
+          self.resetSelectItem();
         }
       })
     } else {
       console.info("删除对话Http失败！")
+      self.resetSelectItem();
       return true;
     }
   }

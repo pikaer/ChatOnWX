@@ -28,3 +28,9 @@
     <view class="chatLineView"></view>
   </navigator>
 </view>
+
+<!-- 底部弹出菜单 -->
+<action-sheet hidden="{{actionHidden}}" bindchange="deleteItem">
+    <action-sheet-item  bindtap="deleteChat">删除会话</action-sheet-item>
+    <action-sheet-cancel bindtap="resetSelectItem">取消</action-sheet-cancel>
+</action-sheet>

@@ -24,7 +24,7 @@
   <view class="inputarea">
     <view class="chatLineView"></view>
     <view class="viewinput">
-      <input auto-focus placeholder="回复{{partnerNnickName}}" bindinput="chatContentInput" />
+      <input auto-focus placeholder="回复{{partnerNnickName}}" value='{{chatContent}}' bindinput="chatContentInput" />
     </view>
     <view class="viewSend" data-idx='{{partnerId}}' bindtap="sendMessage">
       <view class="txtSend">发 送</view>

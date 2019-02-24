@@ -19,12 +19,28 @@ Page({
     this.setData({
       partnerNnickName: opts.nickName,
       partnerId: opts.partnerUId
-    })
+    });
+
+    //webSocket连接
+    let partnerUId = 7;//opts.partnerUId;
+    this.hubConnect = new Hub.HubConnection();
+    var url=app.globalData.baseUrl + "onChat";
+    this.hubConnect.start(url, { uId: app.globalData.apiHeader.UId, partnerUId: partnerUId});
+    this.hubConnect.onOpen = res => {
+      console.info("成功开启连接");
+    }
+  },
+
+  //卸载页面事件
+  onUnload: function () {
+    this.hubConnect.close()
+    console.info("断开与用户Id=" + this.data.partnerId + "的用户的websocket连接");
   },
 
   //下拉刷新页面数据
   onPullDownRefresh: function () {
     //获取聊天数据结束后，停止刷新下拉
+    this.getChatContentList();
     wx.stopPullDownRefresh();
   },
 
@@ -43,7 +59,7 @@ Page({
         "Head": app.globalData.apiHeader,
         "Content": {
           "UId": app.globalData.apiHeader.UId,
-          "PartnerUId": this.data.partnerId
+          "PartnerUId": 7,//this.data.partnerId
         }
       },
       header: app.globalData.httpHeader,
@@ -64,43 +80,50 @@ Page({
   },
 
   //插入数据库并通知对方刷新页面
-  sendMessage: function(event) {
-    let id = event.currentTarget.dataset.idx;
-    console.log("伙伴Id=" + id);
-    if (id != undefined && id > 0) {
+  insertMessage: function () {
+    let self = this;
+    if (app.globalData.apiHeader.UId > 0) {
       wx.request({
-        url: app.globalData.baseUrl + 'api/Chat/PublishMessage',
+        url: app.globalData.baseUrl + 'api/Chat/SendMessage',
         method: "POST",
         data: {
-          "Head": {
-            "Token": "",
-            "AppType": 0
-          },
+          "Head": app.globalData.apiHeader,
           "Content": {
-            "UserId": 1, //app.globalData.userInfoAPI.userId,
-            "PartnerId": this.data.partnerId,
-            "ChatContent": this.data.chatContent
+            "UId": app.globalData.apiHeader.UId,
+            "PartnerUId":7 ,//self.data.partnerId,
+            "ChatContent": self.data.chatContent,
+            "ChatContentType": 0,
+            "ExtensionInfo": ""
           }
         },
-        header: {
-          "Content-Type": "application/json"
-        },
-        success: function(res) {
-          if (res.data.head.success) {
-            console.info("存入聊天内容到数据库成功")
-            getChatContentList();
+        header: app.globalData.httpHeader,
+        success: function (res) {
+          if (res.data.head.success && res.data.content != null && res.data.content.isExecuteSuccess) {
+            console.info("消息内容插入到数据库成功！");
 
-            //通知对方刷新数据
-            this.hubConnect.send("subScribeMessage", "message");
+            self.setData({
+              chatContent: ""
+            });
+
+            self.getChatContentList();
+
+            self.sendMessage();
           } else {
-            console.error("存入聊天内容到数据库失败！");
+            console.error("消息内容插入到数据库失败！");
           }
         },
-        fail: function(res) {
-          console.error("存入聊天内容到数据库失败！");
+        fail: function (res) {
+          console.error("消息内容插入到数据库Http失败！");
         }
       })
+    } else {
+      console.info("消息内容插入到数据库Http失败！")
     }
+  },
+
+  //通知对方刷新页面
+  sendMessage: function () {
+    let self = this;
   },
 
   //获取输入的聊天内容
