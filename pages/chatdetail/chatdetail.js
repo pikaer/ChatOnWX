@@ -18,22 +18,28 @@ Page({
     });
     this.setData({
       partnerNnickName: opts.nickName,
-      partnerId: opts.partnerUId
+      partnerId:7 //opts.partnerUId
     });
 
     //webSocket连接
     let partnerUId = 7;//opts.partnerUId;
     this.hubConnect = new Hub.HubConnection();
     var url=app.globalData.baseUrl + "onChat";
-    this.hubConnect.start(url, { uId: app.globalData.apiHeader.UId, partnerUId: partnerUId});
+    this.hubConnect.start(url, { UId: app.globalData.apiHeader.UId, PartnerUId: partnerUId});
     this.hubConnect.onOpen = res => {
       console.info("成功开启连接");
-    }
+    };
+
+
+    //订阅对方发来的消息
+    this.hubConnect.on("receive", res => {
+      console.info(res);
+    })
   },
 
   //卸载页面事件
   onUnload: function () {
-    this.hubConnect.close()
+    this.hubConnect.close({UId: app.globalData.apiHeader.UId})
     console.info("断开与用户Id=" + this.data.partnerId + "的用户的websocket连接");
   },
 
@@ -59,7 +65,7 @@ Page({
         "Head": app.globalData.apiHeader,
         "Content": {
           "UId": app.globalData.apiHeader.UId,
-          "PartnerUId": 7,//this.data.partnerId
+          "PartnerUId": this.data.partnerId
         }
       },
       header: app.globalData.httpHeader,
@@ -90,7 +96,7 @@ Page({
           "Head": app.globalData.apiHeader,
           "Content": {
             "UId": app.globalData.apiHeader.UId,
-            "PartnerUId":7 ,//self.data.partnerId,
+            "PartnerUId":self.data.partnerId,
             "ChatContent": self.data.chatContent,
             "ChatContentType": 0,
             "ExtensionInfo": ""
@@ -121,9 +127,9 @@ Page({
     }
   },
 
-  //通知对方刷新页面
+  //通知对方刷新聊天页面
   sendMessage: function () {
-    let self = this;
+    this.hubConnect.send("subScribeMessage", app.globalData.apiHeader.UId,this.data.partnerId);
   },
 
   //获取输入的聊天内容
