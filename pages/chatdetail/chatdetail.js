@@ -33,7 +33,8 @@ Page({
 
     //订阅对方发来的消息
     this.hubConnect.on("receive", res => {
-      console.info(res);
+      console.info(res.partnerUId);
+      this.getChatContentList();
     })
   },
 

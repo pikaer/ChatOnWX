@@ -140,12 +140,12 @@ Page({
               duration: 1000
             })
           }else{
-            saveToast(false);
+            //saveToast(false);
           }
         },
         fail: function (res) { 
           console.error("修改用户信息失败!")
-          saveToast(false);
+          //saveToast(false);
          }
       })
     }

@@ -3,6 +3,6 @@
   <input class="inputValueView" placeholder="请输入学校名称" bindinput="schoolNameInput" value="{{tempSchoolName}}" placeholder-style="color: gray" />
 
   <view class="btnView">
-    <button type="primary" bindtap='updateSchoolName'>保 存</button>
+    <button class="primary" bindtap='updateSchoolName'>保 存</button>
   </view>
 </view>

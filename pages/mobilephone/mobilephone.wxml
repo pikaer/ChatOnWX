@@ -3,6 +3,6 @@
   <input class="inputValueView" placeholder="请输入手机号" bindinput="mobileInput" placeholder-style="color: gray" value="{{tempMobile}}"/>
 
   <view class="btnView">
-    <button type="primary" bindtap='updateMobile'>保 存</button>
+    <button class="primary" bindtap='updateMobile'>保 存</button>
   </view>
 </view>
