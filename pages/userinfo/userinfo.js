@@ -103,7 +103,6 @@ Page({
 
   //保存用户信息
   updateUserInfo: function () {
-    let self = this;
     let tempUserInfo = this.data.tempUserInfo;
     if (app.globalData.apiHeader.UId > 0) {
       wx.request({
