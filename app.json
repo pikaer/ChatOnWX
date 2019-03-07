@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/discovery/discovery",
     "pages/index/index",
     "pages/userinfo/userinfo",
     "pages/chat/chat",
@@ -29,8 +30,14 @@
         "selectedIconPath": "content/images/chat1.png"
       },
       {
-        "text": "发现",
+        "text": "广场",
         "pagePath": "pages/index/index",
+        "iconPath": "content/images/discovery.png",
+        "selectedIconPath": "content/images/discovery1.png"
+      },
+      {
+        "text": "发现",
+        "pagePath": "pages/discovery/discovery",
         "iconPath": "content/images/discovery.png",
         "selectedIconPath": "content/images/discovery1.png"
       },

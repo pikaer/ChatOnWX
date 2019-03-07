@@ -4,7 +4,7 @@
     <view class="radio">
       <view class="radioLable">你希望对方性别</view>
       <view class="radioView">
-        <radio-group class="group" bindchange="radioChange">
+        <radio-group class="group" bindchange="genderChange">
           <label class="labelMan">
             <radio value="1" checked="{{tempPreference.preferGender!=2}}" />小哥哥
           </label>

@@ -1,0 +1,50 @@
+<view class="topView">
+  <view>
+    <navigator url="../../pages/preference/preference" class="navigator">
+      <view class="iconfont chajian" style="color:blue"></view>
+      <view class="navigator-text">灵魂匹配</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  </view>
+  <view class="lineView"></view>
+  <view>
+    <navigator url="../../pages/preference/preference" class="navigator">
+      <view class="iconfont jieri" style="color:#FF00FF"></view>
+      <view class="navigator-text">脱单助手</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  </view>
+  <view class="lineView"></view>
+</view>
+
+<view class="funsView">
+  <view class="lineView"></view>
+  <view>
+    <navigator url="../../pages/preference/preference" class="navigator">
+      <view class="iconfont search" style="color:#66ffff"></view>
+      <view class="navigator-text">寻找搭档</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  </view>
+  <view class="lineView"></view>
+  <view>
+    <navigator url="../../pages/preference/preference" class="navigator">
+      <view class="iconfont tianqi-qing" style="color:#EE4000"></view>
+      <view class="navigator-text">树洞</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  </view>
+  <view class="lineView"></view>
+</view>
+
+<view class="funsView">
+  <view class="lineView"></view>
+  <view>
+    <navigator url="../../pages/preference/preference" class="navigator">
+      <view class="iconfont dianpu" style="color:#66ffff"></view>
+      <view class="navigator-text">校园二手市场</view>
+      <view class="navigator-arrow"></view>
+    </navigator>
+  </view>
+  <view class="lineView"></view>
+</view>
