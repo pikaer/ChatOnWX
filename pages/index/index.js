@@ -4,31 +4,39 @@ const app = getApp()
 
 Page({
   data: {
-    show:false,
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    isRecommendChecked: true,
+    isNewestChecked: false,
+    isAttentionChecked: false,
+    currentItem:1
   },
-  getUserInfo:function(){
-    this.setData({
-      show: true
-    })    
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    }
-  }
-})
 
+  clickButton: function(e) {
+    let temp = this.data.allData;
+    switch (e.target.dataset.num) {
+      case "1":
+        this.setData({
+          isRecommendChecked: true,
+          isNewestChecked: false,
+          isAttentionChecked: false,
+          currentItem:1
+        })
+        break;
+      case "2":
+        this.setData({
+          isRecommendChecked: false,
+          isNewestChecked: true,
+          isAttentionChecked: false,
+          currentItem: 2
+        })
+        break;
+      case "3":
+        this.setData({
+          isRecommendChecked: false,
+          isNewestChecked: false,
+          isAttentionChecked: true,
+          currentItem: 3
+        })
+        break;
+    }
+  },
+})
