@@ -62,16 +62,18 @@
 
 .unreadCount {
   font-size: 13px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 20px;
   background-color: red;
-  border-radius: 100%;
   text-align: center;
   color: white;
   font-weight: 600;
-  line-height: 25px;
   margin-left: 25px;
   margin-top: 2px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .defaultContent {
@@ -85,7 +87,7 @@
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  background-color: #EEC591;
+  background-color: #eec591;
   text-align: center;
   line-height: 50px;
 }

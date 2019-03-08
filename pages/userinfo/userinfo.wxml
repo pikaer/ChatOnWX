@@ -9,7 +9,7 @@
             <radio value="1" checked="{{tempUserInfo.gender!=2}}" />小哥哥
           </label>
           <label class="labelWoman">
-            <radio value="2" checked="{{tempUserInfo.gender==2}}"/>小姐姐
+            <radio value="2" checked="{{tempUserInfo.gender==2}}" />小姐姐
           </label>
         </radio-group>
       </view>
@@ -98,16 +98,16 @@
             <radio value="1" checked="{{tempUserInfo.liveState!=2}}" />学生党
           </label>
           <label class="labelWoman">
-            <radio value="2" checked="{{tempUserInfo.liveState==2}}"/>工作党
+            <radio value="2" checked="{{tempUserInfo.liveState==2}}" />工作党
           </label>
         </radio-group>
       </view>
     </view>
     <view class="lineView"></view>
-    
+
   </view>
   <view class="blockView">
-  <view>
+    <view>
       <navigator url="../../pages/mobilephone/mobilephone?mobile={{tempUserInfo.mobile}}" class="navigator">
         <view class="navigatorView">
           <view class="title">手机号</view>
@@ -128,8 +128,8 @@
     </view>
   </view>
   <view class="blockBtnView">
-  <view class="btnView">
-    <button class="primary" bindtap='updateUserInfo'>保 存</button>
+    <view class="btnView">
+      <button class="primary" bindtap='updateUserInfo'>保 存</button>
+    </view>
   </view>
-   </view>
 </view>

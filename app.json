@@ -32,8 +32,8 @@
       {
         "text": "广场",
         "pagePath": "pages/index/index",
-        "iconPath": "content/images/discovery.png",
-        "selectedIconPath": "content/images/discovery1.png"
+        "iconPath": "content/images/index.png",
+        "selectedIconPath": "content/images/index1.png"
       },
       {
         "text": "发现",
