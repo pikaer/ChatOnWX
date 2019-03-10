@@ -25,17 +25,81 @@
       </view>
     </view>
     <view class="bodyView">
+      <!-- 文本动态 -->
       <view class="textView">{{value.textContent}}</view>
+      <!-- 图片动态 -->
       <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents}}">
-
-      <view wx:if="{{you}}">true</view>
-
+        <view wx:if="{{value.imgContents.length==1}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount1"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==2}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount2"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount3"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==3}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==4}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==5}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[4]}}" class="imgCount5"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==6}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[4]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[5]}}" class="imgCount5"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==7}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[4]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[5]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[6]}}" class="imgCount4"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==8}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[4]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[5]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[6]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[7]}}" class="imgCount5"></image>
+        </view>
+        <view wx:elif="{{value.imgContents.length==9}}">
+          <image src="{{value.imgContents[0]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[1]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[2]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[3]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[4]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[5]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[6]}}" class="imgCount4"></image>
+          <image src="{{value.imgContents[7]}}" class="imgCount5"></image>
+          <image src="{{value.imgContents[8]}}" class="imgCount5"></image>
+        </view>
+        <view wx:else></view>
       </view>
     </view>
-    <view class="lineView"></view>
+
     <view class="footerView">
-      <view class="supportView">
-        <view class="iconfont zan" style='float:left;font-size:20px'></view>
+      <view class="lineView"></view>
+      <view class="supportView" bindtap="supportChange" data-hasSupport='{{value.hasSupport}}' data-momentId='{{value.momentId}}'>
+        <view class="{{value.hasSupport?'iconfont yiguanzhu':'iconfont like'}}" style="{{value.hasSupport?'float:left;font-size:20px;color:red':'float:left;font-size:20px'}}"></view>
         <view class="supportTxt">{{value.supportCount}}</view>
       </view>
       <view class="commentView">

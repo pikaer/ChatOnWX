@@ -1,5 +1,3 @@
-//index.js
-//获取应用实例
 const app = getApp()
 
 Page({
@@ -14,6 +12,13 @@ Page({
   onLoad: function () {
     this.getMoments();
   },
+
+  //下拉刷新页面数据
+  onPullDownRefresh: function() {
+    this.getMoments();
+    wx.stopPullDownRefresh();
+  },
+
 
   //获取动态
   getMoments: function () {
@@ -42,7 +47,7 @@ Page({
           isRecommendChecked: true,
           isNewestChecked: false,
           isAttentionChecked: false,
-          currentItem: 0
+          currentItem: 0,
         })
         break;
       case "1":
@@ -62,5 +67,15 @@ Page({
         })
         break;
     }
+    this.getMoments();
   },
+
+  /**
+   * 点赞或者取消点赞
+   */
+  supportChange: function (e) {
+    let hasSupport = e.currentTarget.dataset.hassupport;
+    let momentId = e.currentTarget.dataset.momentid;
+    console.info(hasSupport + momentId);
+  }
 })
