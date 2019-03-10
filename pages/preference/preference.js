@@ -87,18 +87,14 @@ Page({
         success: function (res) {
           if (res.data.head.success && res.data.content != null && res.data.content.excuteResult) {
             console.info("保存成功")
-            wx.showToast({
-              title: '保存成功',
-              icon: 'success',
-              duration: 1000
-            })
+            app.saveToast(true);
           } else {
-            //saveToast(false);
+            app.saveToast(false);
           }
         },
         fail: function (res) {
           console.error("修改用户信息失败!")
-          //saveToast(false);
+          app.saveToast(false);
         }
       })
     }

@@ -1,8 +1,0 @@
-<view class="container">
-  <view class="tabView">
-    <view bindtap="clickButton" data-num="1" class="{{isRecommendChecked?'tabCheckedView':'tabUnCheckedView'}}">推荐</view>
-    <view bindtap="clickButton" data-num="2" class="{{isNewestChecked?'tabCheckedView':'tabUnCheckedView'}}">最新</view>
-    <view bindtap="clickButton" data-num="3" class="{{isAttentionChecked?'tabCheckedView':'tabUnCheckedView'}}">关注</view>
-  </view>
-  <view class="contentView"></view>
-</view>

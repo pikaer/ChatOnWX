@@ -1,4 +1,5 @@
 /** userView **/
+
 .userView {
   width: 100%;
   background-color: white;
@@ -7,23 +8,26 @@
 .headPhotoView {
   float: left;
 }
+
 .userHead {
   width: 128rpx;
   height: 128rpx;
-  margin-top: 70rpx;
+  margin-top: 50rpx;
   margin-left: 48rpx;
   border-radius: 12rpx;
 }
 
 .nickNameandNoView {
   float: left;
-  font-size: 42rpx;  
-  margin-top: 70rpx;
+  font-size: 42rpx;
+  margin-top: 50rpx;
   margin-left: 48rpx;
 }
+
 .nickNameView {
   margin-top: 7rpx;
 }
+
 .userNoView {
   margin-top: 12rpx;
   font-size: 33rpx;
@@ -36,33 +40,36 @@
 }
 
 /** labTags **/
+
 .labTags {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   width: 100%;
   text-align: center;
+  margin-bottom: 2px;
 }
 
 .attentionView {
-  flex-grow:1;
+  flex-grow: 1;
   font-size: 32rpx;
   color: #4d4d4d;
 }
 
 .fansView {
-  flex-grow:1;
+  flex-grow: 1;
   font-size: 32rpx;
   color: #4d4d4d;
 }
 
 .visitorView {
-  flex-grow:1;
+  flex-grow: 1;
   font-size: 32rpx;
   color: #4d4d4d;
 }
 
 /** funsView **/
+
 .funsView {
   height: 100%;
   width: 100%;

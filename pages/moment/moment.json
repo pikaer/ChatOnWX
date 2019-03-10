@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "广场",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"
 }

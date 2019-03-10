@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/discovery/discovery",
-    "pages/index/index",
+    "pages/moment/moment",
     "pages/userinfo/userinfo",
     "pages/chat/chat",
     "pages/chatdetail/chatdetail",
@@ -31,7 +31,7 @@
       },
       {
         "text": "广场",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/moment/moment",
         "iconPath": "content/images/index.png",
         "selectedIconPath": "content/images/index1.png"
       },

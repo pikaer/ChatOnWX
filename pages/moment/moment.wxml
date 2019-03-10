@@ -1,0 +1,47 @@
+<view class="indexContainer">
+  <view class="tabView">
+    <view bindtap="clickButton" data-num="0" class="{{isRecommendChecked?'tabCheckedView':'tabUnCheckedView'}}">
+      推荐
+    </view>
+    <view bindtap="clickButton" data-num="1" class="{{isNewestChecked?'tabCheckedView':'tabUnCheckedView'}}">
+      最新
+    </view>
+    <view bindtap="clickButton" data-num="2" class="{{isAttentionChecked?'tabCheckedView':'tabUnCheckedView'}}">
+      关注
+    </view>
+  </view>
+  <view class="contentView"></view>
+  <view class="contentArea" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}'>
+    <view class="titleView">
+      <view class="leftView">
+        <image src="{{value.headImgPath}}" class="userHead"></image>
+      </view>
+      <view class="centerView">
+        <view class="nickNameView">{{value.dispalyName}}</view>
+        <view class="timeView">{{value.publishTime}}</view>
+      </view>
+      <view class="rightView">
+        <view class="iconfont more" style='font-size:20px'></view>
+      </view>
+    </view>
+    <view class="bodyView">
+      <view class="textView">{{value.textContent}}</view>
+      <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents}}">
+
+      <view wx:if="{{you}}">true</view>
+
+      </view>
+    </view>
+    <view class="lineView"></view>
+    <view class="footerView">
+      <view class="supportView">
+        <view class="iconfont zan" style='float:left;font-size:20px'></view>
+        <view class="supportTxt">{{value.supportCount}}</view>
+      </view>
+      <view class="commentView">
+        <view class="iconfont comment" style='float:left;font-size:20px'></view>
+        <view class="commentTxt">{{value.commentCount}}</view>
+      </view>
+    </view>
+  </view>
+</view>

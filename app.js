@@ -1,12 +1,18 @@
 App({
   //全局变量
   globalData: {
-    baseUrl: "http://192.168.0.105:8899/",
-    //baseUrl: "https://localhost:44304/",
+    //baseUrl: "http://192.168.0.105:8899/",
+    baseUrl: "https://localhost:44304/",
     myAppid: "wx2198c700f25f79e8",
-    mySecret: "07b061f194e468f011466834e4f5aa01",//小程序密钥
-    httpHeader: { "Content-Type": "application/json" },
-    apiHeader: { "Token": "", "UId": 1, "Platform": "miniApp" },
+    mySecret: "07b061f194e468f011466834e4f5aa01", //小程序密钥
+    httpHeader: {
+      "Content-Type": "application/json"
+    },
+    apiHeader: {
+      "Token": "",
+      "UId": 1,
+      "Platform": "miniApp"
+    },
     openid: "",
     session_key: "",
     userInfoWX: {}, //微信提供的用户信息
@@ -14,12 +20,12 @@ App({
   },
 
   //当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-  onShow: function () {
+  onShow: function() {
     //this.userLogin();
   },
 
   //用户登录
-  userLogin: function () {
+  userLogin: function() {
     let self = this;
     wx.login({
       success: res => {
@@ -29,13 +35,15 @@ App({
           wx.request({
             url: reqUrl,
             header: self.globalData.httpHeader,
-            success: function (res) {
+            success: function(res) {
               console.log(JSON.stringify(res)) //获取openid
               self.globalData.openid = res.data.openid;
               self.globalData.session_key = res.data.session_key;
               self.getUserInfoWX();
             },
-            fail: function (res) { console.error("获取用户openid失败!") }
+            fail: function(res) {
+              console.error("获取用户openid失败!")
+            }
           })
         }
       }
@@ -43,7 +51,7 @@ App({
   },
 
   //获取微信用户信息
-  getUserInfoWX: function () {
+  getUserInfoWX: function() {
     let self = this;
     wx.getSetting({
       success: res => {
@@ -55,7 +63,9 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               self.globalData.userInfoWX = res.userInfo
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回所以此处加入 callback 以防止这种情况
-              if (self.userInfoReadyCallback) { self.userInfoReadyCallback(res) }
+              if (self.userInfoReadyCallback) {
+                self.userInfoReadyCallback(res)
+              }
               self.setUserInfo();
             }
           })
@@ -65,7 +75,7 @@ App({
   },
 
   //存入用户信息
-  setUserInfo: function () {
+  setUserInfo: function() {
     let self = this;
     let userInfo = self.globalData.userInfoWX
     userInfo.openid = self.globalData.openid;
@@ -81,16 +91,61 @@ App({
         }
       },
       header: self.globalData.httpHeader,
-      success: function (res) {
-        if (res.data!=""&&res.data.head.success && res.data.content.excuteResult){
+      success: function(res) {
+        if (res.data != "" && res.data.head.success && res.data.content.excuteResult) {
           console.info("存入用户信息成功");
           self.globalData.apiHeader.UId = res.data.content.uId;
-        }
-        else{
+        } else {
           console.error("存入用户信息失败!");
         }
       },
-      fail: function (res) { console.error("存入用户信息失败!") }
+      fail: function(res) {
+        console.error("存入用户信息失败!")
+      }
     })
   },
+
+  //弹框
+  saveToast: function(success) {
+    let title = success ? "保存成功" : "保存失败";
+    let img = success ? "" : "../../content/images/warn.png"
+    wx.showToast({
+      title: title,
+      icon: 'success',
+      image: img,
+      duration: 1000
+    })
+  },
+
+  /**
+   * HttpPost请求封装
+   * @param 请求相对地址 
+   * @param 请求体数据
+   * @param 请求成功回调函数
+   * @param 请求失败回调函数
+   */
+  httpPost: function(url,content,successFunc,failFunc) {
+    wx.request({
+      url: this.globalData.baseUrl + url,
+      method: "POST",
+      data: {
+        "Head": this.globalData.apiHeader,
+        "Content":content
+      },
+      header: this.globalData.httpHeader,
+      success: function(res) {
+        if (res.data.head.success) {
+          console.info("*******"+url+"成功获取数据*******" + JSON.stringify(res.data.content));
+          return typeof successFunc == "function" && successFunc(res.data.content);
+        } else {
+          console.warn("*******"+url+"请求返回失败*******" + JSON.stringify(res.data));
+          return typeof failFunc == "function" && failFunc(res.data)
+        }
+      },
+      fail: function(res) {
+        console.error("*******"+url+"请求响应失败*******" + JSON.stringify(res));
+        return typeof failFunc == "function" && failFunc(res)
+      }
+    })
+  }
 })
