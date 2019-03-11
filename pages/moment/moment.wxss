@@ -150,7 +150,6 @@
   width: 170px;
   height: 220px;
   float: left;
-  margin-right: 3px;
   margin-bottom: 3px;
 }
 
@@ -200,8 +199,8 @@
   margin-bottom: 3px;
 }
 
-.imgCount9 {
-}
-
-.imgCount10 {
+.publishIcon {
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
 }

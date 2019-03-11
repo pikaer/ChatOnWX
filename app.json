@@ -12,6 +12,7 @@
     "pages/preference/preference",
     "pages/mobilephone/mobilephone",
     "pages/wechatno/wechatno",
+		"pages/publishmoment/publishmoment",
     "pages/schoolname/schoolname"
   ],
   "window": {

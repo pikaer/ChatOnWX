@@ -108,4 +108,8 @@
       </view>
     </view>
   </view>
+
+  <view class="publishIcon" bindtap="publishMoment">
+    <view class="iconfont gengduo4" style='font-size:50px;color:#0099ff'></view>
+  </view>
 </view>

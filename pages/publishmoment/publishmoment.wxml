@@ -1,0 +1,5 @@
+<view class="container">
+  <view class='inputArea'>
+    <textarea bindblur="bindTextAreaBlur" auto-focus maxlength="100" placeholder="这一刻的想法..." class="textAreas"/>
+  </view>
+</view>
