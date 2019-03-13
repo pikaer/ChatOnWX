@@ -1,5 +1,21 @@
-<view class="container">
+<view class="containerView">
   <view class='inputArea'>
     <textarea bindblur="bindTextAreaBlur" auto-focus maxlength="100" placeholder="这一刻的想法..." class="textAreas"/>
   </view>
+
+  <view class="picture_list">
+  <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+    <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+    <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill"></image>
+    <view class="upload_progress" wx:if="{{item.upload_percent < 100}}" data-index="{{index}}" bindtap="previewImg">{{item.upload_percent}}%</view>
+    <text class='delpicture' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
+  </view>
+
+  <view class='picture_item'>
+    <view class="add-image" bindtap='uploadpic'>
+      <text>+</text>
+    </view>
+  </view>
+</view>
+<button bindtap='uploadimage' class='yes-upload'>上传快件图片</button>
 </view>

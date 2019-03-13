@@ -123,19 +123,6 @@
   margin-left: 5px;
 }
 
-.supportIcon {
-  content: "\e649";
-  float: left;
-  font-size: 20px;
-}
-
-.hasSupportIcon {
-  content: "\e680";
-  float: left;
-  font-size: 20px;
-  color: red;
-}
-
 .imgView {
   margin-left: 8px;
 }
@@ -150,6 +137,7 @@
   width: 170px;
   height: 220px;
   float: left;
+  margin-right: 3px;
   margin-bottom: 3px;
 }
 
@@ -169,29 +157,6 @@
 }
 
 .imgCount5 {
-  width: 110px;
-  height: 110px;
-  float: left;
-  margin-left: 3px;
-  margin-bottom: 3px;
-}
-
-.imgCount6 {
-  width: 110px;
-  height: 110px;
-  float: left;
-  margin-left: 3px;
-  margin-bottom: 3px;
-}
-
-.imgCount7 {
-  width: 110px;
-  height: 110px;
-  float: left;
-  margin-bottom: 3px;
-}
-
-.imgCount8 {
   width: 110px;
   height: 110px;
   float: left;
