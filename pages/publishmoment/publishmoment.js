@@ -76,6 +76,10 @@ Page({
 		wx.navigateBack({
 			delta: 1
 		})
+
+		let pages = getCurrentPages();
+		let prevPage = pages[pages.length - 2];
+		prevPage.getMoments();
 	},
 
 	//选择图片方法
