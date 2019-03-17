@@ -47,7 +47,7 @@ Page({
 		})
 	},
 
-	//获取用户输入的学校名
+	//获取用户输入的文本
 	textContentInput: function (e) {
 		let str = e.detail.value
 		this.setData({
@@ -63,8 +63,7 @@ Page({
 		let disabled = false;
 		if ((localImgs != undefined && localImgs.length > 0) || (str != null && str.length > 0)) {
 			disabled = false
-		}
-		else {
+		} else {
 			disabled = true
 		}
 		this.setData({
@@ -72,7 +71,7 @@ Page({
 		})
 	},
 
-	//保存并返回上一级页面。
+	//返回上一级页面。
 	backPage: function () {
 		wx.navigateBack({
 			delta: 1
