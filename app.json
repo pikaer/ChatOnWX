@@ -13,6 +13,7 @@
     "pages/mobilephone/mobilephone",
     "pages/wechatno/wechatno",
 		"pages/publishmoment/publishmoment",
+		"pages/momentdetail/momentdetail",
     "pages/schoolname/schoolname"
   ],
   "window": {

@@ -8,9 +8,7 @@
       <view class="upload_progress" data-index="{{index}}" bindtap="previewImg">
         {{item.upload_percent}}%
       </view>
-      <text class='delpicture' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">
-        ×
-      </text>
+      <text class='delpicture' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
     </view>
     <view hidden="{{ishidden}}" class='picture_item'>
       <view class="add-image" bindtap='uploadpic'>

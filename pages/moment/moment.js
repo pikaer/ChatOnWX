@@ -13,9 +13,10 @@ Page({
 		this.getMoments();
 	},
 
-	publishMoment: function () {
+	previewMomentDetail: function (e) {
+		let momentId = e.currentTarget.dataset.momentid;
 		wx.navigateTo({
-			url: '../../pages/publishmoment/publishmoment'
+			url: "../../pages/momentdetail/momentdetail?momentId=" + momentId
 		})
 	},
 
@@ -54,7 +55,7 @@ Page({
 				console.info("获取数据失败");
 			})
 	},
-
+	// previewMomentDetail
 	//Bar切换
 	clickButton: function (e) {
 		switch (e.target.dataset.num) {
@@ -86,7 +87,7 @@ Page({
 		this.getMoments();
 	},
 
-  //点赞或者取消点赞
+	//点赞或者取消点赞
 	supportChange: function (e) {
 		let key = e.currentTarget.dataset.key;
 		let momentList = this.data.momentList;
@@ -105,9 +106,9 @@ Page({
 			[count]: supportCount
 		});
 
-    //更新数据库动态点赞状态
+		//更新数据库动态点赞状态
 		app.httpPost(
-			'api/Moment/SupportMoment',{
+			'api/Moment/SupportMoment', {
 				"MomentId": momentList[key].momentId,
 				"UId": app.globalData.apiHeader.UId,
 				"IsSupport": !hasSupport
