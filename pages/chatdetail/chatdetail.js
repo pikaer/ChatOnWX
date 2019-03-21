@@ -4,7 +4,7 @@ var Hub = require("../utils/signalR.js")
 Page({
   data: {
     chatContentList: [],
-    partnerNnickName: "",
+    partnerNickName: "",
     partnerId: 0,
     chatContent: "",
     partnerHeadImgPath: "",
@@ -17,7 +17,7 @@ Page({
       title: opts.nickName != '' ? opts.nickName : ''
     });
     this.setData({
-      partnerNnickName: opts.nickName,
+      partnerNickName: opts.nickName,
       partnerId:7 //opts.partnerUId
     });
 

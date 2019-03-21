@@ -15,8 +15,8 @@
 }
 
 .userHead {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     border-radius: 100%;
     margin-top: 10px;
     margin-left: 8px;
@@ -29,7 +29,7 @@
 }
 
 .nickNameView {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .timeView {
@@ -40,7 +40,7 @@
 .rightView {
     float: right;
     margin-right: 15px;
-		margin-top: 18px;
+    margin-top: 18px;
 }
 
 .bodyView {
@@ -120,6 +120,65 @@
     font-size: 12px;
     margin-top: 6px;
 }
-.attention{
-	font-size: 14px;
+
+.attention {
+    font-size: 14px;
+}
+
+.discussView {
+    clear: both;
+}
+
+.discussContent {
+    clear: both;
+    font-size: 14px;
+    margin-left: 55px;
+    margin-bottom: 8px;
+}
+
+.inputarea {
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    position: fixed;
+    bottom: 0px;
+}
+
+.chatLineView {
+    margin: 0 auto;
+    width: 100%;
+    height: 1.5rpx;
+    background-color: #e5e5e5;
+    clear: both;
+}
+
+.viewinput {
+    width: 80%;
+    background-color: white;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 30rpx;
+    height: 60rpx;
+    border-radius: 7rpx;
+    padding-bottom: 7px;
+}
+
+.viewSend {
+    float: left;
+    margin-top: 15px;
+    margin-left: 0px;
+}
+
+.txtSend {
+    width: 40px;
+    height: 30px;
+    background: #7fff00;
+    padding-left: 4px;
+    padding-right: 3px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 3px;
 }

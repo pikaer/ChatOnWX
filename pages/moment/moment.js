@@ -20,6 +20,12 @@ Page({
 		})
 	},
 
+	publishMoment: function () {
+		wx.navigateTo({
+			url: '../../pages/publishmoment/publishmoment'
+		})
+	},
+
 	//下拉刷新页面数据
 	onPullDownRefresh: function () {
 		this.getMoments();

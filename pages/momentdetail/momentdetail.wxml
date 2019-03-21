@@ -81,17 +81,44 @@
       </view>
       <view wx:else></view>
     </view>
-
+    <!-- 点赞信息 -->
     <view class="supportView" bindtap="supportChange">
       <view class="{{moment.hasSupport?'iconfont yiguanzhu':'iconfont like'}}" style="{{moment.hasSupport?'float:left;font-size:20px;color:red;clear:both':'float:left;font-size:20px;clear:both'}}"></view>
       <view class="supportTxt">{{moment.supportCount}}</view>
     </view>
   </view>
-
+  <!-- 评论数量 -->
   <view class="footerView">
     <view class="lineView"></view>
     <view class="commentView">
       <view class="commentTxt">评论({{moment.commentCount}})</view>
     </view>
+  </view>
+  <!-- 评论信息列表 -->
+  <view class="discussView" wx:for="{{moment.discussList}}" wx:for-index="key" wx:for-item="value">
+    <view class="leftView">
+      <image src="{{value.headImgPath}}" class="userHead"></image>
+    </view>
+    <view class="centerView">
+      <view class="nickNameView">{{value.dispalyName}}</view>
+      <view class="timeView">{{value.discussTime}}</view>
+    </view>
+    <view class="rightView">
+      <view class="{{moment.hasSupport?'iconfont yiguanzhu':'iconfont like'}}" style="{{moment.hasSupport?'float:left;font-size:20px;color:red;clear:both':'float:left;font-size:20px;clear:both'}}"></view>
+      <view class="discussSupportCount">{{value.supportCount}}</view>
+    </view>
+    <view class="discussContent">{{value.discussContent}}</view>
+    <view class="lineView"></view>
+  </view>
+  <!-- 发送评论输入区域 -->
+  <view class="inputarea">
+    <view class="chatLineView"></view>
+    <view class="viewinput">
+      <input auto-focus placeholder="输入评论" value='{{chatContent}}' bindinput="discussContentInput" />
+    </view>
+    <view class="viewSend" data-idx='{{partnerId}}' bindtap="insertDiscussContent">
+      <view class="txtSend">发 送</view>
+    </view>
+    <view class="chatLineView"></view>
   </view>
 </view>
