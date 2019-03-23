@@ -1,7 +1,7 @@
 App({
   //全局变量
   globalData: {
-		baseUrl: "http://192.168.137.1:8899/",
+		baseUrl: "http://10.95.231.201:8899/",
     //baseUrl: "https://localhost:44304/",
     myAppid: "wx2198c700f25f79e8",
     mySecret: "07b061f194e468f011466834e4f5aa01", //小程序密钥
@@ -135,7 +135,7 @@ App({
       header: this.globalData.httpHeader,
       success: function(res) {
         if (res.data.head.success) {
-          console.info("*******"+url+"成功获取数据*******" + JSON.stringify(res.data.content));
+          //console.info("*******"+url+"成功获取数据*******" + JSON.stringify(res.data.content));
           return typeof successFunc == "function" && successFunc(res.data.content);
         } else {
           console.warn("*******"+url+"请求返回失败*******" + JSON.stringify(res.data));

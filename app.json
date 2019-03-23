@@ -3,6 +3,7 @@
     "pages/discovery/discovery",
     "pages/moment/moment",
     "pages/userinfo/userinfo",
+		"pages/userspace/userspace",
     "pages/chat/chat",
     "pages/chatdetail/chatdetail",
     "pages/mine/mine",

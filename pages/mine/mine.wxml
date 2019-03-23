@@ -8,8 +8,8 @@
       <view class="userNoView">No：123456</view>
     </view>
     <view class="userInfoView">
-      <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="navigator-text">详细资料</view>
+      <navigator url="../../pages/userspace/userspace" class="navigator">
+        <view class="navigator-text">个人主页</view>
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
@@ -40,6 +40,14 @@
       </navigator>
     </view>
     <view class="lineView"></view>
+    <view>
+      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+        <view class="iconfont manage" style="color:#26ff41"></view>
+        <view class="navigator-text">详细资料</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+		<view class="lineView"></view>
     <view>
       <navigator url="../../pages/preference/preference" class="navigator">
         <view class="iconfont manage" style="color:#26ff41"></view>

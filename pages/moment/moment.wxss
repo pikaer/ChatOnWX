@@ -132,6 +132,7 @@
   max-width: 250px;
   max-height: 280px;
   margin-bottom: 3px;
+  border-radius: 7px;
 }
 
 .imgCount2 {
@@ -140,6 +141,7 @@
   float: left;
   margin-right: 3px;
   margin-bottom: 3px;
+  border-radius: 7px;
 }
 
 .imgCount3 {
@@ -148,6 +150,7 @@
   float: left;
   margin-left: 3px;
   margin-bottom: 3px;
+  border-radius: 7px;
 }
 
 .imgCount4 {
@@ -155,6 +158,7 @@
   height: 110px;
   float: left;
   margin-bottom: 3px;
+  border-radius: 7px;
 }
 
 .imgCount5 {
@@ -163,6 +167,7 @@
   float: left;
   margin-left: 3px;
   margin-bottom: 3px;
+  border-radius: 7px;
 }
 
 .publishIcon {

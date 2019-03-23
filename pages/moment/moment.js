@@ -9,7 +9,7 @@ Page({
 		momentList: [],
 	},
 
-	onLoad: function () {
+	onShow: function () {
 		this.getMoments();
 	},
 

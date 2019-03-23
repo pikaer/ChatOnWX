@@ -22,9 +22,9 @@
   <navigator url="/pages/chatdetail/chatdetail?partnerUId={{value.partnerUId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.partnerUId}}' data-key='{{key}}' bindtap="clearUnReadCount"
     bindlongpress="deleteItem" class="chatNavigator">
     <view class="chatArea">
-      <view class="headPhotoView">
+      <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="headPhotoView">
         <image class="userHead" src="{{value.headImgPath}}"></image>
-      </view>
+      </navigator>
       <view class="centerView">
         <view class="dispalyNameTxt">{{value.dispalyName}}</view>
         <view class="chatContentTxt">{{value.latestChatContent}}</view>

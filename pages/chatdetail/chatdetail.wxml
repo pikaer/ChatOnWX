@@ -1,15 +1,15 @@
 <view  class="chatContainer">
   <view wx:for="{{chatContentList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}'>
     <!-- 左边对话框 -->
-    <view class="leftView" hidden='{{value.isOwner}}'>
-      <view class="leftcontentimg">
+    <view class="leftView" wx:if='{{!value.isOwner}}'>
+      <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="leftcontentimg">
         <image src="{{value.headImgPath}}" class="leftheadImgPath"></image>
-      </view>
+      </navigator>
       <view class="leftchatcontent">{{value.chatContent}}</view>
     </view>
 
     <!-- 右边对话框 -->
-    <view class="rightView" hidden='{{!value.isOwner}}'>
+    <view class="rightView" wx:else>
       <view class="rightcontentimg">
         <image src="{{value.headImgPath}}" class="rightheadImgPath"></image>
       </view>

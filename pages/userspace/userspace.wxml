@@ -1,0 +1,30 @@
+<view class="contentArea">
+
+  <view class="backgroundView">
+    <!-- 空间背景图片 -->
+    <image src="{{userSpace.backgroundImg}}" class="backgroundImg"></image>
+    <view class="basicView">
+      <view class="nickName">{{userSpace.nickName}}</view>
+      <view class="signature">{{userSpace.signature}}</view>
+      <view class="basicInfo">{{userSpace.basicInfo}}</view>
+    </view>
+  </view>
+  <!-- 头像 -->
+  <view class="headImgView">
+    <image src="{{userSpace.headImgPath}}" class="headImg"></image>
+  </view>
+  <view class="momentArea">
+    <view class="occupied"> </view>
+
+    <view class="momentView" wx:if="{{userSpace.momentList!=null&&userSpace.momentList.length>0}}" wx:for="{{userSpace.momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}'>
+      <view class="border">
+        <view class="content">
+          <view class="textView">{{value.textContent}}</view>
+          <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents.length>0}}" wx:for="{{value.imgContents}}" wx:for-index="key" wx:for-item="item">
+            <image src="{{item}}" class="momentImg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

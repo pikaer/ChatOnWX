@@ -1,0 +1,95 @@
+.contentArea {
+  margin-bottom: 7px;
+  background-color: #f0f4f3;
+  clear: both;
+  width: 100%;
+}
+
+.backgroundView {
+  width: 100%;
+  height: 220px;
+}
+
+.backgroundImg {
+  height: 100%;
+  width: 100%;
+}
+
+.headImgView {
+  top: 175px;
+  left: 40%;
+  position: absolute;
+}
+
+.headImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+
+.nickName {
+  padding-top: 35px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.signature {
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+
+.basicInfo {
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+
+.basicView {
+  background-color: white;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+image {
+  width: 100%;
+  height: 240px;
+  display: block;
+  overflow: hidden;
+}
+
+.momentArea {
+  margin-top: 105px;
+  height: 100%;
+}
+
+.momentView {
+  height: 100%;
+}
+
+.border {
+	border:3px solid #68ea3e;
+
+}
+
+.occupied {
+  margin-top: 130px;
+}
+
+.imgView {
+  width: 100%;
+}
+
+.momentImg {
+  border-radius: 7px;
+  margin-bottom: 7px;
+}
+
+
+.content {
+  width: 80%;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 15px;
+}

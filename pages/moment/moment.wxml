@@ -13,9 +13,9 @@
   <view class="contentView"></view>
   <view class="contentArea" bindtap="previewMomentDetail" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}' data-key='{{key}}'>
     <view class="titleView">
-      <view class="leftView">
+      <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="leftView">
         <image src="{{value.headImgPath}}" class="userHead"></image>
-      </view>
+      </navigator>
       <view class="centerView">
         <view class="nickNameView">{{value.dispalyName}}</view>
         <view class="timeView">{{value.publishTime}}</view>
@@ -28,7 +28,7 @@
       <!-- 文本动态 -->
       <view class="textView">{{value.textContent}}</view>
       <!-- 图片动态 -->
-      <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents}}">
+      <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents.length>0}}">
         <view wx:if="{{value.imgContents.length==1}}">
           <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount1"></image>
         </view>
