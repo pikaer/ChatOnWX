@@ -1,5 +1,7 @@
+const app = getApp()
 Page({
   data: {
+		userInfo:{},
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onPullDownRefresh: function () {
@@ -11,21 +13,23 @@ Page({
   },
 
   onLoad: function () {
-    // 查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
-            }
-          })
-        }
-      }
-    })
+		this.getUserSimpleInfo();
   },
-  bindGetUserInfo(e) {
-    console.log(e.detail.userInfo)
-  }
+
+	//获取用户简易信息
+	getUserSimpleInfo: function () {
+		var self = this;
+		app.httpPost(
+			'api/UserInfo/GetUserSimpleInfo', {
+				"UId": app.globalData.apiHeader.UId
+			},
+			function (res) {
+				self.setData({
+					userInfo: res
+				});
+			},
+			function (res) {
+				console.info("获取数据失败");
+			})
+	},
 })

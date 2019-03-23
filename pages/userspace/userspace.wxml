@@ -2,27 +2,30 @@
 
   <view class="backgroundView">
     <!-- 空间背景图片 -->
-    <image src="{{userSpace.backgroundImg}}" class="backgroundImg"></image>
+    <image src="{{userSpace.backgroundImg}}" bindtap="previewSingleImg" class="backgroundImg" data-imgPath='{{userSpace.backgroundImg}}'></image>
     <view class="basicView">
       <view class="nickName">{{userSpace.nickName}}</view>
       <view class="signature">{{userSpace.signature}}</view>
       <view class="basicInfo">{{userSpace.basicInfo}}</view>
+      <view class="basicInfo">{{userSpace.educationAndCareer}}</view>
     </view>
   </view>
   <!-- 头像 -->
   <view class="headImgView">
-    <image src="{{userSpace.headImgPath}}" class="headImg"></image>
+    <image src="{{userSpace.headImgPath}}" class="headImg" bindtap="previewSingleImg" data-imgPath='{{userSpace.headImgPath}}'></image>
   </view>
   <view class="momentArea">
     <view class="occupied"> </view>
 
     <view class="momentView" wx:if="{{userSpace.momentList!=null&&userSpace.momentList.length>0}}" wx:for="{{userSpace.momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}'>
       <view class="border">
+        <view class="iconfont tianqi-qing" style="color:red;float:left"></view>
         <view class="content">
           <view class="textView">{{value.textContent}}</view>
           <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents.length>0}}" wx:for="{{value.imgContents}}" wx:for-index="key" wx:for-item="item">
-            <image src="{{item}}" class="momentImg"></image>
+            <image src="{{item}}" class="momentImg" bindtap="previewImg" data-imgPath='{{item}}' data-imgPaths='{{value.imgContents}}'></image>
           </view>
+          <view class="publishTime">{{value.publishTime}}</view>
         </view>
       </view>
     </view>

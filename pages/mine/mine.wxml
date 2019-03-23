@@ -1,11 +1,11 @@
 <view class="container">
   <view class="userView">
     <view class="headPhotoView">
-      <image class="userHead" src="../../content/images/pikaer.jpg"></image>
+      <image class="userHead" src="{{userInfo.headPhotoPath}}"></image>
     </view>
     <view class="nickNameandNoView">
-      <view class="nickNameView">Pikaer</view>
-      <view class="userNoView">No：123456</view>
+      <view class="nickNameView">{{userInfo.nickName}}</view>
+      <view class="userNoView">No：{{userInfo.uNo}}</view>
     </view>
     <view class="userInfoView">
       <navigator url="../../pages/userspace/userspace" class="navigator">
@@ -16,19 +16,19 @@
     <view class="lineView" style='margin-top:110px;'></view>
     <view class="labTags">
       <view class="attentionView" bindtap="navigateTo">
-        <view class="attentionCount">20</view>
+        <view class="attentionCount">{{userInfo.attentionCount}}</view>
         <view class="attentionText">关注</view>
       </view>
       <view class="fansView" bindtap="navigateTo">
-        <view class="fansCount">4566</view>
+        <view class="fansCount">{{userInfo.fansCount}}</view>
         <view class="fansText">粉丝</view>
       </view>
       <view class="visitorView" bindtap="navigateTo">
-        <view class="visitorCount">8234</view>
+        <view class="visitorCount">{{userInfo.visitorCount}}</view>
         <view class="visitorText">访客</view>
       </view>
     </view>
-     <view class="lineView"></view>
+    <view class="lineView"></view>
   </view>
   <view class="funsView">
     <view class="lineView"></view>
@@ -47,7 +47,7 @@
         <view class="navigator-arrow"></view>
       </navigator>
     </view>
-		<view class="lineView"></view>
+    <view class="lineView"></view>
     <view>
       <navigator url="../../pages/preference/preference" class="navigator">
         <view class="iconfont manage" style="color:#26ff41"></view>
@@ -57,7 +57,8 @@
     </view>
     <view class="lineView"></view>
     <view>
-      <navigator url="../../pages/userinfo/userinfo" class="navigator">
+      <!-- 写死客服uId为1 -->
+      <navigator url="/pages/chatdetail/chatdetail?partnerUId=1&nickName=客服" class="navigator">
         <view class="iconfont kefu" style="color:#FFA500"></view>
         <view class="navigator-text">联系客服</view>
         <view class="navigator-arrow"></view>
