@@ -13,9 +13,9 @@
   <view class="contentView"></view>
   <view class="contentArea" bindtap="previewMomentDetail" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}' data-key='{{key}}'>
     <view class="titleView">
-      <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="leftView">
+      <view data-uId='{{value.uId}}' class="leftView" catchtap='toSpace'>
         <image src="{{value.headImgPath}}" class="userHead"></image>
-      </navigator>
+      </view>
       <view class="centerView">
         <view class="nickNameView">{{value.dispalyName}}</view>
         <view class="timeView">{{value.publishTime}}</view>

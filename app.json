@@ -15,6 +15,7 @@
     "pages/wechatno/wechatno",
 		"pages/publishmoment/publishmoment",
 		"pages/momentdetail/momentdetail",
+		"pages/friendlist/friendlist",
     "pages/schoolname/schoolname"
   ],
   "window": {

@@ -8,11 +8,7 @@ Page({
     wx.stopPullDownRefresh();
   },
 
-  navigateTo: function () {
-    wx.navigateTo({ url: '../../pages/userinfo/userinfo' })
-  },
-
-  onLoad: function () {
+  onShow: function () {
 		this.getUserSimpleInfo();
   },
 

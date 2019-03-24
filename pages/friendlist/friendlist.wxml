@@ -1,0 +1,17 @@
+<view class="contentArea">
+  <navigator class="friendArea" wx:for="{{friendList}}" wx:for-item="value" url="/pages/chatdetail/chatdetail?partnerUId={{value.partnerUId}}&nickName={{value.displayName}}">
+    <view class="chatArea">
+      <navigator url="../../pages/userspace/userspace?uid={{value.partnerUId}}" class="headPhotoView">
+        <image class="userHead" src="{{value.headPhotoPath}}"></image>
+      </navigator>
+      <view class="centerView">
+        <view class="dispalyNameTxt">{{value.displayName}}</view>
+        <view class="constellationTxt">{{value.constellation}}</view>
+      </view>
+      <view class="rightView" wx:if="{{type==3}}">
+        <view class="timeRemark">{{value.timeRemark}}</view>
+      </view>
+    </view>
+    <view class="chatLineView"></view>
+  </navigator>
+</view>

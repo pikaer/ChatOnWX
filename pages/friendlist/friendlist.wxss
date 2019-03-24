@@ -1,0 +1,50 @@
+.headPhotoView {
+  float: left;
+  height: 100%;
+}
+
+.userHead {
+  width: 48px;
+  height: 48px;
+  border-radius: 200px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+.centerView {
+  float: left;
+  margin-top: 12px;
+  margin-left: 8px;
+}
+
+.dispalyNameTxt {
+  font-size: 14px;
+}
+
+.constellationTxt {
+  font-size: 13px;
+  color: #8e8e8e;
+}
+
+.rightView {
+  float: right;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.timeRemark {
+  font-size: 13px;
+  color: #8e8e8e;
+}
+
+.friendArea {
+  clear: both;
+}
+
+.chatLineView {
+  margin: 0 auto;
+  width: 100%;
+  height: 1.5rpx;
+  background-color: #e5e5e5;
+  clear: both;
+}

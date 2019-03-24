@@ -39,7 +39,6 @@
   color: grey;
 }
 
-
 .basicInfo {
   text-align: center;
   font-size: 14px;
@@ -69,7 +68,7 @@ image {
 }
 
 .border {
-  border-left: 2px solid #BFBFBF;
+  border-left: 2px solid #bfbfbf;
   border-top: 0px solid #68ea3e;
   border-bottom: 1px solid #f0f4f3;
   margin-left: 20px;
@@ -105,6 +104,37 @@ image {
   color: gray;
 }
 
-.timeLine{
+.contactView {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+}
+
+.attentionBtn {
+  float: left;
+  margin-left: 50px;
+  background-color: #09f;
+  height: 40px;
+  width: 95px;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+.chatBtn {
+  float: right;
+  margin-right: 50px;
+  background-color: #09f;
+  height: 40px;
+  width: 95px;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+.btnTxt {
+  float: left;
+  margin-left: 7px;
+  margin-top: 7px;
+	color:white;
 
 }

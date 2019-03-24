@@ -15,18 +15,18 @@
     </view>
     <view class="lineView" style='margin-top:110px;'></view>
     <view class="labTags">
-      <view class="attentionView" bindtap="navigateTo">
+		<navigator url="/pages/friendlist/friendlist?type=1&title=我关注的好友" class="attentionView">
         <view class="attentionCount">{{userInfo.attentionCount}}</view>
         <view class="attentionText">关注</view>
-      </view>
-      <view class="fansView" bindtap="navigateTo">
+      </navigator>
+      <navigator url="/pages/friendlist/friendlist?type=2&title=我的粉丝" class="fansView">
         <view class="fansCount">{{userInfo.fansCount}}</view>
         <view class="fansText">粉丝</view>
-      </view>
-      <view class="visitorView" bindtap="navigateTo">
+      </navigator>
+      <navigator url="/pages/friendlist/friendlist?type=3&title=我的访客" class="visitorView">
         <view class="visitorCount">{{userInfo.visitorCount}}</view>
         <view class="visitorText">访客</view>
-      </view>
+      </navigator>
     </view>
     <view class="lineView"></view>
   </view>

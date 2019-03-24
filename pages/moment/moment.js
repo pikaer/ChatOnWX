@@ -26,6 +26,13 @@ Page({
 		})
 	},
 
+	toSpace: function (e) {
+		let uId = e.currentTarget.dataset.uId;
+		wx.navigateTo({
+			url: "../../pages/userspace/userspace?uid=" + uId
+		})
+	},
+
 	//下拉刷新页面数据
 	onPullDownRefresh: function () {
 		this.getMoments();
