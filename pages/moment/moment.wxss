@@ -45,6 +45,7 @@
   background-color: white;
   clear: both;
   width: 100%;
+	height: 100%;
 }
 
 .userHead {
@@ -90,6 +91,8 @@
 
 .footerView {
   clear: both;
+  height: 35px;
+  width: 100%;
 }
 
 .supportView {

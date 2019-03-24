@@ -7,10 +7,17 @@ Page({
 		isAttentionChecked: false,
 		currentItem: 0,
 		momentList: [],
+		scrollTop:0
 	},
 
 	onShow: function () {
 		this.getMoments();
+	},
+
+	toTop() {
+		this.setData({
+			scrollTop: 0
+		})
 	},
 
 	previewMomentDetail: function (e) {

@@ -1,115 +1,118 @@
-<view class="indexContainer">
-  <view class="tabView">
-    <view bindtap="clickButton" data-num="0" class="{{isRecommendChecked?'tabCheckedView':'tabUnCheckedView'}}">
-      推荐
-    </view>
-    <view bindtap="clickButton" data-num="1" class="{{isNewestChecked?'tabCheckedView':'tabUnCheckedView'}}">
-      最新
-    </view>
-    <view bindtap="clickButton" data-num="2" class="{{isAttentionChecked?'tabCheckedView':'tabUnCheckedView'}}">
-      关注
-    </view>
-  </view>
-  <view class="contentView"></view>
-  <view class="contentArea" bindtap="previewMomentDetail" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}' data-key='{{key}}'>
-    <view class="titleView">
-      <view data-uId='{{value.uId}}' class="leftView" catchtap='toSpace'>
-        <image src="{{value.headImgPath}}" class="userHead"></image>
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:100%" catchtap='toTop'>
+  <view class="indexContainer">
+    <view class="contentView"></view>
+    <view class="contentArea" bindtap="previewMomentDetail" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}' data-key='{{key}}'>
+      <view class="titleView">
+        <view data-uId='{{value.uId}}' class="leftView" catchtap='toSpace'>
+          <image src="{{value.headImgPath}}" class="userHead"></image>
+        </view>
+        <view class="centerView">
+          <view class="nickNameView">{{value.dispalyName}}</view>
+          <view class="timeView">{{value.publishTime}}</view>
+        </view>
+        <view class="rightView">
+          <view class="iconfont more" style='font-size:20px'></view>
+        </view>
       </view>
-      <view class="centerView">
-        <view class="nickNameView">{{value.dispalyName}}</view>
-        <view class="timeView">{{value.publishTime}}</view>
+      <view class="bodyView">
+        <!-- 文本动态 -->
+        <view class="textView">{{value.textContent}}</view>
+        <!-- 图片动态 -->
+        <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents.length>0}}">
+          <view wx:if="{{value.imgContents.length==1}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount1"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==2}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount2"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount3"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==3}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==4}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==5}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==6}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==7}}">
+            <image src="{{value.imgContents[0]}}" bindtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" bindtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" bindtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" bindtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[4]}}" bindtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[5]}}" bindtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[6]}}" bindtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==8}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[6]}}" catchtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[7]}}" catchtap="previewImg" data-index='7' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+          </view>
+          <view wx:elif="{{value.imgContents.length==9}}">
+            <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[6]}}" catchtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
+            <image src="{{value.imgContents[7]}}" catchtap="previewImg" data-index='7' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+            <image src="{{value.imgContents[8]}}" catchtap="previewImg" data-index='8' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
+          </view>
+          <view wx:else></view>
+        </view>
       </view>
-      <view class="rightView">
-        <view class="iconfont more" style='font-size:20px'></view>
+
+      <view class="footerView">
+        <view class="lineView"></view>
+        <view class="supportView" catchtap="supportChange" data-key='{{key}}'>
+          <view class="{{value.hasSupport?'iconfont yiguanzhu':'iconfont like'}}" style="{{value.hasSupport?'float:left;font-size:20px;color:red':'float:left;font-size:20px'}}"></view>
+          <view class="supportTxt">{{value.supportCount}}</view>
+        </view>
+        <view class="commentView">
+          <view class="iconfont comment" style='float:left;font-size:20px'></view>
+          <view class="commentTxt">{{value.commentCount}}</view>
+        </view>
       </view>
     </view>
-    <view class="bodyView">
-      <!-- 文本动态 -->
-      <view class="textView">{{value.textContent}}</view>
-      <!-- 图片动态 -->
-      <view class="imgView" wx:if="{{value.imgContents!=null&&value.imgContents.length>0}}">
-        <view wx:if="{{value.imgContents.length==1}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount1"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==2}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount2"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount3"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==3}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==4}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==5}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==6}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==7}}">
-          <image src="{{value.imgContents[0]}}" bindtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" bindtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" bindtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" bindtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[4]}}" bindtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[5]}}" bindtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[6]}}" bindtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==8}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[6]}}" catchtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[7]}}" catchtap="previewImg" data-index='7' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-        </view>
-        <view wx:elif="{{value.imgContents.length==9}}">
-          <image src="{{value.imgContents[0]}}" catchtap="previewImg" data-index='0' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[1]}}" catchtap="previewImg" data-index='1' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[2]}}" catchtap="previewImg" data-index='2' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[3]}}" catchtap="previewImg" data-index='3' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[4]}}" catchtap="previewImg" data-index='4' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[5]}}" catchtap="previewImg" data-index='5' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[6]}}" catchtap="previewImg" data-index='6' data-imgContents='{{value.imgContents}}' class="imgCount4"></image>
-          <image src="{{value.imgContents[7]}}" catchtap="previewImg" data-index='7' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-          <image src="{{value.imgContents[8]}}" catchtap="previewImg" data-index='8' data-imgContents='{{value.imgContents}}' class="imgCount5"></image>
-        </view>
-        <view wx:else></view>
+    <view class="tabView">
+      <view bindtap="clickButton" data-num="0" class="{{isRecommendChecked?'tabCheckedView':'tabUnCheckedView'}}">
+        推荐
+      </view>
+      <view bindtap="clickButton" data-num="1" class="{{isNewestChecked?'tabCheckedView':'tabUnCheckedView'}}">
+        最新
+      </view>
+      <view bindtap="clickButton" data-num="2" class="{{isAttentionChecked?'tabCheckedView':'tabUnCheckedView'}}">
+        关注
       </view>
     </view>
 
-    <view class="footerView">
-      <view class="lineView"></view>
-      <view class="supportView" catchtap="supportChange" data-key='{{key}}'>
-        <view class="{{value.hasSupport?'iconfont yiguanzhu':'iconfont like'}}" style="{{value.hasSupport?'float:left;font-size:20px;color:red':'float:left;font-size:20px'}}"></view>
-        <view class="supportTxt">{{value.supportCount}}</view>
-      </view>
-      <view class="commentView">
-        <view class="iconfont comment" style='float:left;font-size:20px'></view>
-        <view class="commentTxt">{{value.commentCount}}</view>
-      </view>
+    <view class="publishIcon">
+      <view class="iconfont arrow3-top" style='font-size:50px;color:#0099ff;height:65px' catchtap='toTop'></view>
+      <view class="iconfont gengduo4" style='font-size:50px;color:#0099ff' catchtap="publishMoment"></view>
     </view>
   </view>
-
-  <view class="publishIcon" bindtap="publishMoment">
-    <view class="iconfont gengduo4" style='font-size:50px;color:#0099ff'></view>
-  </view>
-</view>
+</scroll-view>

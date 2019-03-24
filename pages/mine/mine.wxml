@@ -34,7 +34,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/wallet/wallet" class="navigator">
-        <view class="iconfont hongbao2" style="color:blue"></view>
+        <view class="iconfont hongbao2" style="color:#0099ff"></view>
         <view class="navigator-text">我的钱包</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -42,7 +42,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="iconfont manage" style="color:#26ff41"></view>
+        <view class="iconfont order" style="color:#0099ff"></view>
         <view class="navigator-text">详细资料</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -50,7 +50,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/preference/preference" class="navigator">
-        <view class="iconfont manage" style="color:#26ff41"></view>
+        <view class="iconfont manage" style="color:#0099ff"></view>
         <view class="navigator-text">偏好设置</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -59,7 +59,7 @@
     <view>
       <!-- 写死客服uId为1 -->
       <navigator url="/pages/chatdetail/chatdetail?partnerUId=1&nickName=客服" class="navigator">
-        <view class="iconfont kefu" style="color:#FFA500"></view>
+        <view class="iconfont kefu" style="color:#0099ff"></view>
         <view class="navigator-text">联系客服</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -67,7 +67,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="iconfont feedback2" style="color:#00FFFF"></view>
+        <view class="iconfont feedback2" style="color:#0099ff"></view>
         <view class="navigator-text">反馈建议</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -75,7 +75,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="iconfont youhuiquan" style="color:#63B8FF"></view>
+        <view class="iconfont youhuiquan" style="color:#0099ff"></view>
         <view class="navigator-text">任务中心</view>
         <view class="navigator-arrow"></view>
       </navigator>
@@ -83,7 +83,7 @@
     <view class="lineView"></view>
     <view>
       <navigator url="../../pages/userinfo/userinfo" class="navigator">
-        <view class="iconfont share" style="color:blue"></view>
+        <view class="iconfont share" style="color:#0099ff"></view>
         <view class="navigator-text">邀请好友</view>
         <view class="navigator-arrow"></view>
       </navigator>
