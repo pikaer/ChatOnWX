@@ -7,7 +7,8 @@ Page({
     tempChatList: [],
     totalUnReadCount: "",
     actionHidden: true,
-    selectItem: []
+    selectItem: [],
+		count:1
   },
 
   onShow: function() {
@@ -22,6 +23,13 @@ Page({
   onPullDownRefresh: function() {
     this.getChatList();
   },
+
+	setTabBarBadge: function (count) {
+		wx.setTabBarBadge({
+			index: 0,
+			text: count
+		})
+	},
 
   //获取用户数据
   getChatList: function() {
@@ -48,6 +56,8 @@ Page({
             self.setData({
               tempChatList: res.data.content.chatList
             });
+
+						self.setTabBarBadge(res.data.content.totalUnReadCount);
           } else {
             console.error("获取聊天列表失败！");
           }

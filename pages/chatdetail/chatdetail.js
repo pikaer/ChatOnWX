@@ -8,10 +8,17 @@ Page({
     partnerId: 0,
     chatContent: "",
     partnerHeadImgPath: "",
-    ownerHeadImgPath: ""
+    ownerHeadImgPath: "",
+		scrollTop: 0
   },
 
-  onLoad(opts) {
+	toBottom:function() {
+		this.setData({
+			scrollTop: 100000
+		})
+	},
+
+	onLoad:function(opts) {
     // 设置导航栏为对应导航
     wx.setNavigationBarTitle({
       title: opts.nickName != '' ? opts.nickName : ''
@@ -76,6 +83,7 @@ Page({
           self.setData({
             chatContentList: res.data.content.chatContentList
           });
+					self.toBottom();
         } else {
           console.error("获取聊天内容列表失败！");
         }

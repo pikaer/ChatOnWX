@@ -1,15 +1,15 @@
 <view class="chatContainer">
-  <view class="chatArea">
+  <navigator class="chatArea" url="/pages/friendlist/friendlist?type=0&title=好友列表">
     <view class="friendView">
       <view class="friendListView">
         <i class="iconfont user-group"></i>
       </view>
     </view>
     <view class="defaultContent">好友列表</view>
-  </view>
+  </navigator>
   <view class="chatLineView"></view>
 
-  <view class="chatArea">
+  <view class="chatArea" bindtap='setTabBarBadge'>
     <view class="friendView">
       <view class="friendListView">
         <i class="iconfont user-group"></i>
