@@ -7,19 +7,50 @@ Page({
 		isAttentionChecked: false,
 		currentItem: 0,
 		momentList: [],
-		scrollTop:0
+		pageIndex: 1,
+		loadHide: true
+	},
+
+	//下拉刷新页面数据
+	onPullDownRefresh: function () {
+		this.setData({
+			loadHide: true
+		});
+	},
+
+	stopRefresh:function(loadType) {
+		if (loadType==0){
+			this.setData({
+				loadHide: true
+			});
+		}else{
+			wx.stopPullDownRefresh();
+		}
+		
+	},
+
+  //触底加载更多数据
+	onReachBottom: function (){
+		let page = this.data.pageIndex+1;
+		this.setData({
+			loadHide: false,
+			pageIndex: page
+		});
+		this.getMoments(1);
 	},
 
 	onShow: function () {
-		this.getMoments();
+		this.getMoments(0);
 	},
 
-	toTop() {
-		this.setData({
+  //置顶
+	toTop: function () {
+		wx.pageScrollTo({
 			scrollTop: 0
 		})
 	},
 
+  //动态详情页面
 	previewMomentDetail: function (e) {
 		let momentId = e.currentTarget.dataset.momentid;
 		wx.navigateTo({
@@ -27,12 +58,14 @@ Page({
 		})
 	},
 
+  //发布动态
 	publishMoment: function () {
 		wx.navigateTo({
 			url: '../../pages/publishmoment/publishmoment'
 		})
 	},
-
+  
+	//跳转个人空间页面
 	toSpace: function (e) {
 		let uId = e.currentTarget.dataset.uId;
 		wx.navigateTo({
@@ -40,13 +73,7 @@ Page({
 		})
 	},
 
-	//下拉刷新页面数据
-	onPullDownRefresh: function () {
-		this.getMoments();
-		wx.stopPullDownRefresh();
-	},
-
-	// 预览图片
+	//预览图片
 	previewImg: function (e) {
 		let imgContents = e.currentTarget.dataset.imgcontents;
 		let index = e.currentTarget.dataset.index;
@@ -59,23 +86,27 @@ Page({
 	},
 
 	//获取动态
-	getMoments: function () {
+	getMoments: function (loadType) {
 		var self = this;
 		app.httpPost(
 			'api/Moment/GetMoments', {
 				"UId": app.globalData.apiHeader.UId,
-				"MomentType": this.data.currentItem
+				"MomentType": this.data.currentItem,
+				"PageIndex": this.data.pageIndex
 			},
 			function (res) {
 				self.setData({
-					momentList: res.momentList
+					momentList: res.momentList,
+					loadHide: true
 				});
+				self.stopRefresh(loadType);
 			},
 			function (res) {
 				console.info("获取数据失败");
+				self.stopRefresh(loadType);
 			})
 	},
-	// previewMomentDetail
+
 	//Bar切换
 	clickButton: function (e) {
 		switch (e.target.dataset.num) {
@@ -104,7 +135,7 @@ Page({
 				})
 				break;
 		}
-		this.getMoments();
+		this.getMoments(0);
 	},
 
 	//点赞或者取消点赞
