@@ -1,4 +1,12 @@
-<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:100%">
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:100%" bindscrolltoupper="loadMoreData">
+  <view class="topSpinner" hidden='{{loadHide}}'>
+    <view class="spinner">
+      <view class="bounce1"></view>
+      <view class="bounce2"></view>
+      <view class="bounce3"></view>
+    </view>
+    <view class="txtLoding">加载中</view>
+  </view>
   <view class="chatContainer">
     <view wx:for="{{chatContentList}}" wx:for-index="key" wx:for-item="value" data-idx='{{value.uId}}' data-key='{{key}}'>
       <!-- 左边对话框 -->

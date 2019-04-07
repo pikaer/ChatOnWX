@@ -1,11 +1,5 @@
 <view class="indexContainer">
-  <view class="topSpinner">
-    <div class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
-  </view>
+  <view class="topSpinner"></view>
   <view class="contentArea" bindtap="previewMomentDetail" wx:for="{{momentList}}" wx:for-index="key" wx:for-item="value" data-momentId='{{value.momentId}}' data-key='{{key}}'>
     <view class="titleView">
       <view data-uId='{{value.uId}}' class="leftView" catchtap='toSpace'>
@@ -15,7 +9,7 @@
         <view class="nickNameView">{{value.dispalyName}}</view>
         <view class="timeView">{{value.publishTime}}</view>
       </view>
-      <view class="rightView">
+      <view class="rightView" data-uId='{{value.uId}}' data-key='{{key}}' data-momentId='{{value.momentId}}' catchtap='moreAction'>
         <view class="iconfont more" style='font-size:20px'></view>
       </view>
     </view>
@@ -130,3 +124,11 @@
     <view class="iconfont gengduo4" style='font-size:50px;color:#0099ff' catchtap="publishMoment"></view>
   </view>
 </view>
+
+<!-- 底部弹出菜单 -->
+<action-sheet hidden="{{actionHidden}}">
+  <action-sheet-item bindtap="startChat">私聊</action-sheet-item>
+  <action-sheet-item bindtap="attentionItem">{{attentionTxt}}</action-sheet-item>
+  <action-sheet-item bindtap="reportItem">举报</action-sheet-item>
+  <action-sheet-cancel bindtap="resetSelectItem">取消</action-sheet-cancel>
+</action-sheet>

@@ -1,10 +1,11 @@
 App({
   //全局变量
   globalData: {
-		//baseUrl: "http://39.97.187.180/",
-		baseUrl: "http://192.168.0.103:8899/",
-    myAppid: "wx2198c700f25f79e8",
-    mySecret: "07b061f194e468f011466834e4f5aa01", //小程序密钥
+		//baseUrl: "https://39.97.187.180/",
+		//baseUrl: "https://chatapi.pikaer.com/",
+		baseUrl: "http://192.168.137.1:8899/",
+		myAppid: "wx1d0224e0b787c008",
+		mySecret: "ed6edc516373c675ce9bd46e5f2e7fbd", //小程序密钥
     httpHeader: {
       "Content-Type": "application/json"
     },

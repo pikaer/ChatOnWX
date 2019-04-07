@@ -6,9 +6,12 @@ Page({
     isNewestChecked: false,
     isAttentionChecked: false,
     currentItem: 0,
+    currentMoment: {},
     momentList: [],
     pageIndex: 1,
-    loadHide: true
+    loadHide: true,
+    actionHidden: true,
+    attentionTxt: "关注"
   },
 
   //下拉刷新页面数据
@@ -20,6 +23,17 @@ Page({
 		this.getMoments(0);
   },
 
+  //私聊
+  startChat: function() {
+    let currentMoment = this.data.currentMoment;
+    wx.navigateTo({
+      url: "/pages/chatdetail/chatdetail?partnerUId=" + currentMoment.uId + "&nickName=" + currentMoment.dispalyName
+    })
+
+    this.resetSelectItem();
+  },
+
+  //停止刷新
   stopRefresh: function(loadType) {
     if (loadType == 1) {
       this.setData({
@@ -30,6 +44,28 @@ Page({
     }
   },
 
+  //更多
+  moreAction: function(ops) {
+    let key = ops.currentTarget.dataset.key;
+    let momentList = this.data.momentList;
+    let hasAttention = momentList[key].hasAttention;
+
+    this.setData({
+      actionHidden: false,
+      selectItem: ops.currentTarget.dataset,
+      attentionTxt: hasAttention ? "已关注" : "关注",
+      currentMoment: momentList[key]
+    })
+  },
+
+  //重置长按选择项
+  resetSelectItem: function() {
+    this.setData({
+      actionHidden: true,
+      selectItem: []
+    })
+  },
+
   //触底加载更多数据
   onReachBottom: function() {
     let page = this.data.pageIndex + 1;
@@ -37,7 +73,13 @@ Page({
       loadHide: false,
       pageIndex: page
     });
-    this.getMoments(1);
+
+		let self=this;
+		//loading动画加载1.5秒后执行
+		setTimeout(function () {
+			self.getMoments(1);
+		}, 1500)
+    
   },
 
   onShow: function() {
@@ -74,6 +116,15 @@ Page({
     })
   },
 
+	reportItem: function () {
+		let currentMoment = this.data.currentMoment;
+		wx.navigateTo({
+			url: "/pages/chatdetail/chatdetail?partnerUId=" + currentMoment.uId + "&nickName=" + currentMoment.dispalyName
+		})
+
+		this.resetSelectItem();
+	},
+
   //预览图片
   previewImg: function(e) {
     let imgContents = e.currentTarget.dataset.imgcontents;
@@ -84,6 +135,25 @@ Page({
       //所有图片
       urls: imgContents
     })
+  },
+
+  //关注某人
+  attentionItem: function() {
+    let currentMoment = this.data.currentMoment;
+    let self = this;
+    app.httpPost(
+      'api/UserInfo/UpdateAttentionState', {
+        "UId": app.globalData.apiHeader.UId,
+        "PartnerUId": currentMoment.uId
+      },
+      function(res) {
+        self.setData({
+          attentionTxt: currentMoment.hasAttention ? "关注" : "已关注"
+        });
+      },
+      function(res) {
+        console.info("更新关注状态失败");
+      })
   },
 
   //获取动态
@@ -143,8 +213,8 @@ Page({
         })
         break;
     }
-		this.toTop();
-		this.setData({
+    this.toTop();
+    this.setData({
       momentList: [],
       pageIndex: 1
     });
