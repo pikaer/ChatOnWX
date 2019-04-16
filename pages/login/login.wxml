@@ -1,0 +1,15 @@
+<view wx:if="{{canIUse}}">
+    <view class='header'>
+       <view class="iconfont face" style="color:#0099ff;font-size:90px;"></view>
+    </view>
+
+    <view class='content'>
+        <view>登录后发现更多精彩~</view>
+    </view>
+
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        微信快捷登录
+    </button>
+</view>
+
+<view wx:else>请升级微信版本</view>

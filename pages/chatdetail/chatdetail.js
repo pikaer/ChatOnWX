@@ -1,6 +1,6 @@
 const app = getApp()
-var hub = require("../utils/signalR.js")
-var util = require("../utils/util.js")
+import { HubConnection } from "../utils/signalR.js";
+import { isBlank } from "../utils/util.js";
 
 Page({
   data: {
@@ -51,7 +51,7 @@ Page({
 
     //webSocket连接
     let partnerUId = 7; //opts.partnerUId;
-    this.hubConnect = new hub.HubConnection();
+    this.hubConnect = new HubConnection();
     var url = app.globalData.baseUrl + "onChat";
     this.hubConnect.start(url, {
       UId: app.globalData.apiHeader.UId,
@@ -113,7 +113,7 @@ Page({
   //插入数据库并通知对方刷新页面
   insertMessage: function() {
     let self = this;
-    if (app.globalData.apiHeader.UId > 0 && !util.isBlank(self.data.chatContent)) {
+    if (app.globalData.apiHeader.UId > 0 && !isBlank(self.data.chatContent)) {
       app.httpPost(
         'api/Chat/SendMessage', {
           "UId": app.globalData.apiHeader.UId,
