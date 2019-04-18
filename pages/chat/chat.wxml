@@ -19,7 +19,7 @@
   </view>
   <view class="chatLineView"></view>
 
-  <navigator url="/pages/chatdetail/chatdetail?partnerUId={{value.partnerUId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-item="value" data-idx='{{value.partnerUId}}' data-key='{{key}}' bindtap="clearUnReadCount"
+  <navigator url="/pages/chatdetail/chatdetail?partnerUId={{value.partnerUId}}&nickName={{value.dispalyName}}" wx:for="{{tempChatList}}" wx:for-item="value" wx:for-index="key" data-index='{{key}}' data-idx='{{value.partnerUId}}' bindtap="clearUnReadCount"
     bindlongpress="deleteItem">
     <view class="chatArea">
       <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="headPhotoView">
