@@ -35,7 +35,7 @@ Page({
       })
     } else {
       wx.removeTabBarBadge({
-        index: 1
+        index:0
       })
     }
   },
