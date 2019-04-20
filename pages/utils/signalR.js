@@ -138,11 +138,12 @@ export class HubConnection {
 
 
   receive(data) {
-    if (data.data.length > 3) {
-      data.data = data.data.replace('{}', "")
-    }
-
-    var message = JSON.parse(data.data.replace(new RegExp("", "gm"), ""));
+		data.data = data.data.replace('', "");
+		if (data.data.indexOf("}{") >= 0){
+			data.data = data.data.split("}{")[0] +'}'
+		}
+		
+		var message = JSON.parse(data.data);
 
     switch (message.type) {
       case MessageType.Invocation:

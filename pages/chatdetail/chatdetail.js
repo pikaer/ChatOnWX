@@ -53,19 +53,20 @@ Page({
     let partnerUId = 7; //opts.partnerUId;
     this.hubConnect = new HubConnection();
     var url = app.globalData.baseUrl + "onChat";
+
     this.hubConnect.start(url, {
       UId: app.globalData.apiHeader.UId,
       PartnerUId: partnerUId
     });
+
     this.hubConnect.onOpen = res => {
       console.info("成功开启连接");
     };
 
-
     //订阅对方发来的消息
     this.hubConnect.on("receive", res => {
-      console.info(res.partnerUId);
-      this.getChatContentList(false);
+			console.info("成功订阅消息，partnerUId=" + res.partnerUId);
+      this.getUnReadContentList();
     })
   },
 
@@ -79,11 +80,11 @@ Page({
 
   //每次加载页面事件
   onShow: function() {
-    this.getChatContentList(true);
+		this.getChatContentList(true);
   },
 
   //获取聊天内容
-  getChatContentList: function(needToBottom) {
+	getChatContentList: function (firstLoad) {
     var self = this;
     app.httpPost(
       'api/Chat/GetChatContentList', {
@@ -93,22 +94,58 @@ Page({
       },
       function(res) {
         console.info("获取聊天内容列表成功！")
+
+				let tempChatContentList = self.data.chatContentList;
+				if (firstLoad) {
+					self.setData({
+						ownerHeadImgPath: res.ownerHeadImgPath,
+						partnerHeadImgPath: res.partnerHeadImgPath
+					});
+					tempChatContentList = res.chatContentList
+				} else {
+					if (res.chatContentList != null && res.chatContentList.length > 0) {
+						tempChatContentList = res.chatContentList.concat(tempChatContentList);
+					}
+				}
+
         self.setData({
-          loadHide: true,
-          chatContentList: res.chatContentList
+					chatContentList: tempChatContentList
         });
 
-        if (needToBottom) {
+				if (firstLoad) {
           self.toBottom();
         }
       },
       function(res) {
         console.error("获取聊天内容列表失败！");
-        if (needToBottom) {
+				if (firstLoad) {
           self.toBottom();
         }
       })
   },
+
+	//获取聊天内容
+	getUnReadContentList: function () {
+		var self = this;
+		app.httpPost(
+			'api/Chat/GetUnReadContentList', {
+				"UId": app.globalData.apiHeader.UId,
+				"PartnerUId": this.data.partnerId
+			},
+			function (res) {
+				console.info("获取未读聊天内容列表成功！")
+				if (res.chatContentList != null && res.chatContentList.length > 0) {
+					let tempChatContentList = self.data.chatContentList;
+					tempChatContentList = tempChatContentList.concat(res.chatContentList);
+					self.setData({
+						chatContentList: tempChatContentList
+					});
+				}
+			},
+			function (res) {
+				console.error("获取未读聊天内容列表失败！");
+			})
+	},
 
   //插入数据库并通知对方刷新页面
   insertMessage: function() {
@@ -124,12 +161,13 @@ Page({
         },
         function(res) {
           console.info("消息内容插入到数据库成功！");
-          self.setData({
-            chatContent: ""
-          });
+					self.getChatContentList(true);
 
-          self.getChatContentList(true);
-          self.sendMessage();
+					self.sendMessage(self.data.chatContent);
+
+					self.setData({
+						chatContent: ""
+					});
         },
         function(res) {
           console.error("消息内容插入到数据库Http失败！");
@@ -141,7 +179,7 @@ Page({
 
   //通知对方刷新聊天页面
   sendMessage: function() {
-    this.hubConnect.send("subScribeMessage", app.globalData.apiHeader.UId, this.data.partnerId);
+		this.hubConnect.send("subScribeMessage", app.globalData.apiHeader.UId, this.data.partnerId);
   },
 
   //获取输入的聊天内容
@@ -150,4 +188,6 @@ Page({
       chatContent: e.detail.value
     })
   },
+
+
 })

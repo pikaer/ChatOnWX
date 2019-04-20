@@ -12,7 +12,7 @@
       <!-- 左边对话框 -->
       <view class="leftView" wx:if='{{!value.isOwner}}'>
         <navigator url="../../pages/userspace/userspace?uid={{value.uId}}" class="leftcontentimg">
-          <image src="{{value.headImgPath}}" class="leftheadImgPath"></image>
+          <image src="{{partnerHeadImgPath}}" class="leftheadImgPath"></image>
         </navigator>
         <view class="leftchatcontent">{{value.chatContent}}</view>
       </view>
@@ -20,7 +20,7 @@
       <!-- 右边对话框 -->
       <view class="rightView" wx:else>
         <view class="rightcontentimg">
-          <image src="{{value.headImgPath}}" class="rightheadImgPath"></image>
+          <image src="{{ownerHeadImgPath}}" class="rightheadImgPath"></image>
         </view>
         <view class="rightchatcontent">{{value.chatContent}}</view>
       </view>
