@@ -1,10 +1,10 @@
 App({
   //全局变量
   globalData: {
-		// baseUrl: "https://39.97.187.180/",
+		baseUrl: "https://39.97.187.180/",
 		//baseUrl: "https://chatapi.pikaer.com/",
 		// baseUrl: "http://192.168.137.1:8899/",
-		baseUrl: "https://localhost:44304/",
+		// baseUrl: "https://localhost:44304/",
 		
 		myAppid: "wx1d0224e0b787c008",
 		mySecret: "ed6edc516373c675ce9bd46e5f2e7fbd", //小程序密钥

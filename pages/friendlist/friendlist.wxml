@@ -8,7 +8,11 @@
         <view class="dispalyNameTxt">{{value.displayName}}</view>
         <view class="constellationTxt">{{value.constellation}}</view>
       </view>
-      <view class="rightView" wx:if="{{type==3}}">
+			<view class="rightView" wx:if="{{friendType==2}}">
+         <view wx:if="{{value.hasAttention}}" class="btnCancelAttention" catchtap="attentionFans" data-partnerUId='{{value.partnerUId}}'>已关注</view>
+				 <view wx:else class="btnAttention" catchtap="attentionFans" data-partnerUId='{{value.partnerUId}}'>+关注</view>
+      </view>
+      <view class="rightView" wx:if="{{friendType==3}}">
         <view class="timeRemark">{{value.timeRemark}}</view>
       </view>
     </view>

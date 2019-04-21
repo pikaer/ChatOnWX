@@ -3,11 +3,11 @@ Page({
 
   data: {
     userSpace: {},
-    uId: 1
+    uId: 0
   },
 
   onLoad: function(options) {
-    //this.data.uId = options.uId;
+    this.data.uId = options.uId;
     this.getMySpace();
     this.setVisitor();
   },

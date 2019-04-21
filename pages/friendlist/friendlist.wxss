@@ -28,13 +28,14 @@
 
 .rightView {
   float: right;
-  margin-top: 8px;
-  margin-right: 8px;
+  margin-top: 15px;
+  margin-right: 12px;
 }
 
 .timeRemark {
   font-size: 13px;
   color: #8e8e8e;
+  margin-top: 8px;
 }
 
 .friendArea {
@@ -47,4 +48,22 @@
   height: 1.5rpx;
   background-color: #e5e5e5;
   clear: both;
+}
+
+.btnAttention {
+  background-color: #A4D3EE;
+  width: 55px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.btnCancelAttention {
+  background-color: #A4D3EE;
+  width: 55px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 3px;
 }
